@@ -13,15 +13,13 @@
 ### 2. Change image path. This was only tested with jpg's.
 ### 3. Run program
 
-imagePath = 'conan2.jpg'
-
 #SLIC Parameters:
-numSegments = 500  # How many superpixels to start with - input for SLIC function
-Sigma = 4 # This parameter controls superpixel shape. Higher values make superpixels more square.
+#numSegments = 500  # How many superpixels to start with - input for SLIC function
+#Sigma = 4 # This parameter controls superpixel shape. Higher values make superpixels more square.
 
 #SPHC Parameters:
-segmentsToMerge = 50 # How many superpixels to merge based on color similarity
-distance_limit = .6  # Limits which segments get merged based on their difference in average color
+#segmentsToMerge = 400 # How many superpixels to merge based on color similarity
+#distance_limit = .5 # Limits which segments get merged based on their difference in average color
 ####################################################################################################
 
 import matplotlib.pyplot as plt, argparse, numpy as np, math, sys, copy
@@ -44,10 +42,10 @@ def initiateSegmentAttributes(segm_grid, image):
 
     for i in range(len(segm_grid)):
         for j in range(len(segm_grid[i])):
-            if j <> len(segm_grid[i]) - 1 and segm_grid[i][j] <> segm_grid[i][j+1]:
+            if j != len(segm_grid[i]) - 1 and segm_grid[i][j] != segm_grid[i][j+1]:
                 segm_dict[segm_grid[i][j]]['neighbors'].add(segm_grid[i][j+1])
                 segm_dict[segm_grid[i][j+1]]['neighbors'].add(segm_grid[i][j])
-            if i <> len(segm_grid) - 1 and segm_grid[i][j] <> segm_grid[i+1][j]:
+            if i != len(segm_grid) - 1 and segm_grid[i][j] != segm_grid[i+1][j]:
                 segm_dict[segm_grid[i][j]]['neighbors'].add(segm_grid[i+1][j])
                 segm_dict[segm_grid[i+1][j]]['neighbors'].add(segm_grid[i][j])
             segm_dict[segm_grid[i][j]]['R'].append(image[i][j][0])
@@ -74,7 +72,7 @@ def getNearestNeighbors(segm_dict):
     for k, v in segm_dict.items():
         for neighbor in v['neighbors']:
             neighbor_pair = tuple(sorted([k, neighbor]))
-            if neighbor_pair not in neighbor_pairs and k <> neighbor:
+            if neighbor_pair not in neighbor_pairs and k != neighbor:
                 neighbor_pairs.add(neighbor_pair)
                 eucl_dist = float(math.sqrt((v['R_avg'] - segm_dict[neighbor]['R_avg']) ** 2 +
                                             (v['B_avg'] - segm_dict[neighbor]['B_avg']) ** 2 +
@@ -118,20 +116,21 @@ def getSPHCsegments(segm_grid, image, numToMerge = 10, max_dist = 1.0):
     :param max_dist: Maximum euclidean distance for pair of segments to merge
     :return: segm_grid: Each pixel has been identified with a segment identifier by the SPHC function
     '''
-    print "Initiating Segment Attributes..."
+    print("Initiating Segment Attributes...")
     segm_dict = initiateSegmentAttributes(segm_grid, image)
     shortest_dist = 0.0
     merge_count = 0
 
-    print "Merging Segments..."
+    print("Merging Segments...")
     while shortest_dist <= max_dist and merge_count <= numToMerge:
         nearest_neighbors, shortest_dist = getNearestNeighbors(segm_dict)
         segm_dict = mergeSegments(segm_dict, nearest_neighbors)
         merge_count += 1
         if merge_count % 20 == 0:
-            print merge_count, "segments merged"
-
-    print merge_count, "segments merged - final"
+            s = str(merge_count) + '/' + str(numToMerge) + ' segments merged \r'
+            print(s, end='')
+            
+    print(merge_count, "segments merged - final")
 
     newSegmGrid = copy.deepcopy(segm_grid)
     for k, v in segm_dict.items():
@@ -141,15 +140,38 @@ def getSPHCsegments(segm_grid, image, numToMerge = 10, max_dist = 1.0):
     return newSegmGrid
 
 
-if __name__ == '__main__':
-    image = img_as_float(io.imread(imagePath))
-    SLICsegm_grid = slic(image, n_segments = numSegments, sigma = Sigma)
+def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0):
+    '''
+    Main function for running SPHC clustering algorithm. Initiates segment attributes. Then
+    iteratively finds and merges neighboring segments with most similar color.
+    :param segm_grid: Each pixel has been identified with a segment identifier by the skimage SLIC function
+    :param image: Each pixel has R, B, and G value associated with it
+    :param numToMerge: User input - number of segments to merge. Must be less than number of segments.
+    :param max_dist: Maximum euclidean distance for pair of segments to merge
+    :return: segm_grid: Each pixel has been identified with a segment identifier by the SPHC function
+    '''
+    print("Initiating Segment Attributes...")
+    segm_dict = initiateSegmentAttributes(segm_grid, image)
+    shortest_dist = 0.0
+    merge_count = 0
+    
+    maxNumToMerge = numToMerge[len(numToMerge-1)]
 
-    SPHCsegm_grid = getSPHCsegments(SLICsegm_grid, image, numToMerge = segmentsToMerge, max_dist = distance_limit)
+    print("Merging Segments...")
+    while shortest_dist <= max_dist and merge_count <= maxNumToMerge:
+        nearest_neighbors, shortest_dist = getNearestNeighbors(segm_dict)
+        segm_dict = mergeSegments(segm_dict, nearest_neighbors)
+        merge_count += 1
+        if merge_count % 20 == 0:
+            s = str(merge_count) + '/' + str(maxNumToMerge) + ' segments merged \r'
+            print(s, end='')
+            
+    print(merge_count, "segments merged - final")
 
-    fig = plt.figure("%d Segments Merged" % segmentsToMerge)
-    ax = fig.add_subplot(1, 1, 1)
-    ax.imshow(mark_boundaries(image, SPHCsegm_grid))
-    plt.axis("off")
-    plt.show()
+    newSegmGrid = copy.deepcopy(segm_grid)
+    for k, v in segm_dict.items():
+        for coord in v['coord']:
+            newSegmGrid[coord[0], coord[1]] = int(k)
+
+    return newSegmGrid
 
