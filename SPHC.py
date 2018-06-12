@@ -140,13 +140,13 @@ def getSPHCsegments(segm_grid, image, numToMerge = 10, max_dist = 1.0):
     return newSegmGrid
 
 
-def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0):
+def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0, merge_print = 10):
     '''
     Main function for running SPHC clustering algorithm. Initiates segment attributes. Then
     iteratively finds and merges neighboring segments with most similar color.
     :param segm_grid: Each pixel has been identified with a segment identifier by the skimage SLIC function
     :param image: Each pixel has R, B, and G value associated with it
-    :param numToMerge: User input - number of segments to merge. Must be less than number of segments.
+    :param numToMerge: List of ordered number of inputs .
     :param max_dist: Maximum euclidean distance for pair of segments to merge
     :return: segm_grid: Each pixel has been identified with a segment identifier by the SPHC function
     '''
@@ -155,23 +155,37 @@ def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0):
     shortest_dist = 0.0
     merge_count = 0
     
-    maxNumToMerge = numToMerge[len(numToMerge-1)]
-
+    maxNumToMerge = numToMerge[-1]
+    lenNumToMerge = len(numToMerge)
+    dicts = []
+    j = 0
+    
     print("Merging Segments...")
     while shortest_dist <= max_dist and merge_count <= maxNumToMerge:
         nearest_neighbors, shortest_dist = getNearestNeighbors(segm_dict)
         segm_dict = mergeSegments(segm_dict, nearest_neighbors)
         merge_count += 1
-        if merge_count % 20 == 0:
-            s = str(merge_count) + '/' + str(maxNumToMerge) + ' segments merged \r'
-            print(s, end='')
+        
+        if(j < lenNumToMerge):
+            if(merge_count == numToMerge[j]):
+                dicts.append(segm_dict.copy())
+                j += 1
+
+        if((merge_count % merge_print) == 0):
+            print((str(merge_count) + '/' + str(maxNumToMerge) + ' segments merged \r'), end='')
             
     print(merge_count, "segments merged - final")
 
-    newSegmGrid = copy.deepcopy(segm_grid)
-    for k, v in segm_dict.items():
-        for coord in v['coord']:
-            newSegmGrid[coord[0], coord[1]] = int(k)
-
-    return newSegmGrid
+    segGrids = []
+    
+    for d in dicts:
+        newSegmGrid = copy.deepcopy(segm_grid)
+        
+        for k, v in d.items():
+            for coord in v['coord']:
+                newSegmGrid[coord[0], coord[1]] = int(k)
+                
+        segGrids.append(newSegmGrid)
+                
+    return segGrids
 
