@@ -179,7 +179,7 @@ def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0, merge
     if(merge_count < maxNumToMerge):
         dicts.append(segm_dict.copy())
 
-    segGrids = []
+    segGrids = dicts
     
     for d in dicts:
         newSegmGrid = copy.deepcopy(segm_grid)
@@ -189,6 +189,6 @@ def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0, merge
                 newSegmGrid[coord[0], coord[1]] = int(k)
                 
         segGrids.append(newSegmGrid)
-                
+    
     return segGrids
 
