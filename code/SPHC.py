@@ -175,6 +175,9 @@ def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0, merge
             print((str(merge_count) + '/' + str(maxNumToMerge) + ' segments merged \r'), end='')
             
     print(merge_count, "segments merged - final")
+    
+    if(merge_count < maxNumToMerge):
+        dicts.append(segm_dict.copy())
 
     segGrids = []
     
