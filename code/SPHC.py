@@ -27,8 +27,9 @@ from skimage.segmentation import slic, mark_boundaries
 from skimage.util import img_as_float
 from skimage import io
 from collections import defaultdict
+import numpy
 
-def initiateSegmentAttributes(segm_grid, image):
+def generateDictionary(segm_grid, image):
     '''
     Each segment formed by sklearn's SLIC function is assigned a dictionary of attributes for efficiency.
     :param segm_grid: Each pixel has been identified with a segment identifier by the skimage SLIC function
@@ -36,10 +37,59 @@ def initiateSegmentAttributes(segm_grid, image):
     :return: Dictionary of dictionaries of attributes for each segment
     '''
     def initialSegmAttr():
+        '''
         return {'neighbors': set(), 'R': [], 'G': [], 'B': [], 'coord': set(),
                          'R_avg': 0.0, 'G_avg': 0.0, 'B_avg': 0.0}
+        '''
+        return {'neighbors': set(), 'RGB': [], 'coord': set(), 'RGB_avg': []}
     segm_dict = defaultdict(initialSegmAttr)
 
+    len_line = len(segm_grid) - 1
+    len_col = len(segm_grid[0]) -1
+
+    for line in range(len_line):
+        line1 = line+1
+
+        for col in range(len_col):
+            col1 = col+1
+
+            if segm_grid[line][col] != segm_grid[line][col1]:
+                segm_dict[segm_grid[line][col]]['neighbors'].add(segm_grid[line][col1])
+                #segm_dict[segm_grid[line][col1]]['neighbors'].add(segm_grid[line][col])
+
+            if segm_grid[line][col] != segm_grid[line1][col]:
+                segm_dict[segm_grid[line][col]]['neighbors'].add(segm_grid[line1][col])
+                #segm_dict[segm_grid[line1][col]]['neighbors'].add(segm_grid[line][col])
+                
+            segm_dict[segm_grid[line][col]]['RGB'.append(image[line][col])
+            segm_dict[segm_grid[line][col]]['coord'].add((line,col))
+
+    #adiciona o último item a lista (dev para reduzir comparações)
+    segm_dict[segm_grid[len_line][len_col]]['RGB'].append(image[len_line][len_col])
+    segm_dict[segm_grid[len_line][len_col]]['coord'].add((len_line,len_col))
+
+    '''
+    len_line = len(segm_grid)
+    len_col = len(segm_grid[0])
+
+    for line in range(len_line):
+        for col in range(len_col):
+
+            if col != (len_col - 1) and segm_grid[line][col] != segm_grid[line][col+1]:
+                segm_dict[segm_grid[line][col]]['neighbors'].add(segm_grid[line][col+1])
+                segm_dict[segm_grid[line][col+1]]['neighbors'].add(segm_grid[line][col])
+
+            if line != (len_line - 1) and segm_grid[line][col] != segm_grid[line+1][col]:
+                segm_dict[segm_grid[line][col]]['neighbors'].add(segm_grid[line+1][col])
+                segm_dict[segm_grid[line+1][col]]['neighbors'].add(segm_grid[line][col])
+                
+            segm_dict[segm_grid[line][col]]['R'].append(image[line][col][0])
+            segm_dict[segm_grid[line][col]]['B'].append(image[line][col][1])
+            segm_dict[segm_grid[line][col]]['G'].append(image[line][col][2])
+            segm_dict[segm_grid[line][col]]['coord'].add((i,j))
+    '''
+
+    '''
     for i in range(len(segm_grid)):
         for j in range(len(segm_grid[i])):
             if j != len(segm_grid[i]) - 1 and segm_grid[i][j] != segm_grid[i][j+1]:
@@ -52,7 +102,22 @@ def initiateSegmentAttributes(segm_grid, image):
             segm_dict[segm_grid[i][j]]['B'].append(image[i][j][1])
             segm_dict[segm_grid[i][j]]['G'].append(image[i][j][2])
             segm_dict[segm_grid[i][j]]['coord'].add((i,j))
+    '''
     return segm_dict
+
+def toGrid(segm_grid, segm_dicts):
+    seg_grids = []
+
+    for d in dicts:
+        newSegmGrid = np.copy(segm_grid)
+        
+        for k, v in d.items():
+            for coord in v['coord']:
+                newSegmGrid[coord[0], coord[1]] = int(k)
+                
+        seg_grids.append(newSegmGrid)
+
+    return seg_grids
 
 def getNearestNeighbors(segm_dict):
     '''
@@ -62,24 +127,32 @@ def getNearestNeighbors(segm_dict):
     :return: segment pair with smallest color euclidean distance; distance value
     '''
     for k, v in segm_dict.items():
-        v['R_avg'] = sum(v['R'])/len(v['R'])
-        v['B_avg'] = sum(v['B'])/len(v['B'])
-        v['G_avg'] = sum(v['R'])/len(v['G'])
+        v['RGB_avg'] = np.average(v['RGB'][0], axis=1)
+        '''
+        v['R_avg'] = np.average(v['RGB'][0])
+        v['B_avg'] = np.average(v['RGB'][1])
+        v['G_avg'] = np.average(v['RGB'][2])
+        '''
+
     neighbor_pairs = set()
     nearest_neighbors = []
     shortest_dist = 100.0
 
     for k, v in segm_dict.items():
         for neighbor in v['neighbors']:
-            neighbor_pair = tuple(sorted([k, neighbor]))
-            if neighbor_pair not in neighbor_pairs and k != neighbor:
-                neighbor_pairs.add(neighbor_pair)
-                eucl_dist = float(math.sqrt((v['R_avg'] - segm_dict[neighbor]['R_avg']) ** 2 +
-                                            (v['B_avg'] - segm_dict[neighbor]['B_avg']) ** 2 +
-                                            (v['G_avg'] - segm_dict[neighbor]['G_avg']) ** 2))
-                if eucl_dist < shortest_dist:
-                    shortest_dist = eucl_dist
-                    nearest_neighbors = neighbor_pair
+            neighbor_pair = tuple([k, neighbor])
+            
+            '''
+            eucl_dist = float(math.sqrt((v['R_avg'] - segm_dict[neighbor]['R_avg']) ** 2 +
+                                        (v['B_avg'] - segm_dict[neighbor]['B_avg']) ** 2 +
+                                        (v['G_avg'] - segm_dict[neighbor]['G_avg']) ** 2))
+            '''
+            eucl_dist = float(math.sqrt(np.sum((v['RGB_avg'] - segm_dict[neighbor]['R_avg']) ** 2)))
+
+            if eucl_dist < shortest_dist:
+                shortest_dist = eucl_dist
+                nearest_neighbors = neighbor_pair
+
     return nearest_neighbors, shortest_dist
 
 def mergeSegments(segm_dict, nearest_neighbors):
@@ -94,9 +167,12 @@ def mergeSegments(segm_dict, nearest_neighbors):
 
     mergeto_dict['neighbors'] = mergeto_dict['neighbors'] | mergefrom_dict['neighbors']
     mergeto_dict['neighbors'].discard(nearest_neighbors[0])
+    '''    
     mergeto_dict['R'] += mergefrom_dict['R']
     mergeto_dict['B'] += mergefrom_dict['B']
     mergeto_dict['G'] += mergefrom_dict['G']
+    '''
+    mergeto_dict['RGB'] += mergefrom_dict['RGB']
     mergeto_dict['coord'] = mergeto_dict['coord'] | mergefrom_dict['coord']
 
     for neighbor in mergefrom_dict['neighbors']:
@@ -106,47 +182,13 @@ def mergeSegments(segm_dict, nearest_neighbors):
     del segm_dict[nearest_neighbors[1]]
     return segm_dict
 
-def getSPHCsegments(segm_grid, image, numToMerge = 10, max_dist = 1.0):
+def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0, verbose_freq = 10):
     '''
     Main function for running SPHC clustering algorithm. Initiates segment attributes. Then
     iteratively finds and merges neighboring segments with most similar color.
     :param segm_grid: Each pixel has been identified with a segment identifier by the skimage SLIC function
     :param image: Each pixel has R, B, and G value associated with it
-    :param numToMerge: User input - number of segments to merge. Must be less than number of segments.
-    :param max_dist: Maximum euclidean distance for pair of segments to merge
-    :return: segm_grid: Each pixel has been identified with a segment identifier by the SPHC function
-    '''
-    print("Initiating Segment Attributes...")
-    segm_dict = initiateSegmentAttributes(segm_grid, image)
-    shortest_dist = 0.0
-    merge_count = 0
-
-    print("Merging Segments...")
-    while shortest_dist <= max_dist and merge_count <= numToMerge:
-        nearest_neighbors, shortest_dist = getNearestNeighbors(segm_dict)
-        segm_dict = mergeSegments(segm_dict, nearest_neighbors)
-        merge_count += 1
-        if merge_count % 20 == 0:
-            s = str(merge_count) + '/' + str(numToMerge) + ' segments merged \r'
-            print(s, end='')
-            
-    print(merge_count, "segments merged - final")
-
-    newSegmGrid = copy.deepcopy(segm_grid)
-    for k, v in segm_dict.items():
-        for coord in v['coord']:
-            newSegmGrid[coord[0], coord[1]] = int(k)
-
-    return newSegmGrid
-
-
-def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0, merge_print = 10):
-    '''
-    Main function for running SPHC clustering algorithm. Initiates segment attributes. Then
-    iteratively finds and merges neighboring segments with most similar color.
-    :param segm_grid: Each pixel has been identified with a segment identifier by the skimage SLIC function
-    :param image: Each pixel has R, B, and G value associated with it
-    :param numToMerge: List of ordered number of inputs .
+    :param numToMerge: List of ordered number of inputs
     :param max_dist: Maximum euclidean distance for pair of segments to merge
     :return: segm_grid: Each pixel has been identified with a segment identifier by the SPHC function
     '''
@@ -161,34 +203,24 @@ def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0, merge
     j = 0
     
     print("Merging Segments...")
-    while shortest_dist <= max_dist and merge_count <= maxNumToMerge:
+    while (shortest_dist <= max_dist) and (merge_count <= maxNumToMerge): #and (j < lenNumToMerge):
         nearest_neighbors, shortest_dist = getNearestNeighbors(segm_dict)
         segm_dict = mergeSegments(segm_dict, nearest_neighbors)
         merge_count += 1
         
-        if(j < lenNumToMerge):
-            if(merge_count == numToMerge[j]):
-                dicts.append(segm_dict.copy())
-                j += 1
+        if(merge_count == numToMerge[j]):
+            dicts.append(segm_dict.copy())
+            j += 1
 
-        if((merge_count % merge_print) == 0):
+        #verbose mode - print merge information
+        if((merge_count % verbose_freq) == 0):
             print((str(merge_count) + '/' + str(maxNumToMerge) + ' segments merged \r'), end='')
-            
-    print(merge_count, "segments merged - final")
-    
+    #endwhile
+
     if(merge_count < maxNumToMerge):
         dicts.append(segm_dict.copy())
 
-    segGrids = dicts
-    
-    for d in dicts:
-        newSegmGrid = copy.deepcopy(segm_grid)
-        
-        for k, v in d.items():
-            for coord in v['coord']:
-                newSegmGrid[coord[0], coord[1]] = int(k)
-                
-        segGrids.append(newSegmGrid)
-    
-    return segGrids
+    #print merge information
+    print(merge_count, "segments merged - final")
 
+    return toGrid(segm_grid, dicts)
