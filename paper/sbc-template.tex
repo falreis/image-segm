@@ -14,10 +14,11 @@
 
 \graphicspath{ {./images/} }
 
-     
 \sloppy
 
-\title{Segmentation and Image Crop using SLICO Superpixels and Hierarchy of Partitions}
+\title{Avaliação de superpixels para segementação de imagens}
+
+%Avaliar se superpixels podem ser utilizadas na segmentação de imagens sem diminuição do desempenho da segmentação, porém com custo inferior.
 
 \author{Felipe Augusto Lima Reis\inst{1}}
 
@@ -29,57 +30,63 @@
 \maketitle
 
 \begin{abstract}
-  This paper presents a approach to use SLICO superpixels with hierarchy of partitions to segmentation and automatic crop of images, to speed up image edition and treatment. The algorithm uses a data tree to link regions to merge. Also, it can provide automatic segmentation or follow users instructions. This approachs also uses reinforced learning to learn user preferences criteria to segmentation and merge regions.
+  Superpixels are structures that group similar pixels into sets that reflect aspects of the image. This article evaluates the use of SLICO superpixels and partition hierarchy for segmentation. Using \textbf{neural networks} for segmentation, the results of superpixels images with different levels of granularity and untreated images were compared to the ground-truth. The article also evaluates the training time of neural networks for superpixels based images. For training and evaluation, the Berkeley Segmentation Data Set (BSDS500) \cite{BSDS500} image was used.
 \end{abstract}
      
 \begin{resumo} 
-  Este artigo apresenta uma proposta para utilização superpixels SLICO e hierarquia de partições para segmentação e corte automático de imagens, a fim de facilitar a edição e o tratamento das mesmas. O algoritmo utiliza uma árvore de dados para estabelecer relações entre duas ou mais regiões a serem fundidas, possibilitando a fusão automática de partições ou seguindo orientação do usuário. A proposta ainda utiliza uma rede neural utilizando \textit{reinforced learning} a fim de aprender os critérios preferidos do usuário para segmentação e união das regiões.
+  Superpixels são estruturas que agrupam pixels semelhantes em conjuntos que refletem aspectos da imagem. Este artigo avalia a utilização superpixels SLICO e hierarquia de partições para segmentação. Utilizando \textbf{redes neurais} para segmentação, os resultados de imagens utilizando superpixels com diferentes níveis de granularidade e imagens sem tratamento foram comparadas em relação ao \textit{ground-truth}. O artigo também avalia o tempo de treinamento das redes neurais para imagens com superpixels em relação às imagens originais. Para treinamento e avaliação foram utilizadas imagem do Berkeley Segmentation Data Set (BSDS500) \cite{BSDS500}.
 \end{resumo}
 
 
 \section{Introdução} \label{sec:introducao}
 
+O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teorico} mostra o referencial teórico para construção do trabalho, a Seção  \ref{sec:mat_metodos}, exibe os materiais e métodos utilizados nos testes; a Seção \ref{sec:testes} mostra os resultados obtidos nos testes realizados e a discussões dos mesmos; a Seção \ref{sec:conclusao} contém a conclusão do artigo, com as considerações finais.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Referencial Teórico} \label{sec:ref_teorico}
 
-The first page must display the paper title, the name and address of the
-authors, the abstract in English and ``resumo'' in Portuguese (``resumos'' are
-required only for papers written in Portuguese). The title must be centered
-over the whole page, in 16 point boldface font and with 12 points of space
-before itself. Author names must be centered in 12 point font, bold, all of
-them disposed in the same line, separated by commas and with 12 points of
-space after the title. Addresses must be centered in 12 point font, also with
-12 points of space after the authors' names. E-mail addresses should be
-written using font Courier New, 10 point nominal size, with 6 points of space
-before and 6 points of space after.
+\subsection{Superpixels} \label{ssec:superpixels}
 
-The abstract and ``resumo'' (if is the case) must be in 12 point Times font,
-indented 0.8cm on both sides. The word \textbf{Abstract} and \textbf{Resumo},
-should be written in boldface and must precede the text.
+Superpixels são estruturas que agrupam pixels semelhantes em conjuntos. O agrupamento possibilita a redução de complexidade das tarefas de processamento \cite{SLIC}, ao reduzir a quantidade de itens a serem processados. Os superpixels são utilizados na área de visão computacional para solução de vasto número de problemas, como detecação de contorno \cite{CONTOUR}, segmentação \cite{SEG_MERGE} e localização de objetos \cite{SEG_LOCALIZ}.
+
+Superpixels, segundo \cite{FELZENSWALB}, devem capturar importante grupos ou regiões, refletindo aspectos da imagem. Devem também ser executados em tempo próximo ao linear em relação a quantidade de pixels. Existem diversas abordagens para a geração de superpixels \cite{SLIC}. Dentre elas, podemos classificá-las, segundo o método de agrupamento em: 
+
+\begin{itemize}
+ \item \textit{Algoritmos baseados em grafos}: utilizam abordagem baseadas em grafos para correlação entre pixels e criação dos conjuntos;
+ \item \textit{Algoritmos baseados em gradiente ascendente}: utilizam métodos de gradiente ascendente iterativamente até que os critérios de convergência correspondam a forma de um superpixel; 
+ \item \textit{Algoritmos de clusterização iterativo}: utilizam métodos de clusterização, como o k-means, para produção de superpixels.
+\end{itemize}
+
+
+\subsection{Segmentação} \label{ssec:segmentacao}
+
+\subsection{Redes Neurais} \label{ssec:redes_neurais}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Materiais e Métodos} \label{sec:mat_metodos}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Testes, Resultados e Discussões} \label{sec:testes}
 
-Section titles must be in boldface, 13pt, flush left. There should be an extra
-12 pt of space before each title. Section numbering is optional. The first
-paragraph of each section should not be indented, while the first lines of
-subsequent paragraphs should be indented by 1.27 cm.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Subsections}
 
-The subsection titles must be in boldface, 12pt, flush left.
-
-\section{Figures and Captions}\label{sec:figs}
-
 
 Figure and table captions should be centered if less than one line
-(Figure~\ref{fig:exampleFig1}), otherwise justified and indented by 0.8cm on
-both margins, as shown in Figure~\ref{fig:exampleFig2}. The caption font must
-be Helvetica, 10 point, boldface, with 6 points of space before and after each
-caption.
+(Figure~\ref{fig:exampleFig1}).
 
 \begin{figure}[ht]
 \centering
@@ -87,21 +94,6 @@ caption.
 \caption{A typical figure}
 \label{fig:exampleFig1}
 \end{figure}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=.3\textwidth]{fig2.jpg}
-\caption{This figure is an example of a figure caption taking more than one
-  line and justified considering margins mentioned in Section~\ref{sec:figs}.}
-\label{fig:exampleFig2}
-\end{figure}
-
-In tables, try to avoid the use of colored or shaded backgrounds, and avoid
-thick, doubled, or unnecessary framing lines. When reporting empirical data,
-do not use more decimal digits than warranted by their precision and
-reproducibility. Table caption must be placed before the table (see Table 1)
-and the font used must also be Helvetica, 10 point, boldface, with 6 points of
-space before and after each caption.
 
 \begin{table}[ht]
 \centering
@@ -122,16 +114,17 @@ Case 2 & 0.003(1) & 100.0\\[0.5ex]
 \end{tabular}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Conclusão} \label{sec:conclusao}
 
-All images and illustrations should be in black-and-white, or gray tones,
-excepting for the papers that will be electronically available (on CD-ROMs,
-internet, etc.). The image resolution on paper should be about 600 dpi for
-black-and-white images, and 150-300 dpi for grayscale images.  Do not include
-images with excessive resolution, as they may take hours to print, without any
-visible difference in the result. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Referências} \label{sec:referencias}
+\section{Referências}
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
