@@ -4,13 +4,14 @@
 \usepackage{sbc-template}
 \usepackage{graphicx,url}
 
-\usepackage[english]{babel}   
+%sudo apt install texlive-lang-portuguese
+\usepackage[brazilian]{babel}   
 \usepackage[utf8]{inputenc} 
 
 \usepackage{graphicx}
 
-\usepackage{etoolbox}
-\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+%\usepackage[numbib,nottoc]{blindtext}
+%\usepackage[numbib,nottoc]{tocbibind}
 
 \graphicspath{ {./images/} }
 
@@ -49,6 +50,9 @@ O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teori
 
 \section{Referencial Teórico} \label{sec:ref_teorico}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Superpixels} \label{ssec:superpixels}
 
 Superpixels são estruturas que agrupam pixels semelhantes em conjuntos. O agrupamento possibilita a redução de complexidade das tarefas de processamento \cite{SLIC}, ao reduzir a quantidade de itens a serem processados. Os superpixels são utilizados na área de visão computacional para solução de vasto número de problemas, como detecação de contorno \cite{CONTOUR}, segmentação \cite{SEG_MERGE} e localização de objetos \cite{SEG_LOCALIZ}.
@@ -60,6 +64,31 @@ Superpixels, segundo \cite{FELZENSWALB}, devem capturar importante grupos ou reg
  \item \textit{Algoritmos baseados em gradiente ascendente}: utilizam métodos de gradiente ascendente iterativamente até que os critérios de convergência correspondam a forma de um superpixel; 
  \item \textit{Algoritmos de clusterização iterativo}: utilizam métodos de clusterização, como o k-means, para produção de superpixels.
 \end{itemize}
+
+Dentre os algoritmos de clusterização iterativos podemos citar o algoritmo SLIC (\textit{Simple Linear Iteravite Clustering}) \cite{SLIC}. Esse algoritmo é uma adaptação do algoritmo \textit{k-means} para geração de superpixels, com diminuição de cálculos no processo de otimização, e combinação podenrada de cor e proximidade espacial, para permitir a definição do tamanho e capacidade dos superpixels \cite{SLIC}.
+
+O algoritmo utiliza um único parâmetro \textit{k}, correspondente a quantidade aproximada de superpixels. A fim de produzir tamanhos semelhantes de superpixels, o intervalo analisado é $S=\sqrt{N/k}$. Os centros são movidos para o local das sementes correspondentes a posição mais baixa do gradiente] em uma vizinhança de 3x3, evitando que superpixels sejam centrados nas bordas ou em um posição de ruído \cite{SLIC}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Algoritmo} \label{sssec:algoritmo_slic}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.5\textwidth]{algoritmo_slic.png}
+\caption{Algoritmo SLIC - Adaptado de \cite{SLIC}}
+\label{alg:SLIC}
+\end{figure}
+
+
+
+\subsubsection{Complexidade}
+
+
+\subsubsection{Medida de Distância} 
+
+\subsubsection{Outras Características} 
 
 
 \subsection{Segmentação} \label{ssec:segmentacao}
@@ -84,16 +113,6 @@ Superpixels, segundo \cite{FELZENSWALB}, devem capturar importante grupos ou reg
 
 \subsection{Subsections}
 
-
-Figure and table captions should be centered if less than one line
-(Figure~\ref{fig:exampleFig1}).
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=.5\textwidth]{fig1.jpg}
-\caption{A typical figure}
-\label{fig:exampleFig1}
-\end{figure}
 
 \begin{table}[ht]
 \centering
@@ -123,8 +142,6 @@ Case 2 & 0.003(1) & 100.0\\[0.5ex]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Referências}
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
