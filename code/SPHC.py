@@ -55,63 +55,29 @@ def generateDictionary(segm_grid, image):
 
             if segm_grid[line][col] != segm_grid[line][col1]:
                 segm_dict[segm_grid[line][col]]['neighbors'].add(segm_grid[line][col1])
-                #segm_dict[segm_grid[line][col1]]['neighbors'].add(segm_grid[line][col])
 
             if segm_grid[line][col] != segm_grid[line1][col]:
                 segm_dict[segm_grid[line][col]]['neighbors'].add(segm_grid[line1][col])
-                #segm_dict[segm_grid[line1][col]]['neighbors'].add(segm_grid[line][col])
                 
-            segm_dict[segm_grid[line][col]]['RGB'.append(image[line][col])
+            segm_dict[segm_grid[line][col]]['RGB'].append(image[line][col])
             segm_dict[segm_grid[line][col]]['coord'].add((line,col))
 
     #adiciona o último item a lista (dev para reduzir comparações)
     segm_dict[segm_grid[len_line][len_col]]['RGB'].append(image[len_line][len_col])
     segm_dict[segm_grid[len_line][len_col]]['coord'].add((len_line,len_col))
-
-    '''
-    len_line = len(segm_grid)
-    len_col = len(segm_grid[0])
-
-    for line in range(len_line):
-        for col in range(len_col):
-
-            if col != (len_col - 1) and segm_grid[line][col] != segm_grid[line][col+1]:
-                segm_dict[segm_grid[line][col]]['neighbors'].add(segm_grid[line][col+1])
-                segm_dict[segm_grid[line][col+1]]['neighbors'].add(segm_grid[line][col])
-
-            if line != (len_line - 1) and segm_grid[line][col] != segm_grid[line+1][col]:
-                segm_dict[segm_grid[line][col]]['neighbors'].add(segm_grid[line+1][col])
-                segm_dict[segm_grid[line+1][col]]['neighbors'].add(segm_grid[line][col])
-                
-            segm_dict[segm_grid[line][col]]['R'].append(image[line][col][0])
-            segm_dict[segm_grid[line][col]]['B'].append(image[line][col][1])
-            segm_dict[segm_grid[line][col]]['G'].append(image[line][col][2])
-            segm_dict[segm_grid[line][col]]['coord'].add((i,j))
-    '''
-
-    '''
-    for i in range(len(segm_grid)):
-        for j in range(len(segm_grid[i])):
-            if j != len(segm_grid[i]) - 1 and segm_grid[i][j] != segm_grid[i][j+1]:
-                segm_dict[segm_grid[i][j]]['neighbors'].add(segm_grid[i][j+1])
-                segm_dict[segm_grid[i][j+1]]['neighbors'].add(segm_grid[i][j])
-            if i != len(segm_grid) - 1 and segm_grid[i][j] != segm_grid[i+1][j]:
-                segm_dict[segm_grid[i][j]]['neighbors'].add(segm_grid[i+1][j])
-                segm_dict[segm_grid[i+1][j]]['neighbors'].add(segm_grid[i][j])
-            segm_dict[segm_grid[i][j]]['R'].append(image[i][j][0])
-            segm_dict[segm_grid[i][j]]['B'].append(image[i][j][1])
-            segm_dict[segm_grid[i][j]]['G'].append(image[i][j][2])
-            segm_dict[segm_grid[i][j]]['coord'].add((i,j))
-    '''
+    
+    for k, v in segm_dict.items():
+        v['RGB_avg'] = np.average(v['RGB'], axis=0)
+    
     return segm_dict
 
 def toGrid(segm_grid, segm_dicts):
-    seg_grids = []
+    seg_grids = segm_dicts
 
-    for d in dicts:
+    for dicts in segm_dicts:
         newSegmGrid = np.copy(segm_grid)
         
-        for k, v in d.items():
+        for k, v in dicts.items():
             for coord in v['coord']:
                 newSegmGrid[coord[0], coord[1]] = int(k)
                 
@@ -126,13 +92,8 @@ def getNearestNeighbors(segm_dict):
     :param segm_dict: dictionary of dictionaries of segment attributes
     :return: segment pair with smallest color euclidean distance; distance value
     '''
-    for k, v in segm_dict.items():
-        v['RGB_avg'] = np.average(v['RGB'][0], axis=1)
-        '''
-        v['R_avg'] = np.average(v['RGB'][0])
-        v['B_avg'] = np.average(v['RGB'][1])
-        v['G_avg'] = np.average(v['RGB'][2])
-        '''
+    #for k, v in segm_dict.items():
+    #    v['RGB_avg'] = np.average(v['RGB'], axis=0)
 
     neighbor_pairs = set()
     nearest_neighbors = []
@@ -140,14 +101,8 @@ def getNearestNeighbors(segm_dict):
 
     for k, v in segm_dict.items():
         for neighbor in v['neighbors']:
-            neighbor_pair = tuple([k, neighbor])
-            
-            '''
-            eucl_dist = float(math.sqrt((v['R_avg'] - segm_dict[neighbor]['R_avg']) ** 2 +
-                                        (v['B_avg'] - segm_dict[neighbor]['B_avg']) ** 2 +
-                                        (v['G_avg'] - segm_dict[neighbor]['G_avg']) ** 2))
-            '''
-            eucl_dist = float(math.sqrt(np.sum((v['RGB_avg'] - segm_dict[neighbor]['R_avg']) ** 2)))
+            neighbor_pair = tuple([k, neighbor])            
+            eucl_dist = float(math.sqrt(np.sum((v['RGB_avg'] - segm_dict[neighbor]['RGB_avg']) ** 2)))
 
             if eucl_dist < shortest_dist:
                 shortest_dist = eucl_dist
@@ -162,22 +117,28 @@ def mergeSegments(segm_dict, nearest_neighbors):
     :param nearest_neighbors: segment pair with smallest color euclidean distance
     :return: segm_dict: updated dictionary of dictionaries of segment attributes
     '''
-    mergeto_dict = segm_dict[nearest_neighbors[0]]
-    mergefrom_dict = copy.deepcopy(segm_dict[nearest_neighbors[1]])
+    to_dict = segm_dict[nearest_neighbors[0]]
+    from_dict = copy.deepcopy(segm_dict[nearest_neighbors[1]])
 
-    mergeto_dict['neighbors'] = mergeto_dict['neighbors'] | mergefrom_dict['neighbors']
-    mergeto_dict['neighbors'].discard(nearest_neighbors[0])
-    '''    
-    mergeto_dict['R'] += mergefrom_dict['R']
-    mergeto_dict['B'] += mergefrom_dict['B']
-    mergeto_dict['G'] += mergefrom_dict['G']
-    '''
-    mergeto_dict['RGB'] += mergefrom_dict['RGB']
-    mergeto_dict['coord'] = mergeto_dict['coord'] | mergefrom_dict['coord']
+    #fill new neighbors
+    to_dict['neighbors'] = to_dict['neighbors'] #| from_dict['neighbors']
+    to_dict['neighbors'].discard(nearest_neighbors[0])
+    to_dict['neighbors'].discard(nearest_neighbors[1])
+    
+    #fill new rgb and coord
+    to_dict['RGB'] += from_dict['RGB']
+    to_dict['coord'] = to_dict['coord'] | from_dict['coord']
+    
+    #fill new RGB_avg
+    len_to = len(to_dict['coord'])
+    len_from = len(from_dict['coord'])
+    to_dict['RGB_avg'] = ((to_dict['RGB_avg'] * len_to) + (from_dict['RGB_avg'] * len_from)) / (len_from + len_to)
 
-    for neighbor in mergefrom_dict['neighbors']:
-        segm_dict[neighbor]['neighbors'].add(nearest_neighbors[0])
-        segm_dict[neighbor]['neighbors'].discard(nearest_neighbors[1])
+    for neighbor in from_dict['neighbors']:
+        to_dict['neighbors'].add(neighbor)
+        
+    for k, v in segm_dict.items():
+        v['neighbors'].discard(nearest_neighbors[1]) #remove reference if exists
 
     del segm_dict[nearest_neighbors[1]]
     return segm_dict
@@ -193,7 +154,7 @@ def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0, verbo
     :return: segm_grid: Each pixel has been identified with a segment identifier by the SPHC function
     '''
     print("Initiating Segment Attributes...")
-    segm_dict = initiateSegmentAttributes(segm_grid, image)
+    segm_dict = generateDictionary(segm_grid, image)
     shortest_dist = 0.0
     merge_count = 0
     
@@ -203,7 +164,7 @@ def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0, verbo
     j = 0
     
     print("Merging Segments...")
-    while (shortest_dist <= max_dist) and (merge_count <= maxNumToMerge): #and (j < lenNumToMerge):
+    while (shortest_dist <= max_dist) and (merge_count < maxNumToMerge):
         nearest_neighbors, shortest_dist = getNearestNeighbors(segm_dict)
         segm_dict = mergeSegments(segm_dict, nearest_neighbors)
         merge_count += 1
@@ -217,10 +178,10 @@ def getSPHCsegmentsVect(segm_grid, image, numToMerge = [], max_dist = 1.0, verbo
             print((str(merge_count) + '/' + str(maxNumToMerge) + ' segments merged \r'), end='')
     #endwhile
 
-    if(merge_count < maxNumToMerge):
-        dicts.append(segm_dict.copy())
+    #if(merge_count < maxNumToMerge):
+    #    dicts.append(segm_dict.copy())
 
     #print merge information
     print(merge_count, "segments merged - final")
 
-    return toGrid(segm_grid, dicts)
+    return dicts #toGrid(segm_grid, dicts)
