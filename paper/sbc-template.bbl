@@ -1,0 +1,38 @@
+\begin{thebibliography}{}
+
+\bibitem[Achanta et~al. 2012]{SLIC}
+Achanta, R., Shaji, A., Smith, K., Lucchi, A., Fua, P., and Süsstrunk, S.
+  (2012).
+\newblock Slic superpixels compared to state-of-the-art superpixel methods.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  34(11):2274--2282.
+
+\bibitem[Arbelaez et~al. 2011]{BSDS500}
+Arbelaez, P., Maire, M., Fowlkes, C., and Malik, J. (2011).
+\newblock Contour detection and hierarchical image segmentation.
+\newblock {\em IEEE Trans. Pattern Anal. Mach. Intell.}, 33(5):898--916.
+
+\bibitem[Felzenszwalb and Huttenlocher 2004]{FELZENSWALB}
+Felzenszwalb, P.~F. and Huttenlocher, D.~P. (2004).
+\newblock Efficient graph-based image segmentation.
+\newblock {\em International Journal of Computer Vision}, 59(2):167--181.
+
+\bibitem[Fulkerson et~al. 2009]{SEG_LOCALIZ}
+Fulkerson, B., Vedaldi, A., and Soatto, S. (2009).
+\newblock Class segmentation and object localization with superpixel
+  neighborhoods.
+\newblock In {\em 2009 IEEE 12th International Conference on Computer Vision},
+  pages 670--677.
+
+\bibitem[Liu et~al. 2016]{SEG_MERGE}
+Liu, T., Seyedhosseini, M., and Tasdizen, T. (2016).
+\newblock Image segmentation using hierarchical merge tree.
+\newblock {\em IEEE Transactions on Image Processing}, 25(10):4596--4607.
+
+\bibitem[Wang et~al. 2017]{CONTOUR}
+Wang, X.-Y., Wu, C.-W., Xiang, K., and Chen, W. (2017).
+\newblock Efficient local and global contour detection based on superpixels.
+\newblock {\em Journal of Visual Communication and Image Representation}, 48:77
+  -- 87.
+
+\end{thebibliography}

@@ -79,22 +79,18 @@ cada pixel é associado com o centro do cluster mais próximo, de modo que a reg
 \label{alg:SLIC}
 \end{figure}
 
-Para o algoritmo descrito na figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância D entre os conjuntos. Devido ao algoritmo trabalhar no \texit{colorspace} CIELAB, com o espaço-plano \textit{labxy}, a posição do pixel pode assumir um intervalo de valores de acordo com o tamanho da image \ref{alg:SLIC}. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. \textbf{Explicar cada uma das variáveis da fórmula}. Para o cálculo da distância em imagens em escala cinza, é utilizada a distância Euclidiana.
+Para o algoritmo descrito na figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância D entre os conjuntos. Devido ao algoritmo trabalhar no \texit{colorspace} CIELAB, com o espaço-plano \textit{labxy}, a posição do pixel pode assumir um intervalo de valores de acordo com o tamanho da image \ref{alg:SLIC}. 
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=.5\textwidth]{distance_slic.png}
-\caption{Medida de Distância do algoritmo SLIC - Adaptado de \cite{SLIC}}
-\label{fig:dist_slic}
-\end{figure}
 
-Uma etapa extra no processo de pós processamento é a união de \textit{pixels orfãos}. Esses pixels são adicionados ao cluster mais próximo usando o algoritmo de componentes conexos \ref{alg:SLIC}.
+\subsubsection{Complexidade}
 
-Devido a limitação do espaço de pesquisa do algoritmo SLIC, a complexidade do algoritmo é $O(n)$, enquanto outros algoritmos que utilizam k-means para segmentação tem custo $O(k^N)$ \ref{alg:SLIC}.
 
-\subsection{Segmentação de Imagens} \label{ssec:segmentacao}
+\subsubsection{Medida de Distância} 
 
-\textit{Image segmentation is an important processing step in many image, video and computer vision applications. Extensive research has been done in creating many different approaches and algorithms for image segmentation, but it is still difficult to assess whether one algorithm produces more accurate segmentations than another, whether it be for a particular image or set of images, or more generally, for a whole class of images. To date, the most common method for evaluating the effectiveness of a segmentation method is subjective evaluation, in which a human visually compares the image segmentation results for separate segmentation algorithms, which is a tedious process and inherently limits the depth of evaluation to a relatively small number of segmentation comparisons over a predetermined set of images. Another common evaluation alternative is supervised evaluation, in which a segmented image is compared against a manually-segmented or pre-processed reference image.}
+\subsubsection{Outras Características} 
+
+
+\subsection{Segmentação} \label{ssec:segmentacao}
 
 \subsection{Redes Neurais} \label{ssec:redes_neurais}
 

@@ -91,33 +91,3 @@ keywords = "Contour detection, Segmentation, Superpixels, Saliency object segmen
   author={Carl Yuheng Ren},
   year={2011}
 }
-
-@book{goossens93,
-  author    = "Michel Goossens and Frank Mittelbach and Alexander Samarin",
-  title     = "The LaTeX Companion",
-  year      = "1993",
-  publisher = "Addison-Wesley",
-  address   = "Reading, Massachusetts"
-}
-
-@article{ZHANG2008,
-title = "Image segmentation evaluation: A survey of unsupervised methods",
-journal = "Computer Vision and Image Understanding",
-volume = "110",
-number = "2",
-pages = "260 - 280",
-year = "2008",
-issn = "1077-3142",
-doi = "https://doi.org/10.1016/j.cviu.2007.08.003",
-url = "http://www.sciencedirect.com/science/article/pii/S1077314207001294",
-author = "Hui Zhang and Jason E. Fritts and Sally A. Goldman",
-keywords = "Image segmentation, Objective evaluation, Unsupervised evaluation, Empirical goodness measure"
-}
-
-@online{WASHINGTON,
-  author = {Paul G. Allen School of Computer Science & Engineering},
-  title = {CSE576: Computer Vision - Chapter 10 - Image Segmentation},
-  year = 2000,
-  url = {https://courses.cs.washington.edu/courses/cse576/book/ch10.pdf},
-  urldate = {2000-05-05},
-}
