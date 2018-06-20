@@ -1,0 +1,38 @@
+import matplotlib.pyplot as plt, argparse, numpy as np, math, sys, copy
+
+def merge_superpixels_colors(image, segments):
+    n_seg = 0
+
+    #get number of segments
+    for segs in segments:
+        curr_max = max(segs)
+        if(curr_max > n_seg):
+            n_seg = curr_max
+
+    n_seg += 1
+    
+    #initalize variables
+    colors = [[.0, .0, .0] for x in range(n_seg)]
+    itens = [0 for x in range(n_seg)]
+    new_image = copy.deepcopy(image)
+
+    #indexing information
+    for i in range(len(segments)):
+        for j in range(len(segments[i])):
+            index = segments[i][j]
+            colors[index] += image[i][j]
+            itens[index] += 1
+
+    #define new values
+    for i in range(len(itens)):
+        if(itens[i] > 0):
+            colors[i] = [x / itens[i] for x in colors[i]]
+
+    #generate new image
+    for i in range(len(segments)):
+        for j in range(len(segments[i])):
+            index = segments[i][j]
+            new_image[i][j] = colors[index]
+
+    #return image
+    return new_image
