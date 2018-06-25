@@ -41,31 +41,18 @@
 
 \section{Introdução} \label{sec:introducao}
 
-O trabalho tem como objetivo investigar a utilização de superpixels como passo de pré processamento para segmentação de imagens. O trabalho irá investigar se a utilização de métodos de oversegmentation podem facilitar ou dificultar o processo de treinamento. O trabalho também tentará identificar se o treinamento utilizando imagens pré processadas obtêm resultados semelhantes àqueles utilizando imagens originais, na etapa de validação.
-
-Para confecção do trabalho serão usados artigos de processos de criação de superpixels como SLIC, SLICO e Felzenszwalb. Também serão utilizados artigos de redes neurais para segmentação de imagens, a fim de escolher uma arquitetura de rede adequada para o trabalho.
-
-A fim de treinar a rede e avaliar os resultados, será utilizada a base de dados BSDS500 (Berkley Segmentation Data Set and Benchmarks 500), para segmentação de imagens e detecção de contornos.
-
-Para a implementação, irei utilizar a linguagem de programação Python, junto a API SCIKIT-IMAGE, para segmentação. Esta é capaz de gerar os superpixels SLIC e SLICO. Ainda não foi definida a rede neural a ser utilizada, porém devo utilizar redes do tipo Fully Convolutional Network, como disponível no artigo https://arxiv.org/abs/1411.4038. 
-Para avaliar os resultados, irei utilizar o projeto SEISM: Supervised Evaluation of Image Segmentation Methods, para exibir a avaliação das técnicas segmentação, usando as medidas de recordação de precisão para limites e para objetos e partes.
-
+A segmentação de imagens consiste em dividir uma imagem em um conjunto de regiões logicamente agrupadas, de modo a reunir áreas que contém informação relevante dentro dos grupos \cite{DOMINGUEZ}. Nessa tarefa, tomamos os \textit{pixels} como unidades básicas de processamento \cite{WANG201728}. O agrupamento de pixels em unidades maiores permite um tipo de segmentação chamado de \textit{oversegmentation} \cite{WANG201728}, ilustrada na figura \ref{fig:superpixel}. O uso de superpixels possibilita o aumento da velocidade de processamento posterior, uma vez que a quantidade de pixels diminui consideravelmente em relação a imagem original.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=1.\textwidth]{slic_segmentation_compare.png}
-\caption{Fronteiras e coloração pelo valor médio dos superpixels SLIC/SLICO, para diferentes quantidades de superpixels}
-\label{alg:SLIC}
+\includegraphics[width=1.\textwidth]{superpixels.png}
+\caption{Imagem segmentada utilizando superpixel SLIC, com aproximadamente 500 segmentos.}
+\label{fig:superpixel}
 \end{figure}
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1.\textwidth]{slic_hierarquia_particoes.png}
-\caption{Fronteiras das Hierarquia de partições utilizando superpixel SLICO.}
-\label{alg:SLIC}
-\end{figure}
+A utilização de superpixels possibilita a redução de itens a serem processados, entretanto pode causar perda de informação importante. No entanto, para alguns casos, a perda de qualidade pode se justificar em relação ao ganho de velocidade obtido utilizando esse tipo de operação. Essa relação consiste então em um \textit{trade-off} entre ambas as características, sendo viáveis em alguns cenários de processamento em tempo real ou para dispositivos com baixo desempenho.
 
-
+O presente trabalho tem como objetivo investigar a utilização de superpixels como passo de pré processamento para segmentação de imagens. Esse trabalho investiga se a utilização de métodos de \textit{oversegmentation} podem facilitar ou dificultar o processo de treinamento. O trabalho também tentará identificar se o treinamento utilizando imagens pré processadas obtêm resultados semelhantes àqueles utilizando imagens originais, na etapa de validação.
 
 O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teorico} mostra o referencial teórico para construção do trabalho, a Seção  \ref{sec:mat_metodos}, exibe os materiais e métodos utilizados nos testes; a Seção \ref{sec:testes} mostra os resultados obtidos nos testes realizados e a discussões dos mesmos; a Seção \ref{sec:conclusao} contém a conclusão do artigo, com as considerações finais.
 
@@ -88,7 +75,7 @@ Superpixels, segundo \cite{FELZENSWALB}, devem capturar importante grupos ou reg
 \begin{itemize}
  \item \textit{Algoritmos baseados em grafos}: utilizam abordagem baseadas em grafos para correlação entre pixels e criação dos conjuntos;
  \item \textit{Algoritmos baseados em gradiente ascendente}: utilizam métodos de gradiente ascendente iterativamente até que os critérios de convergência correspondam a forma de um superpixel; 
- \item \textit{Algoritmos de clusterização iterativo}: utilizam métodos de clusterização, como o k-means, para produção de superpixels.
+ \item \textit{Algoritmos de clusterização iterativo}: utilizam métodos de clusterização, como o \textit{k-means}, para produção de superpixels.
 \end{itemize}
 
 Dentre os algoritmos de clusterização iterativos podemos citar o algoritmo SLIC (\textit{Simple Linear Iteravite Clustering}) \cite{SLIC}. Esse algoritmo é uma adaptação do algoritmo \textit{k-means} para geração de superpixels, com diminuição de cálculos no processo de otimização, e combinação podenrada de cor e proximidade espacial, para permitir a definição do tamanho e capacidade dos superpixels \cite{SLIC}.
@@ -105,17 +92,15 @@ cada pixel é associado com o centro do cluster mais próximo, de modo que a reg
 \label{alg:SLIC}
 \end{figure}
 
-Para o algoritmo descrito na figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância D entre os conjuntos. Devido ao algoritmo trabalhar no \textit{colorspace} CIELAB, com o espaço-plano \textit{labxy}, a posição do pixel pode assumir um intervalo de valores de acordo com o tamanho da image \ref{alg:SLIC}. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. Para isso é utilizado a fórmula $D=\sqrt{dc^2+(ds/S)^2*m^2}$, onde \textit{D} corresponde a distância em 5 dimensões do espaço labxy, \textit{dc} e \textit{ds} correspondem à proximidade de cores e espacial e $m^2$ corresponde a distância máxima entre cores no cluster \cite{SLIC}. Para o cálculo da distância em imagens em escala cinza, é utilizada a distância Euclidiana.
+Para o algoritmo descrito na figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância D entre os conjuntos. Devido ao algoritmo trabalhar no \textit{colorspace} CIELAB, com o espaço-plano \textit{labxy}, a posição do pixel pode assumir um intervalo de valores de acordo com o tamanho da image \ref{alg:SLIC}. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. Para isso é utilizado a fórmula $D=\sqrt{d_c^2+(d_s/S)^2*m^2}$, onde $D$ corresponde a distância em 5 dimensões do espaço labxy, $d_c$ e $d_s$ correspondem à proximidade de cores e espacial; e $m^2$ corresponde a distância máxima entre cores no cluster \cite{SLIC}. Para o cálculo da distância em imagens em escala cinza, é utilizada a distância Euclidiana.
 
 Uma etapa extra no processo de pós processamento é a união de \textit{pixels orfãos}. Esses pixels são adicionados ao cluster mais próximo usando o algoritmo de componentes conexos \cite{SLIC}.
 
 Devido a limitação do espaço de pesquisa do algoritmo SLIC, a complexidade do algoritmo é $O(n)$, enquanto outros algoritmos que utilizam k-means para segmentação tem custo $O(k^N)$ \cite{SLIC}.
 
-\subsubsection{Superpixels SLICO} \label{sssec:slico}
+\subsection{Clusters} \label{sssec:clusters}
 
-\subsubsection{Clusters} \label{sssec:clusters}
-
-\subsubsection{Hierarquia de partições} \label{sssec:hierarchy}
+\subsection{Hierarquia de partições} \label{sssec:hierarchy}
 
 \subsection{Segmentação de Imagens} \label{ssec:segmentacao}
 
@@ -133,6 +118,22 @@ Devido a limitação do espaço de pesquisa do algoritmo SLIC, a complexidade do
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.\textwidth]{slic_segmentation_compare.png}
+\caption{Fronteiras e coloração pelo valor médio dos superpixels SLIC/SLICO, para diferentes quantidades de superpixels}
+\label{alg:SLIC}
+\end{figure}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.\textwidth]{slic_hierarquia_particoes.png}
+\caption{Fronteiras das Hierarquia de partições utilizando superpixel SLICO.}
+\label{alg:SLIC}
+\end{figure}
+
 
 \section{Testes, Resultados e Discussões} \label{sec:testes}
 
