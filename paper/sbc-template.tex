@@ -98,24 +98,51 @@ Uma etapa extra no processo de pós processamento é a união de \textit{pixels 
 
 Devido a limitação do espaço de pesquisa do algoritmo SLIC, a complexidade do algoritmo é $O(n)$, enquanto outros algoritmos que utilizam k-means para segmentação tem custo $O(k^N)$ \cite{SLIC}.
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.\textwidth]{slic_segmentation_compare.png}
+\caption{Fronteiras e coloração pelo valor médio dos superpixels SLIC/SLICO, para diferentes quantidades de superpixels}
+\label{alg:SLIC}
+\end{figure}
+
+
 \subsubsection{Superpixels Felzenszwalb} \label{sssec:slic}
 
-Os superpixels Felzenszwalb utilizam uma abordagem baseadas em grafos não direcionados. Nessa abordagem, cada pixel corresponde a um nó do grafo e a ligação entre os nós ocorre por meio de arestas, com pesos não negativos, correspondente a medida de dissimilaridade entre os nós \cite{FELZENSZWALB}. 
+Os superpixels Felzenszwalb e Huttenlocher utilizam uma abordagem baseadas em grafos não direcionados. Nessa abordagem, cada pixel corresponde a um nó do grafo e a ligação entre eles ocorre por meio de arestas, com pesos não negativos, correspondente a medida de dissimilaridade \cite{FELZENSZWALB}. 
 
-No tipo de abordagem baseado em grafos, a segmentação S é uma partição dos vértices V em componentes, no qual cada componente corresponde a um componente conexo em um grafo G. A segmentação é induzida por um conjuntos de vértices em arestas E \cite{FELZENSZWALB}.
+Na abordagem baseada em grafos, a segmentação $S$ é uma partição dos vértices $V$ em componentes, no qual cada região $C \in S$ corresponde a um componente conectado em um grafo $G'=(V,E')$, onde $E' \subseteq E$, ou seja, a segmentação é induzida por um conjuntos de vértices em arestas $E$ \cite{FELZENSZWALB}.
+
+No algoritmo foi definido um predicado $D$ para avaliação da evidência de bordas entre dois componentes de uma segmentação. O algoritmo avalia a dissimilaridade entre elementos de dois componentes e os compara com elementos vizinhos em um mesmo componente, de modo que o algoritmo possa se adaptar em relação as características dos dados \cite{FELZENSZWALB}. 
+
+Para a comparação entre as regiões é utilizada uma função de corte (\textit{threshold}) $\tau$, a fim de medir o grau de diferença entre os componentes. Esse grau deve ser superior a diferença interna mínima, evidenciando uma borda \cite{FELZENSZWALB}. A função de corte, no algoritmo, é utilizada baseado no tamanho do componente $\tau=k/|C|$, onde $|C|$ corresponde ao tamanho do componente $C$ e $k$ corresponde a um parâmetro do algoritmo \cite{FELZENSZWALB}.
 
 O algoritmo Felzenszwalb, utilizando pesos inteiros e ordenação por contagem, pode ser executado com custo linear, com complexidade $O(nlogn)$, para qualquer método de ordenação \cite{FELZENSZWALB}.
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.\textwidth]{felz_segmentation_compare.png}
+\caption{Fronteiras e coloração pelo valor médio dos superpixels Felzenszwalb, para diferentes quantidades de superpixels}
+\label{alg:SLIC}
+\end{figure}
+
 \subsection{Clusters} \label{sssec:clusters}
+
+https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage
+
+Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense) to each other than to those in other groups (clusters). It is a main task of exploratory data mining, and a common technique for statistical data analysis, used in many fields, including machine learning, pattern recognition, image analysis, information retrieval, bioinformatics, data compression, and computer graphics.
+
+Clusters hierárquicos é um método de análise de clusters a fim de buscar hierarquias entre eles. As estratégias para hierarquização de cluster se dividem em dois grupos \cite{ROKACH}:
+
+\begin{itemize}
+ \item Aglomerativo - abordagem \textit{"bottom up"}, em que a observação inicia-se no próprio cluster e os pares de clusters são unidos na medida em que se sobe na hierarquia. 
+ \item Divisivo - abordagem \textit{"top down"} onde as observações iniciam-se em um cluster e são realizadas recursivamente a medida em que se desce na hierarquia.
+\end{itemize}
 
 \subsection{Hierarquia de partições} \label{sssec:hierarchy}
 
 \subsection{Segmentação de Imagens} \label{ssec:segmentacao}
 
 \textit{Image segmentation is an important processing step in many image, video and computer vision applications. Extensive research has been done in creating many different approaches and algorithms for image segmentation, but it is still difficult to assess whether one algorithm produces more accurate segmentations than another, whether it be for a particular image or set of images, or more generally, for a whole class of images. To date, the most common method for evaluating the effectiveness of a segmentation method is subjective evaluation, in which a human visually compares the image segmentation results for separate segmentation algorithms, which is a tedious process and inherently limits the depth of evaluation to a relatively small number of segmentation comparisons over a predetermined set of images. Another common evaluation alternative is supervised evaluation, in which a segmented image is compared against a manually-segmented or pre-processed reference image.}
-
-\subsection{Redes Neurais} \label{ssec:redes_neurais}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -126,14 +153,6 @@ O algoritmo Felzenszwalb, utilizando pesos inteiros e ordenação por contagem, 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1.\textwidth]{slic_segmentation_compare.png}
-\caption{Fronteiras e coloração pelo valor médio dos superpixels SLIC/SLICO, para diferentes quantidades de superpixels}
-\label{alg:SLIC}
-\end{figure}
-
 
 \begin{figure}[ht]
 \centering
