@@ -70,7 +70,7 @@ O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teori
 
 Superpixels são estruturas que agrupam pixels semelhantes em conjuntos. O agrupamento possibilita a redução de complexidade das tarefas de processamento \cite{SLIC}, ao reduzir a quantidade de itens a serem processados. Os superpixels são utilizados na área de visão computacional para solução de vasto número de problemas, como detecção de contorno \cite{CONTOUR}, segmentação \cite{SEG_MERGE} e localização de objetos \cite{SEG_LOCALIZ}.
 
-Superpixels, segundo \cite{FELZENSWALB}, devem capturar importante grupos ou regiões, refletindo aspectos da imagem. Devem também ser executados em tempo próximo ao linear em relação a quantidade de pixels. Existem diversas abordagens para a geração de superpixels \cite{SLIC}. Dentre elas, podemos classificá-las, segundo o método de agrupamento em: 
+Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou regiões, refletindo aspectos da imagem. Devem também ser executados em tempo próximo ao linear em relação a quantidade de pixels. Existem diversas abordagens para a geração de superpixels \cite{SLIC}. Dentre elas, podemos classificá-las, segundo o método de agrupamento em: 
 
 \begin{itemize}
  \item \textit{Algoritmos baseados em grafos}: utilizam abordagem baseadas em grafos para correlação entre pixels e criação dos conjuntos;
@@ -97,6 +97,14 @@ Para o algoritmo descrito na figura \ref{alg:SLIC}, é necessário compreender o
 Uma etapa extra no processo de pós processamento é a união de \textit{pixels orfãos}. Esses pixels são adicionados ao cluster mais próximo usando o algoritmo de componentes conexos \cite{SLIC}.
 
 Devido a limitação do espaço de pesquisa do algoritmo SLIC, a complexidade do algoritmo é $O(n)$, enquanto outros algoritmos que utilizam k-means para segmentação tem custo $O(k^N)$ \cite{SLIC}.
+
+\subsubsection{Superpixels Felzenszwalb} \label{sssec:slic}
+
+Os superpixels Felzenszwalb utilizam uma abordagem baseadas em grafos não direcionados. Nessa abordagem, cada pixel corresponde a um nó do grafo e a ligação entre os nós ocorre por meio de arestas, com pesos não negativos, correspondente a medida de dissimilaridade entre os nós \cite{FELZENSZWALB}. 
+
+No tipo de abordagem baseado em grafos, a segmentação S é uma partição dos vértices V em componentes, no qual cada componente corresponde a um componente conexo em um grafo G. A segmentação é induzida por um conjuntos de vértices em arestas E \cite{FELZENSZWALB}.
+
+O algoritmo Felzenszwalb, utilizando pesos inteiros e ordenação por contagem, pode ser executado com custo linear, com complexidade $O(nlogn)$, para qualquer método de ordenação \cite{FELZENSZWALB}.
 
 \subsection{Clusters} \label{sssec:clusters}
 
