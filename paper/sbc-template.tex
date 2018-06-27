@@ -73,12 +73,12 @@ Superpixels são estruturas que agrupam pixels semelhantes em conjuntos. O agrup
 Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou regiões, refletindo aspectos da imagem. Devem também ser executados em tempo próximo ao linear em relação a quantidade de pixels. Existem diversas abordagens para a geração de superpixels \cite{SLIC}. Dentre elas, podemos classificá-las, segundo o método de agrupamento em: 
 
 \begin{itemize}
- \item \textit{Algoritmos baseados em grafos}: utilizam abordagem baseadas em grafos para correlação entre pixels e criação dos conjuntos;
- \item \textit{Algoritmos baseados em gradiente ascendente}: utilizam métodos de gradiente ascendente iterativamente até que os critérios de convergência correspondam a forma de um superpixel; 
- \item \textit{Algoritmos de clusterização iterativo}: utilizam métodos de clusterização, como o \textit{k-means}, para produção de superpixels.
+ \item \textit{Algoritmos baseados em grafos}: utilizam abordagem baseadas em grafos para correlação entre pixels e criação dos conjuntos. Dentre os algoritmos baseados em grafos podemos citar o \textit{Efficient Graph-Based Image Segmentation} \cite{FELZENSZWALB};
+ \item \textit{Algoritmos baseados em gradiente ascendente}: utilizam métodos de gradiente ascendente iterativamente até que os critérios de convergência correspondam a forma de um superpixel. Nesse conjunto, podemos  citar as abordagens \textit{watersheds} \cite{WATERSHEDS} \cite{SLIC}
+ \item \textit{Algoritmos de clusterização iterativo}: utilizam métodos de clusterização, como o \textit{k-means}, para produção de superpixels. Um exemplo desse algoritmo é o SLIC (\textit{Simple Linear Iteravite Clustering}) \cite{SLIC}
 \end{itemize}
 
-Dentre os algoritmos de clusterização iterativos podemos citar o algoritmo SLIC (\textit{Simple Linear Iteravite Clustering}) \cite{SLIC}. Esse algoritmo é uma adaptação do algoritmo \textit{k-means} para geração de superpixels, com diminuição de cálculos no processo de otimização, e combinação podenrada de cor e proximidade espacial, para permitir a definição do tamanho e capacidade dos superpixels \cite{SLIC}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Superpixels SLIC} \label{sssec:slic}
 
@@ -105,6 +105,7 @@ Devido a limitação do espaço de pesquisa do algoritmo SLIC, a complexidade do
 \label{alg:SLIC}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Superpixels Felzenszwalb} \label{sssec:slic}
 
@@ -125,24 +126,32 @@ O algoritmo Felzenszwalb, utilizando pesos inteiros e ordenação por contagem, 
 \label{alg:SLIC}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Clusters} \label{sssec:clusters}
 
-https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage
-
-Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense) to each other than to those in other groups (clusters). It is a main task of exploratory data mining, and a common technique for statistical data analysis, used in many fields, including machine learning, pattern recognition, image analysis, information retrieval, bioinformatics, data compression, and computer graphics.
-
-Clusters hierárquicos é um método de análise de clusters a fim de buscar hierarquias entre eles. As estratégias para hierarquização de cluster se dividem em dois grupos \cite{ROKACH}:
+Análise de cluster é a tarega de agrupar conjunto de objetos de forma que um grupo (cluster) tenha características em comuns a outros grupos, ou clusters \cite{WIKI_CLUSTER_ANALYSIS}. Clusters hierárquicos é um método de análise de clusters a fim de buscar hierarquias entre eles. As estratégias para hierarquização de cluster se dividem em dois grupos \cite{ROKACH}:
 
 \begin{itemize}
  \item Aglomerativo - abordagem \textit{"bottom up"}, em que a observação inicia-se no próprio cluster e os pares de clusters são unidos na medida em que se sobe na hierarquia. 
  \item Divisivo - abordagem \textit{"top down"} onde as observações iniciam-se em um cluster e são realizadas recursivamente a medida em que se desce na hierarquia.
 \end{itemize}
 
-\subsection{Hierarquia de partições} \label{sssec:hierarchy}
+Os algoritmos originais de cluster possuem complexidade $O(n^3)$. Alguns algoritmos, entretanto, como o SLINK, ou \textit{single-linkage}, possuem complexidade $O(n^2)$ \cite{SLINK}. O SLINK utiliza como critério de ligação (\textit{linkage}) entre os clusters a distância mínima. A fórmula $min\{d(a,b): a \in A, b \in B \}$, corresponde a distância mínima para dois pares de clusters A e B observados, onde $d$ é a métrica de distância escolhida \cite{WIKI_CLUSTER_HIERARCHY}.
+
+A partir da aglomeração de clusters é possivel construir uma árvore hierarquica, onde os clusters são agrupados por sua similaridade. Um método de visualização dessas características é o dendrograma. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Segmentação de Imagens} \label{ssec:segmentacao}
 
-\textit{Image segmentation is an important processing step in many image, video and computer vision applications. Extensive research has been done in creating many different approaches and algorithms for image segmentation, but it is still difficult to assess whether one algorithm produces more accurate segmentations than another, whether it be for a particular image or set of images, or more generally, for a whole class of images. To date, the most common method for evaluating the effectiveness of a segmentation method is subjective evaluation, in which a human visually compares the image segmentation results for separate segmentation algorithms, which is a tedious process and inherently limits the depth of evaluation to a relatively small number of segmentation comparisons over a predetermined set of images. Another common evaluation alternative is supervised evaluation, in which a segmented image is compared against a manually-segmented or pre-processed reference image.}
+Segmentação de imagens consiste em separar uma imagem em regiões, idealmente correspondente a objetos reais \cite{ZHANG2008}. Esse passo é utilizado como passo de processamento de imagens, vídeos e aplicações de visão computacional. Também consiste em um importante passo na tentativa de explicar uma imagem por meio de algoritmos \cite{ZHANG2008}.
+
+Extensiva pesquisa é realizada e muitas abordagens e algoritmos são utilizados, com bons resultados para um conjunto ou classes de imagens \cite{ZHANG2008}. A fim de facilitar a pesquisa, alguns trabalhos foram desenvolvidos para criação de um conjunto de imagens com suas respectivas segmentações manuais. A base BSDS500 (\textit{Berkeley Segmentation Data Set and Benchmarks 500}) provê uma base de imagens para pesquisa em segmentação e detecção de bordas. \cite{BSDS500}. Essa base de dados é uma extensão da base BSDS300, com 200 novas imagens para avaliação \cite{BSDS500}.
+
+A fim de avaliar a efetividade das segmentações, tradicionalmente são utilizados métodos subjetivos, como a visualização humana, responsável por comparar a qualidade da segmentação ou métodos supervisionados, onde uma segmentação é comparada em relação a uma imagem manualmente segmentada \cite{ZHANG2008}. Projetos de detecção automática, como o SEISM (\textit{Supervised Evaluation of Image Segmentation Methods}) permitem a avaliação da segmentação, usando a recuperação de precisão para bordas e a recuperação de precisão para objetos e peças \cite{SEISM}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -150,7 +159,25 @@ Clusters hierárquicos é um método de análise de clusters a fim de buscar hie
 
 \section{Materiais e Métodos} \label{sec:mat_metodos}
 
+Para realização dos testes foram escolhidos os algoritmos de \textit{oversegmentation} SLIC e Felzenszwalb. Os algoritmos possuem características diferentes: o SLIC é capaz de produzir superpixels em formas regulares, porém não é tão preciso ao separar os conjuntos por similaridade; por outro lado, o Felzenszwalb, produz pixels irregulares, porém é mais aderente aos contornos e as bordas das imagens.
+
+A utilização de ambos os algoritmos busca obter um melhor desempenho em relação a utilização  dos algoritmos de forma isolada. O primeiro algoritmo aplicado às imagens foi o algoritmo SLIC, gerando superpixels de formas regulares. Em seguida, foi realizada recoloração da imagem utilizando o valor do pixel médio do superpixel. Em seguida, foi aplicado às imagens o método de Felzenszwalb.
+
+Após a execução dos algoritmos, foram gerados \textit{clusters} com as correlações entre os grupos, utilizando o algoritmo SLINK (\textit{single-linkage}). Os cortes foram realizados em diversos níveis da hierarquia e os resultados foram avaliados manualmente, a fim de encontrar bons parâmetros para o algoritmo. 
+
+O método descrito acima foi aplicado à base de dados BSDB500 e comparados com as imagens manualmente segmentadas (\textit{ground-thruth}). Para avaliação das imagens, foi utilizada a classificação visual, comparando a qualidade dos resultados e o método de avaliação SEISM, que fornece informações supervisionadas sobre a qualidade da segmentação.
+
+Os algoritmos SLIC e Felzenszwalb utilizados para confecção desse trabalho foram obtidos pela biblioteca Scikit-Image \footnote{http://scikit-image.org/docs/dev/api/skimage.segmentation.html}. O algoritmo de geração de cluster SLINK foi obtido na biblioteca Scipy.org \footnote{https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html}. Os códigos fontes gerados estão disponíveis publicamente no Github \footnote{https://github.com/falreis/image-segm}.
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Testes, Resultados e Discussões} \label{sec:testes}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -160,34 +187,6 @@ Clusters hierárquicos é um método de análise de clusters a fim de buscar hie
 \caption{Fronteiras das Hierarquia de partições utilizando superpixel SLICO.}
 \label{alg:SLIC}
 \end{figure}
-
-
-\section{Testes, Resultados e Discussões} \label{sec:testes}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Subsections}
-
-
-\begin{table}[ht]
-\centering
-\caption{Variables to be considered on the evaluation of interaction
-  techniques}
-\label{tab:exTable1}
-\smallskip
-\begin{tabular}{|l|c|c|}
-\hline
-& Value 1 & Value 2\\[0.5ex]
-\hline
-&&\\[-2ex]
-Case 1 & 1.0 $\pm$ 0.1 & 1.75$\times$10$^{-5}$ $\pm$ 5$\times$10$^{-7}$\\[0.5ex]
-\hline
-&&\\[-2ex]
-Case 2 & 0.003(1) & 100.0\\[0.5ex]
-\hline
-\end{tabular}
-\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

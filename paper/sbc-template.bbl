@@ -16,7 +16,7 @@ Arbelaez, P., Maire, M., Fowlkes, C., and Malik, J. (2011).
 Domínguez, D. and Morales, R.~R. (2016).
 \newblock {\em Image Segmentation: Advances}, volume~1.
 
-\bibitem[Felzenszwalb and Huttenlocher 2004]{FELZENSWALB}
+\bibitem[Felzenszwalb and Huttenlocher 2004]{FELZENSZWALB}
 Felzenszwalb, P.~F. and Huttenlocher, D.~P. (2004).
 \newblock Efficient graph-based image segmentation.
 \newblock {\em International Journal of Computer Vision}, 59(2):167--181.
@@ -33,6 +33,31 @@ Liu, T., Seyedhosseini, M., and Tasdizen, T. (2016).
 \newblock Image segmentation using hierarchical merge tree.
 \newblock {\em IEEE Transactions on Image Processing}, 25(10):4596--4607.
 
+\bibitem[Pont-Tuset and Marques 2016]{SEISM}
+Pont-Tuset, J. and Marques, F. (2016).
+\newblock Supervised evaluation of image segmentation and object proposal
+  techniques.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence
+  (TPAMI)}, 38(7):1465--1478.
+
+\bibitem[Rokach and Maimon 2005]{ROKACH}
+Rokach, L. and Maimon, O. (2005).
+\newblock {\em Clustering Methods}, pages 321--352.
+\newblock Springer US, Boston, MA.
+
+\bibitem[Sibson 1973]{SLINK}
+Sibson, R. (1973).
+\newblock Slink: An optimally efficient algorithm for the single-link cluster
+  method.
+\newblock {\em Comput. J.}, 16:30--34.
+
+\bibitem[Vincent and Soille 1991]{WATERSHEDS}
+Vincent, L. and Soille, P. (1991).
+\newblock Watersheds in digital spaces: an efficient algorithm based on
+  immersion simulations.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  13(6):583--598.
+
 \bibitem[Wang et~al. 2017a]{WANG201728}
 Wang, M., Liu, X., Gao, Y., Ma, X., and Soomro, N.~Q. (2017a).
 \newblock Superpixel segmentation: A benchmark.
@@ -43,5 +68,18 @@ Wang, X.-Y., Wu, C.-W., Xiang, K., and Chen, W. (2017b).
 \newblock Efficient local and global contour detection based on superpixels.
 \newblock {\em Journal of Visual Communication and Image Representation}, 48:77
   -- 87.
+
+\bibitem[Wikipedia 2018a]{WIKI_CLUSTER_ANALYSIS}
+Wikipedia (2018a).
+\newblock Cluster analysis.
+
+\bibitem[Wikipedia 2018b]{WIKI_CLUSTER_HIERARCHY}
+Wikipedia (2018b).
+\newblock Hierarchical clustering.
+
+\bibitem[Zhang et~al. 2008]{ZHANG2008}
+Zhang, H., Fritts, J.~E., and Goldman, S.~A. (2008).
+\newblock Image segmentation evaluation: A survey of unsupervised methods.
+\newblock {\em Computer Vision and Image Understanding}, 110(2):260 -- 280.
 
 \end{thebibliography}
