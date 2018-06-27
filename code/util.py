@@ -83,3 +83,35 @@ def plot_compare_4(images = [], labels = [], axis_off = False):
         ax3.set_title(labels[2])
         ax4.set_title(labels[3])
     plt.show()
+    
+def color_superpixel(image, segments):
+    n_seg = 0
+    for segs in segments:
+        curr_max = max(segs)
+        if(curr_max > n_seg):
+            n_seg = curr_max
+
+    n_seg += 1
+    
+    colors = [[.0, .0, .0] for x in range(n_seg)]
+    itens = [0 for x in range(n_seg)]
+    new_image = copy.deepcopy(image)
+
+    #replace colors
+    for i in range(len(segments)):
+        for j in range(len(segments[i])):
+            index = segments[i][j]
+            colors[index] += image[i][j]
+            itens[index] += 1
+
+    for i in range(len(itens)):
+        if(itens[i] > 0):
+            colors[i] = [x / itens[i] for x in colors[i]]
+
+    for i in range(len(segments)):
+        for j in range(len(segments[i])):
+            index = segments[i][j]
+            new_image[i][j] = colors[index]
+    
+    return new_image, n_seg, colors
+    
