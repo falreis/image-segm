@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import copy
 from scipy.cluster import hierarchy
-from skimage.segmentation import mark_boundaries
+from skimage.segmentation import slic, mark_boundaries, felzenszwalb
+from skimage import io
 
 def merge_superpixels_colors(image, segments):
     n_seg = 0
@@ -67,6 +68,48 @@ def generate_ultrametric_map(blank_image, colors, segments, n_seg):
         cutz_nsegs.append(cluster_size)
     
     return cutz_images, cutz_nsegs
+
+
+def process_image(image, save=False, filename = '', paths=[]):
+    '''
+     * image - current image
+     * save - save processing results
+     * filename - filename with extension (jpg)
+     * paths - [0] - segmentation path
+               [1] - border path
+               [2] - ultrametric map path
+    '''
+    #process slic
+    segs_slic = slic(image, n_segments = 512, slic_zero = True)
+    slic_image, _, _ = color_superpixel(image, segs_slic)
+
+    #process felzenszwalb
+    segs_fs = felzenszwalb(slic_image, scale = 1536, min_size = 30)
+    fs_image, n_segs_fs, colors_fs = color_superpixel(slic_image, segs_fs)
+    
+    #borders
+    img = np.zeros(image.shape,dtype=np.uint8) #create blank image to save
+    img.fill(255)
+    fs_borders = mark_boundaries(img, segs_fs, color=(0, 0, 0))
+    
+    #ultrametric
+    ultra_images, ultra_nsegs = generate_ultrametric_map(img, colors_fs, segs_fs, n_segs_fs)
+    
+    if save == True:
+        if filename != '' and len(paths) == 3:
+            #save segmentation image
+            io.imsave((paths[0] + 'seg_' +filename), fs_image)
+            
+            #save borders
+            io.imsave((paths[1] + 'bor_' +filename), fs_borders)
+
+            #save ultrametric
+            for u_img, u_nseg in zip(ultra_images, ultra_nsegs):
+                io.imsave((paths[2] + 'ult_' + filename[:-4] + '_' + str(u_nseg) + '.jpg'), u_img)
+                
+    return fs_image, fs_borders, ultra_images
+    
+print('Done')
 
 def plot_compare_5(images = [], labels = [], axis_off = False):
     f, (ax1, ax2, ax3, ax4, ax5) = plt.subplots(1, 5, figsize=(20,20))
