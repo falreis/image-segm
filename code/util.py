@@ -1,4 +1,8 @@
-import matplotlib.pyplot as plt, argparse, numpy as np, math, sys, copy
+import matplotlib.pyplot as plt
+import numpy as np
+import copy
+from scipy.cluster import hierarchy
+from skimage.segmentation import mark_boundaries
 
 def merge_superpixels_colors(image, segments):
     n_seg = 0
@@ -36,6 +40,33 @@ def merge_superpixels_colors(image, segments):
 
     #return image
     return new_image
+
+def generate_ultrametric_map(blank_image, colors, segments, n_seg):
+    Z = hierarchy.linkage(colors)
+    
+    it = 5
+    step = int(n_seg/it)
+    cutz_images = []
+    cutz_nsegs = []
+    
+    cutz_images.append(mark_boundaries(blank_image, segments, color=(0, 0, 0)))
+    cutz_nsegs.append(n_seg)
+
+    for ix in range(it-1, 0, -1):
+        cluster_size= int(ix * step)
+
+        cutz = hierarchy.cut_tree(Z, n_clusters = cluster_size)
+        cutz_segs = copy.deepcopy(segments)
+
+        for i in range(len(segments)):
+            for j in range(len(segments[i])):
+                index = segments[i][j]
+                cutz_segs[i][j] = cutz[index][0]
+
+        cutz_images.append(mark_boundaries(blank_image, cutz_segs, color=(0, 0, 0)))
+        cutz_nsegs.append(cluster_size)
+    
+    return cutz_images, cutz_nsegs
 
 def plot_compare_5(images = [], labels = [], axis_off = False):
     f, (ax1, ax2, ax3, ax4, ax5) = plt.subplots(1, 5, figsize=(20,20))
