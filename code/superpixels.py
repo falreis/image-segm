@@ -120,7 +120,7 @@ def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size =
     slic_image, _, _ = color_superpixel(image, segs_slic)
 
     #process felzenszwalb
-    segs_fs = felzenszwalb(slic_image, scale = felz_scale, min_size = felz_min_size)
+    segs_fs = felzenszwalb(slic_image, scale = felz_scale, sigma=0.8, min_size = felz_min_size)
     fs_image, n_segs_fs, colors_fs = color_superpixel(slic_image, segs_fs)
     
     #borders
