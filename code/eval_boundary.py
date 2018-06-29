@@ -21,11 +21,16 @@ def helper(b1,b2,h,w,thres):
     total = b1.sum()
     #print (cnt)
     #print (total)
-    return cnt/ total
+    
+    result = 0
+    if cnt > 1e-5 and total > 1e-5:
+        result = cnt/ total
+    
+    return result
 
     
 
-def eval_bound(mask1, mask2 ,thres):
+def eval_bound(mask1, mask2 ,thres, do_recall = True):
     '''Evaluate precision for boundary detection'''
     s1 = mask1.shape
     s2 = mask2.shape
@@ -43,7 +48,11 @@ def eval_bound(mask1, mask2 ,thres):
     h = s1[0]
     w = s1[1]
     precision = helper(b1,b2,h,w,thres)
-    recall = helper(b2,b1,h,w,thres)
+    
+    if do_recall == True:
+        recall = helper(b2,b1,h,w,thres)
+    else:
+        recall = None
     return precision, recall
     
 

@@ -100,13 +100,15 @@ def generate_ultrametric_map(blank_image, colors, segments, n_seg):
     return cutz_images, cutz_nsegs
 
 
-def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size = 30, save=False, filename = '', paths=[]):
+def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size = 30
+                  , ultrametric = True, save=False, filename = '', paths=[]):
     '''
     Process image using SLIC and Felzenszwalb algorithms
      * image: image for processing
      * slic_segments: number of slic segments
      * felz_scale: scale for felzenszwalb algorithm
-     * felz_min_size: 
+     * felz_min_size: minimum size for clusters using Felzenszwalb algorithm
+     * ultrametric: generate ultrametric map
      * save: save processing results
      * filename: filename with extension (only jpg)
      * paths: [0]: segmentation's path
@@ -127,7 +129,10 @@ def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size =
     fs_borders = mark_boundaries(img, segs_fs, color=(0, 0, 0))
     
     #ultrametric
-    ultra_images, ultra_nsegs = generate_ultrametric_map(img, colors_fs, segs_fs, n_segs_fs)
+    if ultrametric == True:
+        ultra_images, ultra_nsegs = generate_ultrametric_map(img, colors_fs, segs_fs, n_segs_fs)
+    else:
+        ultra_images = None
     
     if save == True:
         if filename != '' and len(paths) == 3:
@@ -138,8 +143,9 @@ def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size =
             io.imsave((paths[1] + 'bor_' +filename), fs_borders)
 
             #save ultrametric
-            for u_img, u_nseg in zip(ultra_images, ultra_nsegs):
-                io.imsave((paths[2] + 'ult_' + filename[:-4] + '_' + str(u_nseg) + '.jpg'), u_img)
+            if ultrametric == True:
+                for u_img, u_nseg in zip(ultra_images, ultra_nsegs):
+                    io.imsave((paths[2] + 'ult_' + filename[:-4] + '_' + str(u_nseg) + '.jpg'), u_img)
                 
     return fs_image, fs_borders, ultra_images
       
