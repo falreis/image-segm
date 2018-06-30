@@ -5,9 +5,11 @@ def generate_boundaries(image, blank_image, method='sgb'):
     border = None
     
     if(method == 'sgb'):
+        #1664;1920 | 1664;1280 | 1536;1024 | 1536;1152 | *1408;1536 | 1408;1408
+        
         _, border, _ = sp.process_image(image
-                                        , slic_segments = 896
-                                        , felz_scale = 1024
+                                        , slic_segments = 1408
+                                        , felz_scale = 1408
                                         , felz_min_size = 20
                                         , ultrametric = False
                                         , save=False)

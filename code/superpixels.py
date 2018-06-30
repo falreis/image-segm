@@ -5,7 +5,7 @@ from scipy.cluster import hierarchy
 from skimage.segmentation import slic, mark_boundaries, felzenszwalb
 from skimage import io
 
-def merge_superpixels_colors(image, segments):
+def color_superpixel(image, segments):
     #get number of segments
     n_seg = 0
     for segs in segments:
@@ -21,51 +21,25 @@ def merge_superpixels_colors(image, segments):
     new_image = copy.deepcopy(image)
 
     #indexing information
-    for i in range(len(segments)):
-        for j in range(len(segments[i])):
+    len_seg_i = len(segments)
+    len_seg_j = len(segments[0])
+    
+    for i in range(len_seg_i):
+        for j in range(len_seg_j):
             index = segments[i][j]
             colors[index] += image[i][j]
             itens[index] += 1
-
+            
     #define new values
-    for i in range(len(itens)):
+    len_itens = len(itens)
+                    
+    for i in range(len_itens):
         if(itens[i] > 0):
             colors[i] = [x / itens[i] for x in colors[i]]
 
     #generate new image
-    for i in range(len(segments)):
-        for j in range(len(segments[i])):
-            index = segments[i][j]
-            new_image[i][j] = colors[index]
-
-    return new_image
-
-def color_superpixel(image, segments):
-    n_seg = 0
-    for segs in segments:
-        curr_max = max(segs)
-        if(curr_max > n_seg):
-            n_seg = curr_max
-
-    n_seg += 1
-    
-    colors = [[.0, .0, .0] for x in range(n_seg)]
-    itens = [0 for x in range(n_seg)]
-    new_image = copy.deepcopy(image)
-
-    #replace colors
-    for i in range(len(segments)):
-        for j in range(len(segments[i])):
-            index = segments[i][j]
-            colors[index] += image[i][j]
-            itens[index] += 1
-
-    for i in range(len(itens)):
-        if(itens[i] > 0):
-            colors[i] = [x / itens[i] for x in colors[i]]
-
-    for i in range(len(segments)):
-        for j in range(len(segments[i])):
+    for i in range(len_seg_i):
+        for j in range(len_seg_j):
             index = segments[i][j]
             new_image[i][j] = colors[index]
     

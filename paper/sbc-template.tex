@@ -35,13 +35,13 @@
 \end{abstract}
      
 \begin{resumo} 
-  Superpixels são estruturas que agrupam pixels semelhantes em conjuntos que refletem aspectos da imagem. Este artigo avalia a utilização superpixels SLICO e hierarquia de partições para segmentação. Utilizando \textbf{redes neurais} para segmentação, os resultados de imagens utilizando superpixels com diferentes níveis de granularidade e imagens sem tratamento foram comparadas em relação ao \textit{ground-truth}. O artigo também avalia o tempo de treinamento das redes neurais para imagens com superpixels em relação às imagens originais. Para treinamento e avaliação foram utilizadas imagem do Berkeley Segmentation Data Set (BSDS500) \cite{BSDS500}.
+  Superpixels são estruturas que agrupam pixels semelhantes em conjuntos que refletem aspectos da imagem. Este artigo avalia a utilização de superpixels SLICO e EGB para segmentação. Avalia também os benefícios da combinação dos métodos para produção de segmentação. Por fim, o artigo mostra uma possível implementação do método hierárquico para a segmentação combinada dos métodos SLIC e EGB, que pode ser utilizada para detalhamento e zoom sobre segmentações. Para avaliação foram utilizadas o conjunto de treinamento de imagens do Berkeley Segmentation Data Set (BSDS500) \cite{BSDS500}. Os resultados obtidos pelos métodos foram com comparadas em relação ao \textit{ground-truth}, utilizando o método de precisão e revocação.
 \end{resumo}
 
 
 \section{Introdução} \label{sec:introducao}
 
-A segmentação de imagens consiste em dividir uma imagem em um conjunto de regiões logicamente agrupadas, de modo a reunir áreas que contém informação relevante dentro dos grupos \cite{DOMINGUEZ}. Nessa tarefa, tomamos os \textit{pixels} como unidades básicas de processamento \cite{WANG201728}. O agrupamento de pixels em unidades maiores permite um tipo de segmentação chamado de \textit{oversegmentation} \cite{WANG201728}, ilustrada na figura \ref{fig:superpixel}. O uso de superpixels possibilita o aumento da velocidade de processamento posterior, uma vez que a quantidade de pixels diminui consideravelmente em relação a imagem original.
+A segmentação de imagens consiste em dividir uma imagem em um conjunto de regiões logicamente agrupadas, de modo a reunir áreas que contém informação relevante dentro dos grupos \cite{DOMINGUEZ}. Nessa tarefa, tomamos os \textit{pixels} como unidades básicas de processamento \cite{WANG201728}. O agrupamento de pixels em unidades maiores permite um tipo de segmentação chamado de \textit{oversegmentation} \cite{WANG201728}, ilustrado na figura \ref{fig:superpixel}. O uso de superpixels possibilita o aumento da velocidade de processamento posterior, uma vez que a quantidade de pixels diminui consideravelmente em relação a imagem original.
 
 \begin{figure}[ht]
 \centering
@@ -73,7 +73,7 @@ Superpixels são estruturas que agrupam pixels semelhantes em conjuntos. O agrup
 Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou regiões, refletindo aspectos da imagem. Devem também ser executados em tempo próximo ao linear em relação a quantidade de pixels. Existem diversas abordagens para a geração de superpixels \cite{SLIC}. Dentre elas, podemos classificá-las, segundo o método de agrupamento em: 
 
 \begin{itemize}
- \item \textit{Algoritmos baseados em grafos}: utilizam abordagem baseadas em grafos para correlação entre pixels e criação dos conjuntos. Dentre os algoritmos baseados em grafos podemos citar o \textit{Efficient Graph-Based Image Segmentation} \cite{FELZENSZWALB};
+ \item \textit{Algoritmos baseados em grafos}: utilizam abordagem baseadas em grafos para correlação entre pixels e criação dos conjuntos. Dentre os algoritmos baseados em grafos podemos citar o \textit{Efficient Graph-Based Image Segmentation} (EGB) \cite{FELZENSZWALB};
  \item \textit{Algoritmos baseados em gradiente ascendente}: utilizam métodos de gradiente ascendente iterativamente até que os critérios de convergência correspondam a forma de um superpixel. Nesse conjunto, podemos  citar as abordagens \textit{watersheds} \cite{WATERSHEDS} \cite{SLIC}
  \item \textit{Algoritmos de clusterização iterativo}: utilizam métodos de clusterização, como o \textit{k-means}, para produção de superpixels. Um exemplo desse algoritmo é o SLIC (\textit{Simple Linear Iteravite Clustering}) \cite{SLIC}
 \end{itemize}
@@ -92,7 +92,7 @@ cada pixel é associado com o centro do cluster mais próximo, de modo que a reg
 \label{alg:SLIC}
 \end{figure}
 
-Para o algoritmo descrito na figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância D entre os conjuntos. Devido ao algoritmo trabalhar no \textit{colorspace} CIELAB, com o espaço-plano \textit{labxy}, a posição do pixel pode assumir um intervalo de valores de acordo com o tamanho da image \ref{alg:SLIC}. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. Para isso é utilizado a fórmula $D=\sqrt{d_c^2+(d_s/S)^2*m^2}$, onde $D$ corresponde a distância em 5 dimensões do espaço labxy, $d_c$ e $d_s$ correspondem à proximidade de cores e espacial; e $m^2$ corresponde a distância máxima entre cores no cluster \cite{SLIC}. Para o cálculo da distância em imagens em escala cinza, é utilizada a distância Euclidiana.
+Para o algoritmo descrito na figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância D entre os conjuntos. Devido ao algoritmo trabalhar no \textit{colorspace} CIELAB, com o espaço-plano \textit{labxy}, a posição do pixel pode assumir um intervalo de valores de acordo com o tamanho da image \ref{alg:SLIC}. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. Para isso é utilizado a fórmula $D=\sqrt{d_c^2+(d_s/S)^2 \cdot m^2}$, onde $D$ corresponde a distância em 5 dimensões do espaço labxy, $d_c$ e $d_s$ correspondem à proximidade de cores e espacial; e $m^2$ corresponde a distância máxima entre cores no cluster \cite{SLIC}. Para o cálculo da distância em imagens em escala cinza, é utilizada a distância Euclidiana.
 
 Uma etapa extra no processo de pós processamento é a união de \textit{pixels orfãos}. Esses pixels são adicionados ao cluster mais próximo usando o algoritmo de componentes conexos \cite{SLIC}.
 
@@ -102,14 +102,14 @@ Devido a limitação do espaço de pesquisa do algoritmo SLIC, a complexidade do
 \centering
 \includegraphics[width=1.\textwidth]{slic_segmentation_compare.png}
 \caption{Fronteiras e coloração pelo valor médio dos superpixels SLIC/SLICO, para diferentes quantidades de superpixels}
-\label{alg:SLIC}
+\label{fig:SLICO}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Superpixels Felzenszwalb} \label{sssec:slic}
+\subsubsection{Superpixels EGB} \label{sssec:slic}
 
-Os superpixels Felzenszwalb e Huttenlocher utilizam uma abordagem baseadas em grafos não direcionados. Nessa abordagem, cada pixel corresponde a um nó do grafo e a ligação entre eles ocorre por meio de arestas, com pesos não negativos, correspondente a medida de dissimilaridade \cite{FELZENSZWALB}. 
+Os superpixels EGB (\textit{Efficient Graph-Based Image Segmentation}) utilizam uma abordagem baseadas em grafos não direcionados. Nessa abordagem, cada pixel corresponde a um nó do grafo e a ligação entre eles ocorre por meio de arestas, com pesos não negativos, correspondente a medida de dissimilaridade \cite{FELZENSZWALB}. 
 
 Na abordagem baseada em grafos, a segmentação $S$ é uma partição dos vértices $V$ em componentes, no qual cada região $C \in S$ corresponde a um componente conectado em um grafo $G'=(V,E')$, onde $E' \subseteq E$, ou seja, a segmentação é induzida por um conjuntos de vértices em arestas $E$ \cite{FELZENSZWALB}.
 
@@ -123,7 +123,7 @@ O algoritmo Felzenszwalb, utilizando pesos inteiros e ordenação por contagem, 
 \centering
 \includegraphics[width=1.\textwidth]{felz_segmentation_compare.png}
 \caption{Fronteiras e coloração pelo valor médio dos superpixels Felzenszwalb, para diferentes quantidades de superpixels}
-\label{alg:SLIC}
+\label{fig:EGB}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -159,17 +159,47 @@ A fim de avaliar a efetividade das segmentações, tradicionalmente são utiliza
 
 \section{Materiais e Métodos} \label{sec:mat_metodos}
 
-Para realização dos testes foram escolhidos os algoritmos de \textit{oversegmentation} SLIC e Felzenszwalb. Os algoritmos possuem características diferentes: o SLIC é capaz de produzir superpixels em formas regulares, porém não é tão preciso ao separar os conjuntos por similaridade; por outro lado, o Felzenszwalb, produz pixels irregulares, porém é mais aderente aos contornos e as bordas das imagens.
+Para realização dos testes foram escolhidos os algoritmos de \textit{oversegmentation} SLIC e Felzenszwalb. Os algoritmos possuem características diferentes: o SLIC é capaz de produzir superpixels em formas regulares, porém não é tão preciso ao separar os conjuntos por similaridade; por outro lado, o Felzenszwalb, produz pixels irregulares, porém é mais aderente às diferenças de cores entre pixels.
 
 A utilização de ambos os algoritmos busca obter um melhor desempenho em relação a utilização  dos algoritmos de forma isolada. O primeiro algoritmo aplicado às imagens foi o algoritmo SLIC, gerando superpixels de formas regulares. Em seguida, foi realizada recoloração da imagem utilizando o valor do pixel médio do superpixel. Em seguida, foi aplicado às imagens o método de Felzenszwalb.
 
-Após a execução dos algoritmos, foram gerados \textit{clusters} com as correlações entre os grupos, utilizando o algoritmo SLINK (\textit{single-linkage}). Os cortes foram realizados em diversos níveis da hierarquia e os resultados foram avaliados manualmente, a fim de encontrar bons parâmetros para o algoritmo. 
+Os resultados dos algoritmo utilizando a composição entre os métodos SLIC e Felzenszwalb foram comparados aos melhores resultados obtidos para os algoritmos executados separadamente. O método descrito foi aplicado à base de dados BSDB500 e comparados com as imagens manualmente segmentadas (\textit{ground-truth}).
 
-O método descrito acima foi aplicado à base de dados BSDB500 e comparados com as imagens manualmente segmentadas (\textit{ground-thruth}). Para avaliação das imagens, foi utilizada a classificação visual, comparando a qualidade dos resultados e o método de avaliação SEISM, que fornece informações supervisionadas sobre a qualidade da segmentação.
+%Após a execução dos algoritmos, foram gerados \textit{clusters} com as correlações entre os grupos, utilizando o algoritmo SLINK (\textit{single-linkage}). Os cortes foram realizados em diversos níveis da hierarquia e os resultados foram avaliados manualmente, a fim de encontrar bons parâmetros para o algoritmo. 
 
 Os algoritmos SLIC e Felzenszwalb utilizados para confecção desse trabalho foram obtidos pela biblioteca Scikit-Image \footnote{http://scikit-image.org/docs/dev/api/skimage.segmentation.html}. O algoritmo de geração de cluster SLINK foi obtido na biblioteca Scipy.org \footnote{https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html}. Os códigos fontes gerados estão disponíveis publicamente no Github \footnote{https://github.com/falreis/image-segm}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Avaliação de Resultados} \label{sec:aval_resultados}
+
+Para avaliação das imagens, foi primeiramente utilizada a classificação visual, comparando a qualidade dos resultados. Em seguida utilizou-se um método de comparação de precisão e revocação, com auxílio de um algoritmo para avaliação do resultado. \footnote{Código disponível em: https://github.com/Htiango/Image-Segmentation/blob/master/main/eval\_boundary.py}
+
+O método de precisão é um método de classificação binária, onde a precisão (textit{prediction}) corresponde à ``fração de instâncias recuperadas que são relevantes'', enquanto revocação (\textit{recall}), corresponde ``a fração de instâncias relevantes que são recuperadas'' \cite{WIKI_PREC_RECALL}. Ambos os métodos são avaliados juntos para que possam identificar 4 tipos de valores possíveis:
+
+\begin{itemize}
+ \item Verdadeiros Positivos - correspondem aos valores que foram corretamente classificados como positivos;
+ \item Falsos Negativos - correspondem aos valores que foram classificados incorretamente como negativos;
+ \item Falsos Positivos - correspondem aos valores que foram classificados incorretamente como positivos;
+ \item Verdadeiros Negativos - correspondem aos valores que foram classificados corretamente como negativos \cite{WIKI_PREC_RECALL};
+\end{itemize}
+
+A classificação descrita acima está ilustrada na figura \ref{fig:PREC_RECALL}. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.4\textwidth]{precision_recall.png}
+\caption{Precisão e revocação. Adaptado de \cite{WIKI_PREC_RECALL}}
+\label{fig:PREC_RECALL}
+\end{figure}
+
+A classificação de precisão e revocação pode ser dada por uma média harmônica, chamada de \textit{F-measure} ou \textit{F-score} balanceada. Essa medida é dada pela fórmula \cite{WIKI_PREC_RECALL}:
+
+\begin{equation}
+ F=2 \cdot \frac{precis \cdot revoc}{precis+revoc}
+\end{equation}
+
+A medida é aproximadamente a média quando seus valores estão próximos, porém o valor é baixo quando as médias estão distantes, favorecendo métodos com baixo número de falsos positivos e verdadeiros negativos \cite{WIKI_PREC_RECALL}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
