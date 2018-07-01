@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  27 JUN 2018 19:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  1 JUL 2018 14:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -440,35 +440,22 @@ Now handling font encoding U ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-)) (./sbc-template.aux
-
-LaTeX Warning: Label `alg:SLIC' multiply defined.
-
-
-LaTeX Warning: Label `sssec:slic' multiply defined.
-
-
-LaTeX Warning: Label `alg:SLIC' multiply defined.
-
-
-LaTeX Warning: Label `alg:SLIC' multiply defined.
-
-)
+)) (./sbc-template.aux)
 \openout1 = `sbc-template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 30.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -572,157 +559,125 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 31.
+(Font)              <12> on input line 32.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 31.
+(Font)              <8> on input line 32.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 31.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 31.
+(Font)              <6> on input line 32.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 33.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 34.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 42.
-<./images/superpixels.png, id=1, 724.95844pt x 233.37187pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
+<./images/superpixels.png, id=1, 716.6775pt x 232.61906pt>
 File: ./images/superpixels.png Graphic file (type png)
 <use ./images/superpixels.png>
-Package pdftex.def Info: ./images/superpixels.png  used on input line 48.
-(pdftex.def)             Requested size: 426.79135pt x 137.38908pt.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 49.
+Package pdftex.def Info: ./images/superpixels.png  used on input line 49.
+(pdftex.def)             Requested size: 426.79135pt x 138.52896pt.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 50.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 49.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 50.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 2846) in paragraph at lines 71--72
-\OT1/ptm/m/n/12 Superpixels s[]ao es-tru-tu-ras que agru-pam pi-xels se-me-lhan
--tes em con-jun-tos. O
- []
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 77.
 
-
-Underfull \hbox (badness 1052) in paragraph at lines 71--72
-\OT1/ptm/m/n/12 agru-pa-mento pos-si-bi-lita a redu[][]ao de com-ple-xi-dade da
-s ta-re-fas de pro-ces-sa-mento
- []
-
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 76.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 76.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
  [2 <./images/superpixels.png (PNG copy)>]
-<./images/algoritmo_slic.png, id=18, 319.1925pt x 383.18156pt>
+<./images/algoritmo_slic.png, id=21, 319.1925pt x 383.18156pt>
 File: ./images/algoritmo_slic.png Graphic file (type png)
 <use ./images/algoritmo_slic.png>
-Package pdftex.def Info: ./images/algoritmo_slic.png  used on input line 90.
+Package pdftex.def Info: ./images/algoritmo_slic.png  used on input line 91.
 (pdftex.def)             Requested size: 256.07741pt x 307.41684pt.
  [3 <./images/algoritmo_slic.png>]
-<./images/slic_segmentation_compare.png, id=28, 715.17188pt x 261.97874pt>
+<./images/slic_segmentation_compare.png, id=28, 722.7pt x 264.99pt>
 File: ./images/slic_segmentation_compare.png Graphic file (type png)
 <use ./images/slic_segmentation_compare.png>
 Package pdftex.def Info: ./images/slic_segmentation_compare.png  used on input 
-line 103.
-(pdftex.def)             Requested size: 426.79135pt x 156.34099pt.
-
-Underfull \hbox (badness 1173) in paragraph at lines 118--119
-[]\OT1/ptm/m/n/12 Para a compara[][]ao en-tre as regi[]oes []e uti-li-zada uma 
-fun[][]ao de corte (\OT1/ptm/m/it/12 th-
- []
-
-
-Underfull \hbox (badness 1715) in paragraph at lines 118--119
-\OT1/ptm/m/it/12 reshold\OT1/ptm/m/n/12 ) $\OML/cmm/m/it/12 ^^\$\OT1/ptm/m/n/12
- , a fim de me-dir o grau de diferen[]a en-tre os com-po-nen-tes. Esse
- []
-
-
-Underfull \hbox (badness 4429) in paragraph at lines 118--119
-\OT1/ptm/m/n/12 grau deve ser su-pe-rior a diferen[]a in-terna m[]^^Pnima, evi-
-den-ci-ando uma borda
- []
-
-
-Underfull \hbox (badness 1803) in paragraph at lines 118--119
-\OT1/ptm/m/n/12 [[]]. A fun[][]ao de corte, no al-go-ritmo, []e uti-
- []
-
-
-Underfull \hbox (badness 1460) in paragraph at lines 118--119
-\OT1/ptm/m/n/12 li-zada ba-se-ado no ta-ma-nho do com-po-nente $\OML/cmm/m/it/1
-2 ^^\ \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 k=\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
-\OMS/cmsy/m/n/12 j$\OT1/ptm/m/n/12 , onde $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
-\OMS/cmsy/m/n/12 j$ \OT1/ptm/m/n/12 cor-res-ponde
- []
-
-
-Underfull \hbox (badness 2111) in paragraph at lines 118--119
-\OT1/ptm/m/n/12 ao ta-ma-nho do com-po-nente $\OML/cmm/m/it/12 C$ \OT1/ptm/m/n/
-12 e $\OML/cmm/m/it/12 k$ \OT1/ptm/m/n/12 cor-res-ponde a um par[]ametro do al-
-go-ritmo
- []
-
-[4 <./images/slic_segmentation_compare.png>]
-<./images/felz_segmentation_compare.png, id=34, 719.68875pt x 268.75406pt>
+line 104.
+(pdftex.def)             Requested size: 426.79135pt x 156.49234pt.
+<./images/felz_segmentation_compare.png, id=29, 719.68875pt x 264.23718pt>
 File: ./images/felz_segmentation_compare.png Graphic file (type png)
 <use ./images/felz_segmentation_compare.png>
 Package pdftex.def Info: ./images/felz_segmentation_compare.png  used on input 
-line 124.
-(pdftex.def)             Requested size: 426.79135pt x 159.38368pt.
- [5 <./images/felz_segmentation_compare.png (PNG copy)>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 170.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 170.
- [6]
-<./images/slic_hierarquia_particoes.png, id=41, 776.9025pt x 218.31563pt>
+line 125.
+(pdftex.def)             Requested size: 426.79135pt x 156.70496pt.
+ [4 <./images/slic_segmentation_compare.png (PNG copy)>] [5 <./images/felz_segm
+entation_compare.png (PNG copy)>]
+<./images/dendrogram.png, id=37, 1167.36125pt x 1126.2075pt>
+File: ./images/dendrogram.png Graphic file (type png)
+<use ./images/dendrogram.png>
+Package pdftex.def Info: ./images/dendrogram.png  used on input line 184.
+(pdftex.def)             Requested size: 426.79135pt x 411.74112pt.
+
+
+! Package inputenc Error: Unicode char ṕ (U+1E55)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.191 ...xtit{groundtruth}, em uma abordagem emṕ
+                                                  írica, não foram validad...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<./images/slic_hierarquia_particoes.png, id=38, 776.9025pt x 218.31563pt>
 File: ./images/slic_hierarquia_particoes.png Graphic file (type png)
 <use ./images/slic_hierarquia_particoes.png>
 Package pdftex.def Info: ./images/slic_hierarquia_particoes.png  used on input 
-line 186.
+line 195.
 (pdftex.def)             Requested size: 426.79135pt x 119.93404pt.
- (./sbc-template.bbl [7 <./images/slic_hierarquia_particoes.png (PNG copy)>]) [
-8] (./sbc-template.aux)
+[6] [7 <./images/dendrogram.png>]
+<./images/precision_recall.png, id=47, 71.69183pt x 115.632pt>
+File: ./images/precision_recall.png Graphic file (type png)
+<use ./images/precision_recall.png>
+Package pdftex.def Info: ./images/precision_recall.png  used on input line 228.
 
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
-Here is how much of TeX's memory you used:
- 3510 strings out of 492982
- 47875 string characters out of 6134897
- 124683 words of memory out of 5000000
- 6989 multiletter control sequences out of 15000+600000
- 25281 words of font info for 49 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 41i,8n,28p,931b,312s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/ut
-mri8a.pfb>
-Output written on sbc-template.pdf (8 pages, 1539500 bytes).
+(pdftex.def)             Requested size: 170.71393pt x 275.3593pt.
+ [8 <./images/slic_hierarquia_particoes.png (PNG copy)> <./images/precision_rec
+all.png>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 246.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 246.
+ (./sbc-template.bbl [9]) [10]
+(./sbc-template.aux) ){/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.en
+c}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uh
+vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/font
+s/type1/urw/times/utmri8a.pfb>
+Output written on sbc-template.pdf (10 pages, 1463990 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+ 101 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

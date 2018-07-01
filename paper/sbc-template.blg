@@ -7,48 +7,54 @@ Warning--entry type for "WIKI_CLUSTER_HIERARCHY" isn't style-file defined
 --line 139 of file sbc-template.bib
 Warning--entry type for "WIKI_CLUSTER_ANALYSIS" isn't style-file defined
 --line 170 of file sbc-template.bib
+Warning--entry type for "WIKI_PREC_RECALL" isn't style-file defined
+--line 200 of file sbc-template.bib
+Warning--entry type for "DENDROGRAM" isn't style-file defined
+--line 219 of file sbc-template.bib
+Warning--entry type for "WIKI_DENDROGRAM" isn't style-file defined
+--line 227 of file sbc-template.bib
 Warning--can't use both volume and number fields in DOMINGUEZ
 Warning--empty publisher in DOMINGUEZ
 Warning--can't use both author and editor fields in ROKACH
-You've used 15 entries,
+You've used 16 entries,
             1935 wiz_defined-function locations,
-            584 strings with 6097 characters,
-and the built_in function-call counts, 6202 in all, are:
-= -- 605
-> -- 247
-< -- 11
-+ -- 84
-- -- 82
-* -- 544
-:= -- 1063
+            579 strings with 5875 characters,
+and the built_in function-call counts, 5962 in all, are:
+= -- 588
+> -- 216
+< -- 15
++ -- 73
+- -- 70
+* -- 496
+:= -- 1036
 add.period$ -- 42
-call.type$ -- 15
-change.case$ -- 114
+call.type$ -- 16
+change.case$ -- 113
 chr.to.int$ -- 13
-cite$ -- 18
-duplicate$ -- 225
-empty$ -- 438
-format.name$ -- 107
-if$ -- 1226
-int.to.chr$ -- 3
+cite$ -- 19
+duplicate$ -- 227
+empty$ -- 422
+format.name$ -- 96
+if$ -- 1172
+int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 15
-newline$ -- 75
-num.names$ -- 45
-pop$ -- 95
+missing$ -- 13
+newline$ -- 77
+num.names$ -- 48
+pop$ -- 91
 preamble$ -- 1
-purify$ -- 116
+purify$ -- 115
 quote$ -- 0
-skip$ -- 174
+skip$ -- 183
 stack$ -- 0
-substring$ -- 480
-swap$ -- 34
+substring$ -- 444
+swap$ -- 32
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 86
+type$ -- 92
 warning$ -- 3
 while$ -- 48
 width$ -- 0
-write$ -- 190
-(There were 5 warnings)
+write$ -- 194
+(There were 8 warnings)

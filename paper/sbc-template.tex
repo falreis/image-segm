@@ -1,3 +1,4 @@
+\tracingstats=0
 \iffalse\documentclass{article}\fi
 \documentclass[12pt]{article}
 
@@ -13,7 +14,7 @@
 %\usepackage[numbib,nottoc]{blindtext}
 %\usepackage[numbib,nottoc]{tocbibind}
 
-\graphicspath{ {./images/} }
+\graphicspath{ {./images/} } 
 
 \sloppy
 
@@ -46,7 +47,7 @@ A segmentação de imagens consiste em dividir uma imagem em um conjunto de regi
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1.\textwidth]{superpixels.png}
-\caption{Imagem segmentada utilizando superpixel SLIC, com aproximadamente 500 segmentos.}
+\caption{Imagens segmentadas utilizando superpixels SLIC e EGB}
 \label{fig:superpixel}
 \end{figure}
 
@@ -66,9 +67,9 @@ O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teori
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Superpixels} \label{ssec:superpixels}
+\subsection{Superpixels} \label{ssec:super}
 
-Superpixels são estruturas que agrupam pixels semelhantes em conjuntos. O agrupamento possibilita a redução de complexidade das tarefas de processamento \cite{SLIC}, ao reduzir a quantidade de itens a serem processados. Os superpixels são utilizados na área de visão computacional para solução de vasto número de problemas, como detecção de contorno \cite{CONTOUR}, segmentação \cite{SEG_MERGE} e localização de objetos \cite{SEG_LOCALIZ}.
+%Superpixels são estruturas que agrupam pixels semelhantes em conjuntos. O agrupamento possibilita a redução de complexidade das tarefas de processamento \cite{SLIC}, ao reduzir a quantidade de itens a serem processados. Os superpixels são utilizados na área de visão computacional para solução de vasto número de problemas, como detecção de contorno \cite{CONTOUR}, segmentação \cite{SEG_MERGE} e localização de objetos \cite{SEG_LOCALIZ}.
 
 Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou regiões, refletindo aspectos da imagem. Devem também ser executados em tempo próximo ao linear em relação a quantidade de pixels. Existem diversas abordagens para a geração de superpixels \cite{SLIC}. Dentre elas, podemos classificá-las, segundo o método de agrupamento em: 
 
@@ -107,7 +108,7 @@ Devido a limitação do espaço de pesquisa do algoritmo SLIC, a complexidade do
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Superpixels EGB} \label{sssec:slic}
+\subsubsection{Superpixels EGB} \label{sssec:egb}
 
 Os superpixels EGB (\textit{Efficient Graph-Based Image Segmentation}) utilizam uma abordagem baseadas em grafos não direcionados. Nessa abordagem, cada pixel corresponde a um nó do grafo e a ligação entre eles ocorre por meio de arestas, com pesos não negativos, correspondente a medida de dissimilaridade \cite{FELZENSZWALB}. 
 
@@ -115,21 +116,21 @@ Na abordagem baseada em grafos, a segmentação $S$ é uma partição dos vérti
 
 No algoritmo foi definido um predicado $D$ para avaliação da evidência de bordas entre dois componentes de uma segmentação. O algoritmo avalia a dissimilaridade entre elementos de dois componentes e os compara com elementos vizinhos em um mesmo componente, de modo que o algoritmo possa se adaptar em relação as características dos dados \cite{FELZENSZWALB}. 
 
-Para a comparação entre as regiões é utilizada uma função de corte (\textit{threshold}) $\tau$, a fim de medir o grau de diferença entre os componentes. Esse grau deve ser superior a diferença interna mínima, evidenciando uma borda \cite{FELZENSZWALB}. A função de corte, no algoritmo, é utilizada baseado no tamanho do componente $\tau=k/|C|$, onde $|C|$ corresponde ao tamanho do componente $C$ e $k$ corresponde a um parâmetro do algoritmo \cite{FELZENSZWALB}.
+%Para a comparação entre as regiões é utilizada uma função de corte (\textit{threshold}) $\tau$, a fim de medir o grau de diferença entre os componentes. Esse grau deve ser superior a diferença interna mínima, evidenciando uma borda \cite{FELZENSZWALB}. A função de corte, no algoritmo, é utilizada baseado no tamanho do componente $\tau=k/|C|$, onde $|C|$ corresponde ao tamanho do componente $C$ e $k$ corresponde a um parâmetro do algoritmo \cite{FELZENSZWALB}.
 
-O algoritmo Felzenszwalb, utilizando pesos inteiros e ordenação por contagem, pode ser executado com custo linear, com complexidade $O(nlogn)$, para qualquer método de ordenação \cite{FELZENSZWALB}.
+O algoritmo EGB, utilizando pesos inteiros e ordenação por contagem, pode ser executado com custo linear, com complexidade $O(nlogn)$, para qualquer método de ordenação \cite{FELZENSZWALB}. 
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1.\textwidth]{felz_segmentation_compare.png}
-\caption{Fronteiras e coloração pelo valor médio dos superpixels Felzenszwalb, para diferentes quantidades de superpixels}
+\caption{Fronteiras e coloração pelo valor médio dos superpixels EGB, para diferentes quantidades de superpixels}
 \label{fig:EGB}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Clusters} \label{sssec:clusters}
+\subsection{Clusters} \label{ssec:clusters}
 
 Análise de cluster é a tarega de agrupar conjunto de objetos de forma que um grupo (cluster) tenha características em comuns a outros grupos, ou clusters \cite{WIKI_CLUSTER_ANALYSIS}. Clusters hierárquicos é um método de análise de clusters a fim de buscar hierarquias entre eles. As estratégias para hierarquização de cluster se dividem em dois grupos \cite{ROKACH}:
 
@@ -159,21 +160,57 @@ A fim de avaliar a efetividade das segmentações, tradicionalmente são utiliza
 
 \section{Materiais e Métodos} \label{sec:mat_metodos}
 
-Para realização dos testes foram escolhidos os algoritmos de \textit{oversegmentation} SLIC e Felzenszwalb. Os algoritmos possuem características diferentes: o SLIC é capaz de produzir superpixels em formas regulares, porém não é tão preciso ao separar os conjuntos por similaridade; por outro lado, o Felzenszwalb, produz pixels irregulares, porém é mais aderente às diferenças de cores entre pixels.
+Para confecção do trabalho foram escolhidos os algoritmos de \textit{oversegmentation} SLIC e EGB. Os algoritmos possuem características diferentes: o SLIC é capaz de produzir superpixels em formas regulares, porém não é tão preciso ao separar os conjuntos por similaridade; por outro lado, o EGB, produz pixels irregulares, porém é mais aderente às diferenças de cores entre pixels.
 
-A utilização de ambos os algoritmos busca obter um melhor desempenho em relação a utilização  dos algoritmos de forma isolada. O primeiro algoritmo aplicado às imagens foi o algoritmo SLIC, gerando superpixels de formas regulares. Em seguida, foi realizada recoloração da imagem utilizando o valor do pixel médio do superpixel. Em seguida, foi aplicado às imagens o método de Felzenszwalb.
+%Nos testes realizados foi realizada hierarquização dos resultados obtidos após a geração de superpixels SLIC e também sobre a composição de superpixels SLIC+EGB. Os resultados das hierarquizações foram comparados aos melhores resultados de segmentação obtidos pela segmentação SLIC, EGB e SLIC+EGB sem hierarquização. O método de hierarquização está descrito na seção \ref{ssec:hierquia_segm}, enquanto o método de avaliação de resultados está descrito na seção \ref{ssec:aval_resultados}. Os resultados dos testes estão disponíveis na seção \ref{sec:testes}.
 
-Os resultados dos algoritmo utilizando a composição entre os métodos SLIC e Felzenszwalb foram comparados aos melhores resultados obtidos para os algoritmos executados separadamente. O método descrito foi aplicado à base de dados BSDB500 e comparados com as imagens manualmente segmentadas (\textit{ground-truth}).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Após a execução dos algoritmos, foram gerados \textit{clusters} com as correlações entre os grupos, utilizando o algoritmo SLINK (\textit{single-linkage}). Os cortes foram realizados em diversos níveis da hierarquia e os resultados foram avaliados manualmente, a fim de encontrar bons parâmetros para o algoritmo. 
+\subsection{Hierarquia de Segementação} \label{ssec:hierquia_segm}
 
-Os algoritmos SLIC e Felzenszwalb utilizados para confecção desse trabalho foram obtidos pela biblioteca Scikit-Image \footnote{http://scikit-image.org/docs/dev/api/skimage.segmentation.html}. O algoritmo de geração de cluster SLINK foi obtido na biblioteca Scipy.org \footnote{https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html}. Os códigos fontes gerados estão disponíveis publicamente no Github \footnote{https://github.com/falreis/image-segm}.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Hieraquia Segmentação SLIC} \label{sssec:hierq_segm_slic}
+
+A hierarquização de partições SLIC tem como objetivo possibilitar a utilização do algoritmo para produzir segmentação em diferentes níveis de detalhamento: desde um nível mais detalhado até um nível macro. Os diferentes níveis hierárquicos podem ser combinados em termos do contorno das hierárquias, permitindo a representação das hierarquias indexadas como bordas suaves, chamadas Mapas de Contorno Ultramétrico (UCM - \textit{Ultrametric Contour Map}) \cite{ULTRAMETRIC}.
+
+Para construção das hierarquias foram gerados \textit{clusters} com as correlações entre os grupos de superpixels, pós segmentação inicial SLIC. Foi utilizado o algoritmo SLINK (\textit{single-linkage}) para agrupamento dos superpixels próximos, gerando uma árvore com as correlações entre os superpixels.
+
+Para verificação da estrutura da árvore foi utilizado um dendrograma, como representado na figura \ref{fig:DENDROGRAM}. Dendrograma é um tipo de árvore utilizado para ilustração de uma clusterização hierarquica \cite{WIKI_DENDROGRAM}. Frequentemente é utilizado nas áreas de biologia para indicar a mudanças evolucionárias entre ancestrais e descendentes, baseados em suas características \cite{DENDROGRAM}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.\textwidth]{dendrogram.png}
+\caption{Dendrograma com a correlação entre os superpixels}
+\label{fig:DENDROGRAM}
+\end{figure}
+
+Em um dendrograma é possível realizar cortes horizontais ou verticais na hierarquia, a fim de obter tipos de agrupamentos diferentes. No trabalho realizado somente foram realizados cortes horizontais. Os cortes foram feitos em diversos níveis da hierarquia. 
+
+Devido às características da segmentação, quando comparados ao \textit{groundtruth}, em uma abordagem emṕírica, não foram validados todos os níveis hierárquicos, somente níveis intermediários que apresentaram melhores resultados. Com isso, foi estabelecido um nível máximo e mínimo para os cortes na hierarquia, de modo que os cortes foram feitos dentro de um intervalo, evitando nós com baixa probabilidade adequação ao \textit{groundtruth}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.\textwidth]{slic_hierarquia_particoes.png}
+\caption{Fronteiras das Hierarquia de partições utilizando superpixel SLICO.}
+\label{fig:hierarq_partit}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Avaliação de Resultados} \label{sec:aval_resultados}
+\subsubsection{Hieraquia Segmentação SLIC+EGB} \label{sssec:hierq_segm_segb}
 
-Para avaliação das imagens, foi primeiramente utilizada a classificação visual, comparando a qualidade dos resultados. Em seguida utilizou-se um método de comparação de precisão e revocação, com auxílio de um algoritmo para avaliação do resultado. \footnote{Código disponível em: https://github.com/Htiango/Image-Segmentation/blob/master/main/eval\_boundary.py}
+A utilização de ambos os algoritmos busca obter um melhor desempenho em relação a utilização  dos algoritmos de forma isolada. O primeiro algoritmo aplicado às imagens foi o algoritmo SLIC, gerando superpixels de formas regulares. Em seguida, foi realizada recoloração da imagem utilizando o valor do pixel médio do superpixel. Em seguida, foi aplicado às imagens o método EGB.
+
+Os resultados dos algoritmo utilizando a composição entre os métodos SLIC e EGB foram comparados aos melhores resultados obtidos para os algoritmos executados separadamente. O método descrito foi aplicado à base de dados BSDB500 e comparados com as imagens manualmente segmentadas (\textit{ground-truth}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Avaliação de Resultados} \label{ssec:aval_resultados}
+
+Para avaliação das imagens, foi primeiramente utilizada a classificação visual, comparando a qualidade dos resultados. Em seguida utilizou-se um método de comparação de precisão e revocação.
 
 O método de precisão é um método de classificação binária, onde a precisão (textit{prediction}) corresponde à ``fração de instâncias recuperadas que são relevantes'', enquanto revocação (\textit{recall}), corresponde ``a fração de instâncias relevantes que são recuperadas'' \cite{WIKI_PREC_RECALL}. Ambos os métodos são avaliados juntos para que possam identificar 4 tipos de valores possíveis:
 
@@ -203,6 +240,18 @@ A medida é aproximadamente a média quando seus valores estão próximos, poré
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Código Fonte e Bibliotecas Utilizados} \label{ssec:cod_fonte}
+
+Os algoritmos SLIC e EGB utilizados para confecção desse trabalho foram obtidos pela biblioteca Scikit-Image\footnote{http://scikit-image.org/docs/dev/api/skimage.segmentation.html}. 
+Os algoritmos de geração de cluster SLINK e representação de dendrogramas foram obtido na biblioteca Scipy.org\footnote{https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html}. 
+O algoritmo de avaliação do resultado, utilizando método de previsão e revocação foi obtido no projeto Image-Segmentation, no Github\footnote{https://github.com/Htiango/Image-Segmentation/blob/master/main/eval\_boundary.py}.
+
+Os códigos fontes gerados, realizando as segmentações, hierarquias e avaliação dos resultados estão disponíveis publicamente na página pessoal do autor no Github \footnote{https://github.com/falreis/image-segm}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -210,13 +259,6 @@ A medida é aproximadamente a média quando seus valores estão próximos, poré
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1.\textwidth]{slic_hierarquia_particoes.png}
-\caption{Fronteiras das Hierarquia de partições utilizando superpixel SLICO.}
-\label{alg:SLIC}
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
