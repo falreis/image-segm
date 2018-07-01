@@ -46,18 +46,21 @@ def color_superpixel(image, segments):
     return new_image, n_seg, colors
     
 
-def generate_ultrametric_map(blank_image, colors, segments, n_seg):
+def generate_ultrametric_map(blank_image, colors, segments, n_seg, step = 1, start_at = 0, stop_at = 1):
     Z = hierarchy.linkage(colors)
     
-    it = n_seg
-    step = 1 #int(n_seg/it)
+    if start_at <= 0:
+        it = n_seg
+    else:
+        it = start_at
+        
     cutz_images = []
     cutz_nsegs = []
     
     cutz_images.append(mark_boundaries(blank_image, segments, color=(0, 0, 0)))
     cutz_nsegs.append(n_seg)
 
-    for ix in range(it-1, 1, -1):
+    for ix in range(it-1, stop_at, -step):
         cluster_size= ix #int(ix * step)
 
         cutz = hierarchy.cut_tree(Z, n_clusters = cluster_size)
