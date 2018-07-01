@@ -69,7 +69,7 @@ O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teori
 
 \subsection{Superpixels} \label{ssec:super}
 
-%Superpixels são estruturas que agrupam pixels semelhantes em conjuntos. O agrupamento possibilita a redução de complexidade das tarefas de processamento \cite{SLIC}, ao reduzir a quantidade de itens a serem processados. Os superpixels são utilizados na área de visão computacional para solução de vasto número de problemas, como detecção de contorno \cite{CONTOUR}, segmentação \cite{SEG_MERGE} e localização de objetos \cite{SEG_LOCALIZ}.
+Superpixels são estruturas que agrupam pixels semelhantes em conjuntos. O agrupamento possibilita a redução de complexidade das tarefas de processamento \cite{SLIC}, ao reduzir a quantidade de itens a serem processados. Os superpixels são utilizados na área de visão computacional para solução de vasto número de problemas, como detecção de contorno \cite{CONTOUR}, segmentação \cite{SEG_MERGE} e localização de objetos \cite{SEG_LOCALIZ}.
 
 Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou regiões, refletindo aspectos da imagem. Devem também ser executados em tempo próximo ao linear em relação a quantidade de pixels. Existem diversas abordagens para a geração de superpixels \cite{SLIC}. Dentre elas, podemos classificá-las, segundo o método de agrupamento em: 
 
@@ -116,7 +116,7 @@ Na abordagem baseada em grafos, a segmentação $S$ é uma partição dos vérti
 
 No algoritmo foi definido um predicado $D$ para avaliação da evidência de bordas entre dois componentes de uma segmentação. O algoritmo avalia a dissimilaridade entre elementos de dois componentes e os compara com elementos vizinhos em um mesmo componente, de modo que o algoritmo possa se adaptar em relação as características dos dados \cite{FELZENSZWALB}. 
 
-%Para a comparação entre as regiões é utilizada uma função de corte (\textit{threshold}) $\tau$, a fim de medir o grau de diferença entre os componentes. Esse grau deve ser superior a diferença interna mínima, evidenciando uma borda \cite{FELZENSZWALB}. A função de corte, no algoritmo, é utilizada baseado no tamanho do componente $\tau=k/|C|$, onde $|C|$ corresponde ao tamanho do componente $C$ e $k$ corresponde a um parâmetro do algoritmo \cite{FELZENSZWALB}.
+Para a comparação entre as regiões é utilizada uma função de corte (\textit{threshold}) $\tau$, a fim de medir o grau de diferença entre os componentes. Esse grau deve ser superior a diferença interna mínima, evidenciando uma borda \cite{FELZENSZWALB}. A função de corte, no algoritmo, é utilizada baseado no tamanho do componente $\tau=k/|C|$, onde $|C|$ corresponde ao tamanho do componente $C$ e $k$ corresponde a um parâmetro do algoritmo \cite{FELZENSZWALB}.
 
 O algoritmo EGB, utilizando pesos inteiros e ordenação por contagem, pode ser executado com custo linear, com complexidade $O(nlogn)$, para qualquer método de ordenação \cite{FELZENSZWALB}. 
 
@@ -162,7 +162,7 @@ A fim de avaliar a efetividade das segmentações, tradicionalmente são utiliza
 
 Para confecção do trabalho foram escolhidos os algoritmos de \textit{oversegmentation} SLIC e EGB. Os algoritmos possuem características diferentes: o SLIC é capaz de produzir superpixels em formas regulares, porém não é tão preciso ao separar os conjuntos por similaridade; por outro lado, o EGB, produz pixels irregulares, porém é mais aderente às diferenças de cores entre pixels.
 
-%Nos testes realizados foi realizada hierarquização dos resultados obtidos após a geração de superpixels SLIC e também sobre a composição de superpixels SLIC+EGB. Os resultados das hierarquizações foram comparados aos melhores resultados de segmentação obtidos pela segmentação SLIC, EGB e SLIC+EGB sem hierarquização. O método de hierarquização está descrito na seção \ref{ssec:hierquia_segm}, enquanto o método de avaliação de resultados está descrito na seção \ref{ssec:aval_resultados}. Os resultados dos testes estão disponíveis na seção \ref{sec:testes}.
+Nos testes realizados foi realizada hierarquização dos resultados obtidos após a geração de superpixels SLIC e também sobre a composição de superpixels SLIC+EGB. Os resultados das hierarquizações foram comparados aos melhores resultados de segmentação obtidos pela segmentação SLIC, EGB e SLIC+EGB sem hierarquização. O método de hierarquização está descrito na seção \ref{ssec:hierquia_segm}, enquanto o método de avaliação de resultados está descrito na seção \ref{ssec:aval_resultados}. Os resultados dos testes estão disponíveis na seção \ref{sec:testes}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -188,22 +188,40 @@ Para verificação da estrutura da árvore foi utilizado um dendrograma, como re
 
 Em um dendrograma é possível realizar cortes horizontais ou verticais na hierarquia, a fim de obter tipos de agrupamentos diferentes. No trabalho realizado somente foram realizados cortes horizontais. Os cortes foram feitos em diversos níveis da hierarquia. 
 
-Devido às características da segmentação, quando comparados ao \textit{groundtruth}, em uma abordagem emṕírica, não foram validados todos os níveis hierárquicos, somente níveis intermediários que apresentaram melhores resultados. Com isso, foi estabelecido um nível máximo e mínimo para os cortes na hierarquia, de modo que os cortes foram feitos dentro de um intervalo, evitando nós com baixa probabilidade adequação ao \textit{groundtruth}.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1.\textwidth]{slic_hierarquia_particoes.png}
-\caption{Fronteiras das Hierarquia de partições utilizando superpixel SLICO.}
-\label{fig:hierarq_partit}
-\end{figure}
+Devido às características da segmentação, quando comparados ao \textit{groundtruth}, não foram validados todos os níveis hierárquicos, somente níveis intermediários que apresentaram melhores resultados em testes empíricos. Com isso, foi estabelecido um nível máximo e mínimo para os cortes na hierarquia, de modo que os cortes foram feitos dentro de um intervalo, evitando nós com baixa probabilidade adequação ao \textit{groundtruth}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Hieraquia Segmentação SLIC+EGB} \label{sssec:hierq_segm_segb}
 
-A utilização de ambos os algoritmos busca obter um melhor desempenho em relação a utilização  dos algoritmos de forma isolada. O primeiro algoritmo aplicado às imagens foi o algoritmo SLIC, gerando superpixels de formas regulares. Em seguida, foi realizada recoloração da imagem utilizando o valor do pixel médio do superpixel. Em seguida, foi aplicado às imagens o método EGB.
+Uma outra abordagem realizada nesse trabalho foi a segmentação conjunta utilizando o método SLIC e em sequência, o método EGB. A utilização de ambos os algoritmos busca obter um melhor desempenho em relação a utilização  dos algoritmos de forma isolada. 
 
-Os resultados dos algoritmo utilizando a composição entre os métodos SLIC e EGB foram comparados aos melhores resultados obtidos para os algoritmos executados separadamente. O método descrito foi aplicado à base de dados BSDB500 e comparados com as imagens manualmente segmentadas (\textit{ground-truth}).
+O primeiro algoritmo aplicado às imagens foi o algoritmo SLIC, gerando superpixels de formas regulares. Em seguida, foi realizada recoloração da imagem utilizando o valor do pixel médio do superpixel, a fim de tornar a imagem mais simples, com características mais evidentes. Em seguida, foi aplicado às imagens o método EGB.
+
+A partir do resultado do processo conjunto de segmentação, foi realizado o mesmo procedimento de hierarquização utilizado para o algoritmo SLIC. Nele, utilizou-se o algoritmo SLINK (\textit{single-linkage}) para agrupamento dos superpixels próximos. Em seguidas cortes horizontais foram feitos na hierarquia, gerando diferentes níveis de visualização.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Análise Multiescala} \label{ssec:analise_multiescala}
+
+Para que os níveis hierarquicos possam garantir a manutenção da informação, agrupando apenas características semelhantes, as hierarquias devem seguir os princípios de análise multiescala \cite{SILVIO_ZENILTON}. Esses princípios asseguram manutenção de duas características principais \cite{SILVIO_ZENILTON}:
+
+\begin{itemize}
+ \item Causalidade - um contorno presente em uma escala $k1$ deve estar presente em qualquer escala $k2 < k1$ \cite{SILVIO_ZENILTON};
+ \item Localidade - a medida em que o número de regiões diminui, os contornos devem ser estáveis (não devem se mover). A união corresponde a manutenção das bordas dos grupos que se fundiram \cite{SILVIO_ZENILTON}.
+\end{itemize}
+
+No método de hierarquização descrito nesse trabalho manteve as características da análise multiescala. A figura \ref{fig:hierarq_partit} mostra os possíveis cortes na hierarquia de uma segmentação SLIC+EGB, sem recoloração da imagem. Nesse modelo, a segmentação é capaz de unir pixels por similaridade.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.\textwidth]{slic_hierarquia_particoes.png}
+\caption{Hierarquia de partições utilizando superpixel SLIC+EGB.}
+\label{fig:hierarq_partit}
+\end{figure}
+
+É importante salientar que os métodos originais (SLIC e EGB), quando apenas variados os parâmetros de criação de superpixels não mantém as características de análise multiescala, conforme podemos ver nas figuras \ref{fig:SLICO} e \ref{fig:EGB}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -256,6 +274,30 @@ Os códigos fontes gerados, realizando as segmentações, hierarquias e avaliaç
 
 
 \section{Testes, Resultados e Discussões} \label{sec:testes}
+
+Para avaliação do desempenho dos algoritmos foi executada a segmentação das imagens do conjunto de treinamento da base de dados  BSDB500 (\textit{Berkeley Segmentation Data Set}). O conjunto possui 200 imagens naturais com seus respectivos \textit{ground-truth} feito por anotações humanas \cite{BSDS500}. 
+
+Os algoritmos foram aplicados a base de testes e comparados com os \textit{ground-truths} disponíveis na base de dados. A adequação do algoritmo em relação ao \textit{ground-truth} foi feita por meio do mecanismo de precisão e revocação, utilizando a medida \textit{F-measure}, conforme descrito na seção \ref{ssec:aval_resultados}.
+
+A  fim de obter a melhor parametrização possível, foram executados diversos testes para cada algoritmo. Somente o algoritmo EGB não foi extensamente executado a fim de obter a melhor parametrização, uma vez que os valores obtidos pelos autores estão disponíveis no artigo \textit{Efficient Graph-Based Image Segmentation} \cite{FELZENSZWALB}. 
+
+Os algoritmos hierárquicos foram executados e a melhor partição obtida para todo o conjunto de imagens (ODS - \textit{Optimal Data Set Scale}) \cite{CONT_EMPIRICAL} foi utilizada. Em seguida os valores foram comparados aos demais algoritmos utilizando com métrica a medida \textit{F-measure}. A eficiência média dos algoritmos está ilustrada na figura \cite{fig:FMEASURE_AVG}.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.\textwidth]{fmeasure_avg.png}
+\caption{Valor médio de \textit{F-measure} para os algoritmos.}
+\label{fig:FMEASURE_AVG}
+\end{figure}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.\textwidth]{fmeasure_max.png}
+\caption{Valor máximo de \textit{F-measure} para os algoritmos.}
+\label{fig:FMEASURE_MAX}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

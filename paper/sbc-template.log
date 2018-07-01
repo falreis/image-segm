@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  1 JUL 2018 14:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  1 JUL 2018 20:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -592,15 +592,25 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 77.
+Underfull \hbox (badness 2846) in paragraph at lines 72--73
+\OT1/ptm/m/n/12 Superpixels s[]ao es-tru-tu-ras que agru-pam pi-xels se-me-lhan
+-tes em con-jun-tos. O
+ []
 
+
+Underfull \hbox (badness 1052) in paragraph at lines 72--73
+\OT1/ptm/m/n/12 agru-pa-mento pos-si-bi-lita a redu[][]ao de com-ple-xi-dade da
+s ta-re-fas de pro-ces-sa-mento
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 77.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
  [2 <./images/superpixels.png (PNG copy)>]
-<./images/algoritmo_slic.png, id=21, 319.1925pt x 383.18156pt>
+<./images/algoritmo_slic.png, id=18, 319.1925pt x 383.18156pt>
 File: ./images/algoritmo_slic.png Graphic file (type png)
 <use ./images/algoritmo_slic.png>
 Package pdftex.def Info: ./images/algoritmo_slic.png  used on input line 91.
@@ -612,72 +622,123 @@ File: ./images/slic_segmentation_compare.png Graphic file (type png)
 Package pdftex.def Info: ./images/slic_segmentation_compare.png  used on input 
 line 104.
 (pdftex.def)             Requested size: 426.79135pt x 156.49234pt.
-<./images/felz_segmentation_compare.png, id=29, 719.68875pt x 264.23718pt>
+
+Underfull \hbox (badness 1173) in paragraph at lines 119--120
+[]\OT1/ptm/m/n/12 Para a compara[][]ao en-tre as regi[]oes []e uti-li-zada uma 
+fun[][]ao de corte (\OT1/ptm/m/it/12 th-
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 119--120
+\OT1/ptm/m/it/12 reshold\OT1/ptm/m/n/12 ) $\OML/cmm/m/it/12 ^^\$\OT1/ptm/m/n/12
+ , a fim de me-dir o grau de diferen[]a en-tre os com-po-nen-tes. Esse
+ []
+
+
+Underfull \hbox (badness 4429) in paragraph at lines 119--120
+\OT1/ptm/m/n/12 grau deve ser su-pe-rior a diferen[]a in-terna m[]^^Pnima, evi-
+den-ci-ando uma borda
+ []
+
+
+Underfull \hbox (badness 1803) in paragraph at lines 119--120
+\OT1/ptm/m/n/12 [[]]. A fun[][]ao de corte, no al-go-ritmo, []e uti-
+ []
+
+
+Underfull \hbox (badness 1460) in paragraph at lines 119--120
+\OT1/ptm/m/n/12 li-zada ba-se-ado no ta-ma-nho do com-po-nente $\OML/cmm/m/it/1
+2 ^^\ \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 k=\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
+\OMS/cmsy/m/n/12 j$\OT1/ptm/m/n/12 , onde $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
+\OMS/cmsy/m/n/12 j$ \OT1/ptm/m/n/12 cor-res-ponde
+ []
+
+
+Underfull \hbox (badness 2111) in paragraph at lines 119--120
+\OT1/ptm/m/n/12 ao ta-ma-nho do com-po-nente $\OML/cmm/m/it/12 C$ \OT1/ptm/m/n/
+12 e $\OML/cmm/m/it/12 k$ \OT1/ptm/m/n/12 cor-res-ponde a um par[]ametro do al-
+go-ritmo
+ []
+
+[4 <./images/slic_segmentation_compare.png (PNG copy)>]
+<./images/felz_segmentation_compare.png, id=33, 719.68875pt x 264.23718pt>
 File: ./images/felz_segmentation_compare.png Graphic file (type png)
 <use ./images/felz_segmentation_compare.png>
 Package pdftex.def Info: ./images/felz_segmentation_compare.png  used on input 
 line 125.
 (pdftex.def)             Requested size: 426.79135pt x 156.70496pt.
- [4 <./images/slic_segmentation_compare.png (PNG copy)>] [5 <./images/felz_segm
-entation_compare.png (PNG copy)>]
-<./images/dendrogram.png, id=37, 1167.36125pt x 1126.2075pt>
+ [5 <./images/felz_segmentation_compare.png (PNG copy)>]
+Underfull \hbox (badness 1490) in paragraph at lines 165--166
+\OT1/ptm/m/n/12 Os re-sul-ta-dos das hierarquiza[][]oes fo-ram com-pa-ra-dos ao
+s me-lho-res re-sul-ta-dos de
+ []
+
+[6]
+<./images/dendrogram.png, id=40, 1167.36125pt x 1126.2075pt>
 File: ./images/dendrogram.png Graphic file (type png)
 <use ./images/dendrogram.png>
 Package pdftex.def Info: ./images/dendrogram.png  used on input line 184.
 (pdftex.def)             Requested size: 426.79135pt x 411.74112pt.
-
-
-! Package inputenc Error: Unicode char ṕ (U+1E55)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.191 ...xtit{groundtruth}, em uma abordagem emṕ
-                                                  írica, não foram validad...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-<./images/slic_hierarquia_particoes.png, id=38, 776.9025pt x 218.31563pt>
+ [7 <./images/dendrogram.png>]
+<./images/slic_hierarquia_particoes.png, id=46, 716.6775pt x 269.50688pt>
 File: ./images/slic_hierarquia_particoes.png Graphic file (type png)
 <use ./images/slic_hierarquia_particoes.png>
 Package pdftex.def Info: ./images/slic_hierarquia_particoes.png  used on input 
-line 195.
-(pdftex.def)             Requested size: 426.79135pt x 119.93404pt.
-[6] [7 <./images/dendrogram.png>]
-<./images/precision_recall.png, id=47, 71.69183pt x 115.632pt>
+line 219.
+(pdftex.def)             Requested size: 426.79135pt x 160.49634pt.
+ [8 <./images/slic_hierarquia_particoes.png (PNG copy)>]
+<./images/precision_recall.png, id=50, 71.69183pt x 115.632pt>
 File: ./images/precision_recall.png Graphic file (type png)
 <use ./images/precision_recall.png>
-Package pdftex.def Info: ./images/precision_recall.png  used on input line 228.
+Package pdftex.def Info: ./images/precision_recall.png  used on input line 246.
 
 (pdftex.def)             Requested size: 170.71393pt x 275.3593pt.
- [8 <./images/slic_hierarquia_particoes.png (PNG copy)> <./images/precision_rec
-all.png>]
+ [9 <./images/precision_recall.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 246.
+(Font)              <7> on input line 264.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 246.
- (./sbc-template.bbl [9]) [10]
-(./sbc-template.aux) ){/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.en
-c}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
-w/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uh
-vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/font
-s/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (10 pages, 1463990 bytes).
+(Font)              <5> on input line 264.
+
+
+LaTeX Warning: Citation `fig:FMEAS_AVG' on page 10 undefined on input line 284.
+
+
+<./images/fmeasure_avg.png, id=55, 740.7675pt x 328.97906pt>
+File: ./images/fmeasure_avg.png Graphic file (type png)
+<use ./images/fmeasure_avg.png>
+Package pdftex.def Info: ./images/fmeasure_avg.png  used on input line 289.
+(pdftex.def)             Requested size: 426.79135pt x 189.54298pt.
+LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <10> not available
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 290.
+LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <10> not available
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 290.
+<./images/fmeasure_max.png, id=56, 740.0147pt x 331.2375pt>
+File: ./images/fmeasure_max.png Graphic file (type png)
+<use ./images/fmeasure_max.png>
+Package pdftex.def Info: ./images/fmeasure_max.png  used on input line 297.
+(pdftex.def)             Requested size: 426.79135pt x 191.03625pt.
+(./sbc-template.bbl [10] [11 <./images/fmeasure_avg.png (PNG copy)> <./images/f
+measure_max.png (PNG copy)>]) [12] (./sbc-template.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ){/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sbc-template.pdf (12 pages, 1429939 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 113 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

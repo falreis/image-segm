@@ -13,6 +13,12 @@ Arbelaez, P. (2006).
 \newblock In {\em 2006 Conference on Computer Vision and Pattern Recognition
   Workshop (CVPRW'06)}, pages 182--182.
 
+\bibitem[Arbelaez et~al. 2009]{CONT_EMPIRICAL}
+Arbelaez, P., Maire, M., Fowlkes, C., and Malik, J. (2009).
+\newblock From contours to regions: An empirical evaluation.
+\newblock In {\em 2009 IEEE Conference on Computer Vision and Pattern
+  Recognition}, pages 2294--2301.
+
 \bibitem[Arbelaez et~al. 2011]{BSDS500}
 Arbelaez, P., Maire, M., Fowlkes, C., and Malik, J. (2011).
 \newblock Contour detection and hierarchical image segmentation.
@@ -27,6 +33,25 @@ Felzenszwalb, P.~F. and Huttenlocher, D.~P. (2004).
 \newblock Efficient graph-based image segmentation.
 \newblock {\em International Journal of Computer Vision}, 59(2):167--181.
 
+\bibitem[Fulkerson et~al. 2009]{SEG_LOCALIZ}
+Fulkerson, B., Vedaldi, A., and Soatto, S. (2009).
+\newblock Class segmentation and object localization with superpixel
+  neighborhoods.
+\newblock In {\em 2009 IEEE 12th International Conference on Computer Vision},
+  pages 670--677.
+
+\bibitem[Guimar{\~a}es and Patroc{\'i}nio 2013]{SILVIO_ZENILTON}
+Guimar{\~a}es, S. J.~F. and Patroc{\'i}nio, Z. K.~G. (2013).
+\newblock A graph-based hierarchical image segmentation method based on a
+  statistical merging predicate.
+\newblock In Petrosino, A., editor, {\em Image Analysis and Processing -- ICIAP
+  2013}, pages 11--20, Berlin, Heidelberg. Springer Berlin Heidelberg.
+
+\bibitem[Liu et~al. 2016]{SEG_MERGE}
+Liu, T., Seyedhosseini, M., and Tasdizen, T. (2016).
+\newblock Image segmentation using hierarchical merge tree.
+\newblock {\em IEEE Transactions on Image Processing}, 25(10):4596--4607.
+
 \bibitem[Pont-Tuset and Marques 2016]{SEISM}
 Pont-Tuset, J. and Marques, F. (2016).
 \newblock Supervised evaluation of image segmentation and object proposal
@@ -39,8 +64,8 @@ Rokach, L. and Maimon, O. (2005).
 \newblock {\em Clustering Methods}, pages 321--352.
 \newblock Springer US, Boston, MA.
 
-\bibitem[{Science Dictionary} 2018]{DENDROGRAM}
-{Science Dictionary} (2018).
+\bibitem[Science-Dictionary 2018]{DENDROGRAM}
+Science-Dictionary (2018).
 \newblock What is dendrogram?
 
 \bibitem[Sibson 1973]{SLINK}
@@ -56,10 +81,16 @@ Vincent, L. and Soille, P. (1991).
 \newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
   13(6):583--598.
 
-\bibitem[Wang et~al. 2017]{WANG201728}
-Wang, M., Liu, X., Gao, Y., Ma, X., and Soomro, N.~Q. (2017).
+\bibitem[Wang et~al. 2017a]{WANG201728}
+Wang, M., Liu, X., Gao, Y., Ma, X., and Soomro, N.~Q. (2017a).
 \newblock Superpixel segmentation: A benchmark.
 \newblock {\em Signal Processing: Image Communication}, 56:28 -- 39.
+
+\bibitem[Wang et~al. 2017b]{CONTOUR}
+Wang, X.-Y., Wu, C.-W., Xiang, K., and Chen, W. (2017b).
+\newblock Efficient local and global contour detection based on superpixels.
+\newblock {\em Journal of Visual Communication and Image Representation}, 48:77
+  -- 87.
 
 \bibitem[Wikipedia 2018a]{WIKI_CLUSTER_ANALYSIS}
 Wikipedia (2018a).
