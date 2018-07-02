@@ -13,13 +13,14 @@ Warning--entry type for "DENDROGRAM" isn't style-file defined
 --line 218 of file sbc-template.bib
 Warning--entry type for "WIKI_DENDROGRAM" isn't style-file defined
 --line 226 of file sbc-template.bib
-Warning--I didn't find a database entry for "fig:FMEAS_AVG"
+Warning--I didn't find a database entry for "fig:PREC_RECALL"
+Warning--I didn't find a database entry for "fig:FMEASURE_AVG"
 Warning--can't use both volume and number fields in DOMINGUEZ
 Warning--empty publisher in DOMINGUEZ
 Warning--can't use both author and editor fields in ROKACH
 You've used 21 entries,
             1935 wiz_defined-function locations,
-            619 strings with 6966 characters,
+            621 strings with 7002 characters,
 and the built_in function-call counts, 8513 in all, are:
 = -- 842
 > -- 315
@@ -58,4 +59,4 @@ warning$ -- 3
 while$ -- 68
 width$ -- 0
 write$ -- 261
-(There were 9 warnings)
+(There were 10 warnings)

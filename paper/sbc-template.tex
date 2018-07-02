@@ -281,8 +281,7 @@ Os algoritmos foram aplicados a base de testes e comparados com os \textit{groun
 
 A  fim de obter a melhor parametrização possível, foram executados diversos testes para cada algoritmo. Somente o algoritmo EGB não foi extensamente executado a fim de obter a melhor parametrização, uma vez que os valores obtidos pelos autores estão disponíveis no artigo \textit{Efficient Graph-Based Image Segmentation} \cite{FELZENSZWALB}. 
 
-Os algoritmos hierárquicos foram executados e a melhor partição obtida para todo o conjunto de imagens (ODS - \textit{Optimal Data Set Scale}) \cite{CONT_EMPIRICAL} foi utilizada. Em seguida os valores foram comparados aos demais algoritmos utilizando com métrica a medida \textit{F-measure}. A eficiência média dos algoritmos está ilustrada na figura \cite{fig:FMEASURE_AVG}.
-
+Os algoritmos hierárquicos foram executados e a melhor partição obtida para todo o conjunto de imagens (ODS - \textit{Optimal Data Set Scale}) \cite{CONT_EMPIRICAL} foi utilizada. Em seguida os valores foram comparados aos demais algoritmos utilizando com métrica a medida \textit{F-measure}. A eficiência média dos algoritmos está ilustrada na figura \ref{fig:FMEASURE_AVG}.
 
 \begin{figure}[ht]
 \centering
@@ -291,6 +290,13 @@ Os algoritmos hierárquicos foram executados e a melhor partição obtida para t
 \label{fig:FMEASURE_AVG}
 \end{figure}
 
+Conforme observamos na figura \ref{fig:FMEASURE_AVG}, o valor médio do algoritmo SLIC+EGB foi ligeiramente superior aos valores obtidos pelo algoritmo EGB. O algoritmo EGB teve valor superior ao algoritmo SLIC executado sem hierarquização. 
+
+Os algoritmos hierárquicos, conforme figura \ref{fig:FMEASURE_AVG}, resultaram em valores superiores aos algoritmos sem hierarquização. O resultado observado é superior àqueles sem hierarquização. Esse resultado é previsível devido a possibilidade de melhor adequação a base de dados.
+
+Outro ponto importante a ser observado na figura \ref{fig:FMEASURE_AVG} é o desvio padrão médios das amostras. Observa-se que os resultados dos algoritmo SLIC+EGB foram mais estáveis, variando menos em relação ao algoritmo EGB, quando executado separadamente. Mais uma vez, os algoritmos nas versões com hierarquização tiveram resultados superiores aos algoritmos sem hierarquização.
+
+Uma outra análise possível para os algoritmos são os valores máximos de \textit{F-measure}. Esses valores estão ilustrados na figura \ref{fig:FMEASURE_MAX}. A figura mostra mais uma vez que as melhores hierarquias obtiveram resultados superiores às versões sem hierarquia. Por fim, vemos que o resultado máximo do algoritmo EGB é superior ao algoritmo SLIC+EGB, diferindo do valor médio das amostras.
 
 \begin{figure}[ht]
 \centering
@@ -307,6 +313,16 @@ Os algoritmos hierárquicos foram executados e a melhor partição obtida para t
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conclusão} \label{sec:conclusao}
+
+Os algoritmos de geração de superpixels avaliados nesse trabalho tiveram resultados baixos para tarefas de segmentação e detecção de contornos, mesmo quando combinados. As versões hierarquicas dos algoritmos apresentou resultados superiores àqueles obtidos sem hieraquias.
+
+O algoritmo SLIC, apesar das vantagens de produzir superpixels de tamanhos regulares, apresentou a menor eficiência para segmentação de imagens, em relação aos demais algoritmos estudados. A combinação dos algoritmos SLIC+EGB para detecção de contornos não apresentou resultado ligeiramente  superior em relação ao algoritmo EGB utilizado separadamente. Além disso, o custo computacional para execução dos dois algoritmos em sequência, bem como os custos para recoloração da imagens mostraram-se injustificáveis frente aos ganhos obtidos.
+
+A utilização de hierarquias após a aplicação dos métodos de geração de \textit{superpixels} aumentou consideravelmente os resultados dos métodos. Apesar da utilização não resultar em alto grau de desempenho na detecção de bordas e segmentação, justifica-se a utilização das versões hierárquias em relação às versões originais dos algoritmos quando houver necessidade de \textit{oversegmentation}. Os parâmetros descritos nesse trabalho podem ser utilizados como passo inicial para refinamento dos parâmetros em trabalhos futuros.
+
+Os métodos hierarquicos apresentados no trabalho também permitem a utilização em diferentes cenários, principalmente para redução e agrupamento de informação relevante em imagens, atendendo aos preceitos de análise multiescala.
+
+Como trabalho futuro sugere-se a utilização dos algoritmos mostrados nesse trabalho como passo de pré processamento de outras técnicas de segmentação, como redes neurais convolucionais. Esses passos de segmentação iniciais podem permitir treinamento mais rápido e menor quantidade de informação a ser processadas, além de identificação mais rápida de bordas e contornos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
