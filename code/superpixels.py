@@ -57,11 +57,13 @@ def generate_ultrametric_map(blank_image, colors, segments, n_seg, step = 1, sta
     cutz_images = []
     cutz_nsegs = []
     
-    cutz_images.append(mark_boundaries(blank_image, segments, color=(0, 0, 0)))
-    cutz_nsegs.append(n_seg)
+    if start_at <= 0:
+        cutz_images.append(mark_boundaries(blank_image, segments, color=(0, 0, 0)))
+        cutz_nsegs.append(n_seg)
 
     for ix in range(it-1, stop_at, -step):
         cluster_size= ix #int(ix * step)
+        #print(cluster_size)
 
         cutz = hierarchy.cut_tree(Z, n_clusters = cluster_size)
         cutz_segs = copy.deepcopy(segments)
@@ -71,14 +73,15 @@ def generate_ultrametric_map(blank_image, colors, segments, n_seg, step = 1, sta
                 index = segments[i][j]
                 cutz_segs[i][j] = cutz[index][0]
 
-        cutz_images.append(mark_boundaries(blank_image, cutz_segs, color=(0, 0, 0)))
+        cutz_images.append(mark_boundaries(blank_image, cutz_segs, color=(0, 0, 0))[:,:,0:1])
         cutz_nsegs.append(cluster_size)
     
     return cutz_images, cutz_nsegs
 
 
 def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size = 30
-                  , ultrametric = True, save=False, filename = '', paths=[]):
+                  , ultrametric = True, save=False, filename = '', paths=[]
+                  , ult_step = 1, ult_start_at = 0, ult_stop_at = 1):
     '''
     Process image using SLIC and Felzenszwalb algorithms
      * image: image for processing
@@ -91,6 +94,9 @@ def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size =
      * paths: [0]: segmentation's path
               [1]: border's path
               [2]: ultrametric map's path
+     * ult_step: ultrametric step parameter
+     * ult_start_at: ultrametric start_at parameter
+     * ult_stop_at: ultrametric stop_at parameter
     '''
     #process slic
     segs_slic = slic(image, n_segments = slic_segments, slic_zero = True)
@@ -107,7 +113,8 @@ def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size =
     
     #ultrametric
     if ultrametric == True:
-        ultra_images, ultra_nsegs = generate_ultrametric_map(img, colors_fs, segs_fs, n_segs_fs)
+        ultra_images, ultra_nsegs = generate_ultrametric_map(img, colors_fs, segs_fs, n_segs_fs
+                                                             , ult_step, ult_start_at, ult_stop_at)
     else:
         ultra_images = None
     
