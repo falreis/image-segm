@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  1 JUL 2018 21:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.6.15)  4 JUL 2018 11:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **sbc-template.tex
 (./sbc-template.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+Babel <3.18> and hyphenation patterns for 4 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
@@ -104,7 +104,290 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+
+
+! LaTeX Error: Command \caption@eh already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.223   section about errors.\MessageBreak\@ehc}
+                                                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+\captionmargin=\dimen122
+\captionmargin@=\dimen123
+\captionwidth=\dimen124
+\caption@tempdima=\dimen125
+
+! LaTeX Error: Command \setcaptionmargin already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.451   \caption@setmargin}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \setcaptionwidth already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.463   \caption@setwidth}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+\caption@indent=\dimen126
+\caption@parindent=\dimen127
+\caption@hangindent=\dimen128
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\vskip \abovecaptionski
+p \captionlinewidth \hsize \def \captionlabel {#1}\def \captiontext {#2}\usecap
+tionstyle {\caption@style }\vskip \belowcaptionskip .
+
+! Package caption Error: You can't use both, the (obsolete) caption2 *and*
+(caption)                the (current) caption package.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56 }{}
+        
+If you do not understand this error, please take a closer look
+at the documentation of the `caption2' package.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
+\c@KVtest=\count91
+\sf@farskip=\skip45
+\sf@captopadj=\dimen129
+\sf@capskip=\skip46
+\sf@nearskip=\skip47
+\c@subfigure=\count92
+\c@subfigure@save=\count93
+\c@lofdepth=\count94
+\c@subtable=\count95
+\c@subtable@save=\count96
+\c@lotdepth=\count97
+\sf@top=\skip48
+\sf@bottom=\skip49
+) (/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip50
+\subfigcapskip=\skip51
+\subfigcaptopadj=\dimen130
+\subfigbottomskip=\skip52
+\subfigcapmargin=\dimen131
+\subfiglabelskip=\skip53
+
+
+! LaTeX Error: Command \c@subfigure already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.113 \newcounter{subfigure}
+                            [figure]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \l@subfigure already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.123 ...xxxline{\ext@subfigure}{2}{3.8em}{2.5em}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \c@lofdepth already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.124 \newcounter{lofdepth}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \c@subtable already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.126 \newcounter{subtable}
+                           [table]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \l@subtable already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.136 ...dxxxline{\ext@subtable}{2}{3.8em}{2.5em}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \c@lotdepth already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.137 \newcounter{lotdepth}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip54
+\subfig@bottom=\skip55
+
+
+! LaTeX Error: Command \listsubcaptions already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.294     {\@listsubcaptions{\@captype}}}
+                                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \@listsubcaptions already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.305   \gdef\@subfigcaptionlist{}}
+                                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \@dottedxxxline already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.358   \fi}
+            
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \subfloat@label already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.386 ...           \@nameuse{thesub\@captype}.)}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \sf@@sub@label already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.411   \@esphack}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Command \subref already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.413   \ref{sub@#1}}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2018/02/14 3.18 The Babel package
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
@@ -115,11 +398,11 @@ Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2018/02/14 3.18 Babel common definitions
-\babel@savecnt=\count91
-\U@D=\dimen122
+\babel@savecnt=\count98
+\U@D=\dimen132
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@dirlevel=\count92
+\bbl@dirlevel=\count99
 )
 Package babel Info: Making " an active character on input line 145.
 ))
@@ -440,23 +723,24 @@ Now handling font encoding U ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-)) (./sbc-template.aux)
+))
+No file sbc-template.aux.
 \openout1 = `sbc-template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 30.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 32.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 *geometry* driver: auto-detecting
@@ -495,16 +779,16 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count93
-\scratchdimen=\dimen123
+\scratchcounter=\count100
+\scratchdimen=\dimen133
 \scratchbox=\box27
-\nofMPsegments=\count94
-\nofMParguments=\count95
+\nofMPsegments=\count101
+\nofMParguments=\count102
 \everyMPshowfont=\toks19
-\MPscratchCnt=\count96
-\MPscratchDim=\dimen124
-\MPnumerator=\count97
-\makeMPintoPDFobject=\count98
+\MPscratchCnt=\count103
+\MPscratchDim=\dimen134
+\MPnumerator=\count104
+\makeMPintoPDFobject=\count105
 \everyMPtoPDFconversion=\toks20
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -558,181 +842,360 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 32.
+(Font)              <12> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 32.
+(Font)              <8> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 32.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 32.
+(Font)              <6> on input line 34.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 34.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 34.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 36.
+
+
+LaTeX Warning: Citation `BSDS500' on page 1 undefined on input line 37.
+
+
+LaTeX Warning: Citation `BSDS500' on page 1 undefined on input line 41.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 45.
+
+LaTeX Warning: Citation `DOMINGUEZ' on page 1 undefined on input line 47.
+
+
+LaTeX Warning: Citation `WANG201728' on page 1 undefined on input line 47.
+
+
+LaTeX Warning: Citation `WANG201728' on page 1 undefined on input line 47.
+
+
+LaTeX Warning: Reference `fig:superpixel' on page 1 undefined on input line 47.
+
+
 <./images/superpixels.png, id=1, 716.6775pt x 232.61906pt>
 File: ./images/superpixels.png Graphic file (type png)
 <use ./images/superpixels.png>
-Package pdftex.def Info: ./images/superpixels.png  used on input line 49.
+Package pdftex.def Info: ./images/superpixels.png  used on input line 51.
 (pdftex.def)             Requested size: 426.79135pt x 138.52896pt.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 50.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
-File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
-)
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 50.
- [1
+LaTeX Warning: Citation `FELZENSZWALB' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Citation `SLIC' on page 1 undefined on input line 58.
+
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 2846) in paragraph at lines 72--73
-\OT1/ptm/m/n/12 Superpixels s[]ao es-tru-tu-ras que agru-pam pi-xels se-me-lhan
--tes em con-jun-tos. O
- []
+
+LaTeX Warning: Reference `sec:ref_teorico' on page 2 undefined on input line 62
+.
 
 
-Underfull \hbox (badness 1052) in paragraph at lines 72--73
-\OT1/ptm/m/n/12 agru-pa-mento pos-si-bi-lita a redu[][]ao de com-ple-xi-dade da
-s ta-re-fas de pro-ces-sa-mento
- []
+LaTeX Warning: Reference `sec:mat_metodos' on page 2 undefined on input line 62
+.
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 77.
+
+LaTeX Warning: Reference `sec:testes' on page 2 undefined on input line 62.
+
+
+LaTeX Warning: Reference `sec:conclusao' on page 2 undefined on input line 62.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 76.
+
+
+LaTeX Warning: Citation `CONTOUR' on page 2 undefined on input line 76.
+
+
+LaTeX Warning: Citation `SEG_MERGE' on page 2 undefined on input line 76.
+
+
+LaTeX Warning: Citation `SEG_LOCALIZ' on page 2 undefined on input line 76.
+
+
+LaTeX Warning: Citation `FELZENSZWALB' on page 2 undefined on input line 78.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 78.
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 81.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
- [2 <./images/superpixels.png (PNG copy)>]
-<./images/algoritmo_slic.png, id=18, 319.1925pt x 383.18156pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 81.
+
+
+LaTeX Warning: Citation `FELZENSZWALB' on page 2 undefined on input line 81.
+
+
+LaTeX Warning: Citation `WATERSHEDS' on page 2 undefined on input line 82.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 82.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 83.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 91.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 91.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 91.
+
+
+LaTeX Warning: Reference `alg:SLIC' on page 2 undefined on input line 91.
+
+[2 <./images/superpixels.png (PNG copy)>]
+<./images/algoritmo_slic.png, id=17, 319.1925pt x 383.18156pt>
 File: ./images/algoritmo_slic.png Graphic file (type png)
 <use ./images/algoritmo_slic.png>
-Package pdftex.def Info: ./images/algoritmo_slic.png  used on input line 91.
+Package pdftex.def Info: ./images/algoritmo_slic.png  used on input line 95.
 (pdftex.def)             Requested size: 256.07741pt x 307.41684pt.
- [3 <./images/algoritmo_slic.png>]
-<./images/slic_segmentation_compare.png, id=28, 722.7pt x 264.99pt>
+
+
+LaTeX Warning: Citation `SLIC' on page 3 undefined on input line 96.
+
+
+LaTeX Warning: Reference `alg:SLIC' on page 3 undefined on input line 100.
+
+
+LaTeX Warning: Reference `alg:SLIC' on page 3 undefined on input line 100.
+
+
+LaTeX Warning: Citation `SLIC' on page 3 undefined on input line 100.
+
+[3 <./images/algoritmo_slic.png>]
+
+LaTeX Warning: Citation `SLIC' on page 4 undefined on input line 102.
+
+
+LaTeX Warning: Citation `SLIC' on page 4 undefined on input line 104.
+
+<./images/slic_segmentation_compare.png, id=27, 722.7pt x 264.99pt>
 File: ./images/slic_segmentation_compare.png Graphic file (type png)
 <use ./images/slic_segmentation_compare.png>
 Package pdftex.def Info: ./images/slic_segmentation_compare.png  used on input 
-line 104.
+line 108.
 (pdftex.def)             Requested size: 426.79135pt x 156.49234pt.
 
-Underfull \hbox (badness 1173) in paragraph at lines 119--120
-[]\OT1/ptm/m/n/12 Para a compara[][]ao en-tre as regi[]oes []e uti-li-zada uma 
-fun[][]ao de corte (\OT1/ptm/m/it/12 th-
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 117.
 
 
-Underfull \hbox (badness 1715) in paragraph at lines 119--120
-\OT1/ptm/m/it/12 reshold\OT1/ptm/m/n/12 ) $\OML/cmm/m/it/12 ^^\$\OT1/ptm/m/n/12
- , a fim de me-dir o grau de diferen[]a en-tre os com-po-nen-tes. Esse
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 119.
 
 
-Underfull \hbox (badness 4429) in paragraph at lines 119--120
-\OT1/ptm/m/n/12 grau deve ser su-pe-rior a diferen[]a in-terna m[]^^Pnima, evi-
-den-ci-ando uma borda
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 121.
 
 
-Underfull \hbox (badness 1803) in paragraph at lines 119--120
-\OT1/ptm/m/n/12 [[]]. A fun[][]ao de corte, no al-go-ritmo, []e uti-
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 123.
 
 
-Underfull \hbox (badness 1460) in paragraph at lines 119--120
-\OT1/ptm/m/n/12 li-zada ba-se-ado no ta-ma-nho do com-po-nente $\OML/cmm/m/it/1
-2 ^^\ \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 k=\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
-\OMS/cmsy/m/n/12 j$\OT1/ptm/m/n/12 , onde $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
-\OMS/cmsy/m/n/12 j$ \OT1/ptm/m/n/12 cor-res-ponde
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 123.
 
 
-Underfull \hbox (badness 2111) in paragraph at lines 119--120
-\OT1/ptm/m/n/12 ao ta-ma-nho do com-po-nente $\OML/cmm/m/it/12 C$ \OT1/ptm/m/n/
-12 e $\OML/cmm/m/it/12 k$ \OT1/ptm/m/n/12 cor-res-ponde a um par[]ametro do al-
-go-ritmo
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 125.
 
 [4 <./images/slic_segmentation_compare.png (PNG copy)>]
-<./images/felz_segmentation_compare.png, id=33, 719.68875pt x 264.23718pt>
+<./images/felz_segmentation_compare.png, id=32, 719.68875pt x 264.23718pt>
 File: ./images/felz_segmentation_compare.png Graphic file (type png)
 <use ./images/felz_segmentation_compare.png>
 Package pdftex.def Info: ./images/felz_segmentation_compare.png  used on input 
-line 125.
+line 129.
 (pdftex.def)             Requested size: 426.79135pt x 156.70496pt.
- [5 <./images/felz_segmentation_compare.png (PNG copy)>]
-Underfull \hbox (badness 1490) in paragraph at lines 165--166
+
+
+LaTeX Warning: Citation `WIKI_CLUSTER_ANALYSIS' on page 5 undefined on input li
+ne 139.
+
+
+LaTeX Warning: Citation `ROKACH' on page 5 undefined on input line 139.
+
+
+LaTeX Warning: Citation `SLINK' on page 5 undefined on input line 146.
+
+
+LaTeX Warning: Citation `WIKI_CLUSTER_HIERARCHY' on page 5 undefined on input l
+ine 146.
+
+
+LaTeX Warning: Citation `ZHANG2008' on page 5 undefined on input line 155.
+
+
+LaTeX Warning: Citation `ZHANG2008' on page 5 undefined on input line 155.
+
+
+LaTeX Warning: Citation `ZHANG2008' on page 5 undefined on input line 157.
+
+
+LaTeX Warning: Citation `BSDS500' on page 5 undefined on input line 157.
+
+
+LaTeX Warning: Citation `BSDS500' on page 5 undefined on input line 157.
+
+[5 <./images/felz_segmentation_compare.png (PNG copy)>]
+
+LaTeX Warning: Citation `ZHANG2008' on page 6 undefined on input line 159.
+
+
+LaTeX Warning: Citation `SEISM' on page 6 undefined on input line 159.
+
+
+LaTeX Warning: Reference `ssec:hierquia_segm' on page 6 undefined on input line
+ 169.
+
+
+LaTeX Warning: Reference `ssec:aval_resultados' on page 6 undefined on input li
+ne 169.
+
+
+LaTeX Warning: Reference `sec:testes' on page 6 undefined on input line 169.
+
+
+Underfull \hbox (badness 1490) in paragraph at lines 169--170
 \OT1/ptm/m/n/12 Os re-sul-ta-dos das hierarquiza[][]oes fo-ram com-pa-ra-dos ao
 s me-lho-res re-sul-ta-dos de
  []
 
-[6]
-<./images/dendrogram.png, id=40, 1167.36125pt x 1126.2075pt>
+
+LaTeX Warning: Citation `ULTRAMETRIC' on page 6 undefined on input line 180.
+
+
+LaTeX Warning: Reference `fig:DENDROGRAM' on page 6 undefined on input line 184
+.
+
+
+LaTeX Warning: Citation `WIKI_DENDROGRAM' on page 6 undefined on input line 184
+.
+
+
+LaTeX Warning: Citation `DENDROGRAM' on page 6 undefined on input line 184.
+
+<./images/dendrogram.png, id=36, 1167.36125pt x 1126.2075pt>
 File: ./images/dendrogram.png Graphic file (type png)
 <use ./images/dendrogram.png>
-Package pdftex.def Info: ./images/dendrogram.png  used on input line 184.
+Package pdftex.def Info: ./images/dendrogram.png  used on input line 188.
 (pdftex.def)             Requested size: 426.79135pt x 411.74112pt.
- [7 <./images/dendrogram.png>]
-<./images/slic_hierarquia_particoes.png, id=46, 716.6775pt x 269.50688pt>
+[6] [7 <./images/dendrogram.png>]
+
+LaTeX Warning: Citation `SILVIO_ZENILTON' on page 8 undefined on input line 212
+.
+
+
+LaTeX Warning: Citation `SILVIO_ZENILTON' on page 8 undefined on input line 212
+.
+
+
+LaTeX Warning: Citation `SILVIO_ZENILTON' on page 8 undefined on input line 215
+.
+
+
+LaTeX Warning: Citation `SILVIO_ZENILTON' on page 8 undefined on input line 216
+.
+
+
+LaTeX Warning: Reference `fig:hierarq_partit' on page 8 undefined on input line
+ 219.
+
+<./images/slic_hierarquia_particoes.png, id=45, 716.6775pt x 269.50688pt>
 File: ./images/slic_hierarquia_particoes.png Graphic file (type png)
 <use ./images/slic_hierarquia_particoes.png>
 Package pdftex.def Info: ./images/slic_hierarquia_particoes.png  used on input 
-line 219.
+line 223.
 (pdftex.def)             Requested size: 426.79135pt x 160.49634pt.
- [8 <./images/slic_hierarquia_particoes.png (PNG copy)>]
-<./images/precision_recall.png, id=50, 71.69183pt x 115.632pt>
+
+LaTeX Warning: Reference `fig:SLICO' on page 8 undefined on input line 228.
+
+
+LaTeX Warning: Reference `fig:EGB' on page 8 undefined on input line 228.
+
+
+LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 8 undefined on input line 23
+7.
+
+[8 <./images/slic_hierarquia_particoes.png (PNG copy)>]
+
+LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 9 undefined on input line 24
+3.
+
+
+LaTeX Warning: Reference `fig:PREC_RECALL' on page 9 undefined on input line 24
+6.
+
+<./images/precision_recall.png, id=49, 71.69183pt x 115.632pt>
 File: ./images/precision_recall.png Graphic file (type png)
 <use ./images/precision_recall.png>
-Package pdftex.def Info: ./images/precision_recall.png  used on input line 246.
+Package pdftex.def Info: ./images/precision_recall.png  used on input line 250.
 
 (pdftex.def)             Requested size: 170.71393pt x 275.3593pt.
- [9 <./images/precision_recall.png>]
+
+LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 9 undefined on input line 25
+1.
+
+
+LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 9 undefined on input line 25
+5.
+
+
+LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 9 undefined on input line 26
+1.
+
+[9 <./images/precision_recall.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 264.
+(Font)              <7> on input line 268.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 264.
-<./images/fmeasure_avg.png, id=55, 740.7675pt x 328.97906pt>
-File: ./images/fmeasure_avg.png Graphic file (type png)
-<use ./images/fmeasure_avg.png>
-Package pdftex.def Info: ./images/fmeasure_avg.png  used on input line 288.
-(pdftex.def)             Requested size: 426.79135pt x 189.54298pt.
-LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 289.
-LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 289.
- [10]
-<./images/fmeasure_max.png, id=59, 740.0147pt x 331.2375pt>
-File: ./images/fmeasure_max.png Graphic file (type png)
-<use ./images/fmeasure_max.png>
-Package pdftex.def Info: ./images/fmeasure_max.png  used on input line 303.
-(pdftex.def)             Requested size: 426.79135pt x 191.03625pt.
- (./sbc-template.bbl
-[11 <./images/fmeasure_avg.png (PNG copy)> <./images/fmeasure_max.png (PNG copy
-)>] [12]) [13] (./sbc-template.aux) ){/usr/share/texlive/texmf-dist/fonts/enc/d
-vips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic
-/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (13 pages, 1430914 bytes).
+(Font)              <5> on input line 268.
+
+
+LaTeX Warning: Citation `BSDS500' on page 10 undefined on input line 282.
+
+
+LaTeX Warning: Reference `ssec:aval_resultados' on page 10 undefined on input l
+ine 284.
+
+[10]
+No file sbc-template.bbl.
+[11] (./sbc-template.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ){/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+urw/times/utmri8a.pfb>
+Output written on sbc-template.pdf (11 pages, 1369769 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

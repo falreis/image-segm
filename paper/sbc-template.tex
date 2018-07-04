@@ -8,6 +8,7 @@
 %sudo apt install texlive-lang-portuguese
 \usepackage[portuguese]{babel}   
 \usepackage[utf8]{inputenc} 
+\usepackage{subfigure}
 
 \usepackage{graphicx}
 
@@ -53,7 +54,9 @@ A segmentação de imagens consiste em dividir uma imagem em um conjunto de regi
 
 A utilização de superpixels possibilita a redução de itens a serem processados, entretanto pode causar perda de informação importante. No entanto, para alguns casos, a perda de qualidade pode se justificar em relação ao ganho de velocidade obtido utilizando esse tipo de operação. Essa relação consiste então em um \textit{trade-off} entre ambas as características, sendo viáveis em alguns cenários de processamento em tempo real ou para dispositivos com baixo desempenho.
 
-O presente trabalho tem como objetivo investigar a utilização de superpixels como passo de pré processamento para segmentação de imagens. Esse trabalho investiga se a utilização de métodos de \textit{oversegmentation} podem facilitar ou dificultar o processo de treinamento. O trabalho também tentará identificar se o treinamento utilizando imagens pré processadas obtêm resultados semelhantes àqueles utilizando imagens originais, na etapa de validação.
+Alguns métodos de geração de superpixels são utilizados para segmentação de imagens e detecção de bordas, como os métodos EGB \cite{FELZENSZWALB} e SLIC \cite{SLIC}. Esse trabalho investiga se a utilização de métodos segmentação baseados em superpixels, a composição de métodos de \textit{oversegmentation} e a utilização de redes neurais convolucionais para segmentação. 
+
+Em relação aos métodos de segmentação utilizando redes neurais, o trabalho também tentará identificar se o treinamento utilizando imagens pré processadas obtêm resultados semelhantes àqueles utilizando imagens originais, na etapa de validação.
 
 O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teorico} mostra o referencial teórico para construção do trabalho, a Seção  \ref{sec:mat_metodos}, exibe os materiais e métodos utilizados nos testes; a Seção \ref{sec:testes} mostra os resultados obtidos nos testes realizados e a discussões dos mesmos; a Seção \ref{sec:conclusao} contém a conclusão do artigo, com as considerações finais.
 
@@ -284,10 +287,9 @@ A  fim de obter a melhor parametrização possível, foram executados diversos t
 Os algoritmos hierárquicos foram executados e a melhor partição obtida para todo o conjunto de imagens (ODS - \textit{Optimal Data Set Scale}) \cite{CONT_EMPIRICAL} foi utilizada. Em seguida os valores foram comparados aos demais algoritmos utilizando com métrica a medida \textit{F-measure}. A eficiência média dos algoritmos está ilustrada na figura \ref{fig:FMEASURE_AVG}.
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width=1.\textwidth]{fmeasure_avg.png}
-\caption{Valor médio de \textit{F-measure} para os algoritmos.}
-\label{fig:FMEASURE_AVG}
+ \subfigure[Valor médio]{\label{fig:FMEASURE_AVG}\includegraphics[width=0.5\linewidth]{fmeasure_avg.png}}
+ \subfigure[Valor máximo]{\label{fig:FMEASURE_MAX}\includegraphics[width=0.5\linewidth]{fmeasure_max.png}}
+ \caption{Valor médio e máximo de \textit{F-measure} para os algoritmos.}
 \end{figure}
 
 Conforme observamos na figura \ref{fig:FMEASURE_AVG}, o valor médio do algoritmo SLIC+EGB foi ligeiramente superior aos valores obtidos pelo algoritmo EGB. O algoritmo EGB teve valor superior ao algoritmo SLIC executado sem hierarquização. 
@@ -297,13 +299,6 @@ Os algoritmos hierárquicos, conforme figura \ref{fig:FMEASURE_AVG}, resultaram 
 Outro ponto importante a ser observado na figura \ref{fig:FMEASURE_AVG} é o desvio padrão médios das amostras. Observa-se que os resultados dos algoritmo SLIC+EGB foram mais estáveis, variando menos em relação ao algoritmo EGB, quando executado separadamente. Mais uma vez, os algoritmos nas versões com hierarquização tiveram resultados superiores aos algoritmos sem hierarquização.
 
 Uma outra análise possível para os algoritmos são os valores máximos de \textit{F-measure}. Esses valores estão ilustrados na figura \ref{fig:FMEASURE_MAX}. A figura mostra mais uma vez que as melhores hierarquias obtiveram resultados superiores às versões sem hierarquia. Por fim, vemos que o resultado máximo do algoritmo EGB é superior ao algoritmo SLIC+EGB, diferindo do valor médio das amostras.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1.\textwidth]{fmeasure_max.png}
-\caption{Valor máximo de \textit{F-measure} para os algoritmos.}
-\label{fig:FMEASURE_MAX}
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
