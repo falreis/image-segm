@@ -71,12 +71,42 @@ def generate_ultrametric_map(blank_image, colors, segments, n_seg, step = 1, sta
         for i in range(len(segments)):
             for j in range(len(segments[i])):
                 index = segments[i][j]
-                cutz_segs[i][j] = cutz[index][0]
-
+                cutz_segs[i][j] = cutz[index][0]                
+                
         cutz_images.append(mark_boundaries(blank_image, cutz_segs, color=(0, 0, 0))[:,:,0:1])
         cutz_nsegs.append(cluster_size)
     
     return cutz_images, cutz_nsegs
+
+
+def generate_ultrametric_image(black_image, colors, segments, n_seg, step = 1, start_at = 0, stop_at = 1):
+    Z = hierarchy.linkage(colors)
+    
+    if start_at <= 0:
+        it = n_seg
+    else:
+        it = start_at
+    
+    if start_at <= 0:
+        black_image = mark_boundaries(black_image, segments, color=(1, 1, 1))
+
+    for ix in range(it-1, stop_at, -step):
+        cluster_size= ix #int(ix * step)
+        #print(cluster_size)
+
+        cutz = hierarchy.cut_tree(Z, n_clusters = cluster_size)
+        cutz_segs = copy.deepcopy(segments)
+
+        for i in range(len(segments)):
+            for j in range(len(segments[i])):
+                index = segments[i][j]
+                cutz_segs[i][j] = cutz[index][0]                
+
+        color_value = 1./cluster_size
+                
+        black_image = mark_boundaries(black_image, cutz_segs, color=(color_value, color_value, color_value))
+    
+    return black_image
 
 
 def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size = 30
