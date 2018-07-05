@@ -86,6 +86,8 @@ def generate_ultrametric_image(black_image, colors, segments, n_seg, step = 1, s
         it = n_seg
     else:
         it = start_at
+        
+    color_div = it - stop_at
     
     if start_at <= 0:
         black_image = mark_boundaries(black_image, segments, color=(1, 1, 1))
@@ -102,7 +104,7 @@ def generate_ultrametric_image(black_image, colors, segments, n_seg, step = 1, s
                 index = segments[i][j]
                 cutz_segs[i][j] = cutz[index][0]                
 
-        color_value = 1./cluster_size
+        color_value = (stop_at/cluster_size)
                 
         black_image = mark_boundaries(black_image, cutz_segs, color=(color_value, color_value, color_value))
     
