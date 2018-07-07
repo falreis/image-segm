@@ -54,11 +54,14 @@ def generate_ultrametric_map(blank_image, colors, segments, n_seg, step = 1, sta
     else:
         it = start_at
         
+    if stop_at <= 0:
+        stop_at = it - step
+        
     cutz_images = []
     cutz_nsegs = []
     
     if start_at <= 0:
-        cutz_images.append(mark_boundaries(blank_image, segments, color=(0, 0, 0)))
+        cutz_images.append(mark_boundaries(blank_image, segments, color=(0, 0, 0))[:,:,0:1])
         cutz_nsegs.append(n_seg)
 
     for ix in range(it-1, stop_at, -step):
@@ -79,22 +82,39 @@ def generate_ultrametric_map(blank_image, colors, segments, n_seg, step = 1, sta
     return cutz_images, cutz_nsegs
 
 
-def generate_ultrametric_image(black_image, colors, segments, n_seg, step = 1, start_at = 0, stop_at = 1):
+def generate_ultrametric_image(empty_image, colors, segments, n_seg, step = 1, start_at = 0, stop_at = 1, black_color=False):
+    if empty_image == None:
+        empty_image = np.zeros(colors.shape,dtype=np.uint8) #create blank image to save
+        
+        #white image
+        if black_color == False:
+            empty_image.fill(255)
+    
+    #create hierarchy
     Z = hierarchy.linkage(colors)
     
+    #start value
     if start_at <= 0:
         it = n_seg
     else:
         it = start_at
-        
-    color_div = it - stop_at
     
-    if start_at <= 0:
-        black_image = mark_boundaries(black_image, segments, color=(1, 1, 1))
+    #stop value
+    if stop_at <= 0:
+        stop_at = it - step
 
+    #first value (without ultrametric)
+    if start_at <= 0:
+        if black_color == True:
+            color_value = 1
+        else:
+            color_value = 0
+        
+        empty_image = mark_boundaries(empty_image, segments, color=(color_value, color_value, color_value))
+
+    #generate ultrametric values
     for ix in range(it-1, stop_at, -step):
         cluster_size= ix #int(ix * step)
-        #print(cluster_size)
 
         cutz = hierarchy.cut_tree(Z, n_clusters = cluster_size)
         cutz_segs = copy.deepcopy(segments)
@@ -104,11 +124,15 @@ def generate_ultrametric_image(black_image, colors, segments, n_seg, step = 1, s
                 index = segments[i][j]
                 cutz_segs[i][j] = cutz[index][0]                
 
-        color_value = (stop_at/cluster_size)
+        #color of the image
+        if black_color == True:
+            color_value = (stop_at/cluster_size)
+        else:
+            color_value = 1 - (stop_at/cluster_size)
                 
-        black_image = mark_boundaries(black_image, cutz_segs, color=(color_value, color_value, color_value))
+        empty_image = mark_boundaries(empty_image, cutz_segs, color=(color_value, color_value, color_value))
     
-    return black_image
+    return empty_image
 
 
 def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size = 30
