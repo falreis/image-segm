@@ -92,6 +92,7 @@ def generate_ultrametric_image(empty_image, colors, segments, n_seg, step = 1, s
     
     #create hierarchy
     Z = hierarchy.linkage(colors)
+    cluster_sizes = []
     
     #start value
     if start_at <= 0:
@@ -111,7 +112,8 @@ def generate_ultrametric_image(empty_image, colors, segments, n_seg, step = 1, s
             color_value = 0
         
         empty_image = mark_boundaries(empty_image, segments, color=(color_value, color_value, color_value))
-
+        cluster_sizes.append(it)
+        
     #generate ultrametric values
     for ix in range(it-1, stop_at, -step):
         cluster_size= ix #int(ix * step)
@@ -131,8 +133,9 @@ def generate_ultrametric_image(empty_image, colors, segments, n_seg, step = 1, s
             color_value = 1 - (stop_at/cluster_size)
                 
         empty_image = mark_boundaries(empty_image, cutz_segs, color=(color_value, color_value, color_value))
+        cluster_sizes.append(cluster_size)
     
-    return empty_image
+    return empty_image, cluster_sizes
 
 
 def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size = 30
