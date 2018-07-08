@@ -64,7 +64,7 @@ def generate_ultrametric_map(blank_image, colors, segments, n_seg, step = 1, sta
         cutz_images.append(mark_boundaries(blank_image, segments, color=(0, 0, 0))[:,:,0:1])
         cutz_nsegs.append(n_seg)
 
-    for ix in range(it-1, stop_at, -step):
+    for ix in range(it-step, stop_at, -step):
         cluster_size= ix #int(ix * step)
         #print(cluster_size)
 
@@ -115,7 +115,7 @@ def generate_ultrametric_image(empty_image, colors, segments, n_seg, step = 1, s
         cluster_sizes.append(it)
         
     #generate ultrametric values
-    for ix in range(it-1, stop_at, -step):
+    for ix in range(it-step, stop_at, -step):
         cluster_size= ix #int(ix * step)
 
         cutz = hierarchy.cut_tree(Z, n_clusters = cluster_size)
