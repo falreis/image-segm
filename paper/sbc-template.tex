@@ -19,7 +19,7 @@
 
 \sloppy
 
-\title{Avaliação de superpixels para segementação de imagens}
+\title{Avaliação de superpixels para segementação e detecção de contorno de imagens}
 
 %Avaliar se superpixels podem ser utilizadas na segmentação de imagens sem diminuição do desempenho da segmentação, porém com custo inferior.
 
@@ -33,11 +33,11 @@
 \maketitle
 
 \begin{abstract}
-  Superpixels are structures that group similar pixels into sets that reflect aspects of the image. This article evaluates the use of SLICO superpixels and partition hierarchy for segmentation. Using \textbf{neural networks} for segmentation, the results of superpixels images with different levels of granularity and untreated images were compared to the ground-truth. The article also evaluates the training time of neural networks for superpixels based images. For training and evaluation, the Berkeley Segmentation Data Set (BSDS500) \cite{BSDS500} image was used.
+  Superpixels are structures that group similar pixels into sets that reflect aspects of the image. This paper evaluates the use of SLIC and EGB superpixels for segmentation. It's also evaluates the combination of both methods. Finally, this paper shows an hierarchical method implementation, using SLINK (single-linkage) clusterization, applied for the superpixels methods. For evaluation, this paper uses the Berkeley Segmentation Data Set (BSDS500). The results were compared to the dataset groundtruth, using precision and recall.
 \end{abstract}
      
 \begin{resumo} 
-  Superpixels são estruturas que agrupam pixels semelhantes em conjuntos que refletem aspectos da imagem. Este artigo avalia a utilização de superpixels SLICO e EGB para segmentação. Avalia também os benefícios da combinação dos métodos para produção de segmentação. Por fim, o artigo mostra uma possível implementação do método hierárquico para a segmentação combinada dos métodos SLIC e EGB, que pode ser utilizada para detalhamento e zoom sobre segmentações. Para avaliação foram utilizadas o conjunto de treinamento de imagens do Berkeley Segmentation Data Set (BSDS500) \cite{BSDS500}. Os resultados obtidos pelos métodos foram com comparadas em relação ao \textit{ground-truth}, utilizando o método de precisão e revocação.
+  Superpixels são estruturas que agrupam pixels semelhantes em conjuntos que refletem aspectos da imagem. Este artigo avalia a utilização de superpixels SLIC e EGB para segmentação. Avalia também os benefícios da combinação dos métodos para produção de segmentação. Por fim, o artigo mostra uma implementação de método hierárquico, utilizando clusterização SLINK (\textit{single-linkage}), para os métodos estudados nesse trabalho. Para avaliação dos resultados, foram utilizadas as imagens do conjunto de validação do Berkeley Segmentation Data Set (BSDS500). Os resultados foram com comparadas em relação ao \textit{groundtruth}, utilizando o método de precisão e revocação.
 \end{resumo}
 
 
@@ -54,9 +54,7 @@ A segmentação de imagens consiste em dividir uma imagem em um conjunto de regi
 
 A utilização de superpixels possibilita a redução de itens a serem processados, entretanto pode causar perda de informação importante. No entanto, para alguns casos, a perda de qualidade pode se justificar em relação ao ganho de velocidade obtido utilizando esse tipo de operação. Essa relação consiste então em um \textit{trade-off} entre ambas as características, sendo viáveis em alguns cenários de processamento em tempo real ou para dispositivos com baixo desempenho.
 
-Alguns métodos de geração de superpixels são utilizados para segmentação de imagens e detecção de bordas, como os métodos EGB \cite{FELZENSZWALB} e SLIC \cite{SLIC}. Esse trabalho investiga se a utilização de métodos segmentação baseados em superpixels, a composição de métodos de \textit{oversegmentation} e a utilização de redes neurais convolucionais para segmentação. 
-
-Em relação aos métodos de segmentação utilizando redes neurais, o trabalho também tentará identificar se o treinamento utilizando imagens pré processadas obtêm resultados semelhantes àqueles utilizando imagens originais, na etapa de validação.
+Alguns métodos de geração de superpixels são utilizados para segmentação de imagens e detecção de bordas, como os métodos EGB \cite{FELZENSZWALB} e SLIC \cite{SLIC}. Esse trabalho investiga se a utilização de métodos segmentação e detecção de contornos baseados em superpixels.
 
 O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teorico} mostra o referencial teórico para construção do trabalho, a Seção  \ref{sec:mat_metodos}, exibe os materiais e métodos utilizados nos testes; a Seção \ref{sec:testes} mostra os resultados obtidos nos testes realizados e a discussões dos mesmos; a Seção \ref{sec:conclusao} contém a conclusão do artigo, com as considerações finais.
 
@@ -86,8 +84,9 @@ Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou re
 
 \subsubsection{Superpixels SLIC} \label{sssec:slic}
 
-O algoritmo SLIC utiliza um único parâmetro \textit{k}, correspondente a quantidade aproximada de superpixels. A fim de produzir tamanhos semelhantes, o intervalo analisado é $S=\sqrt{N/k}$, onde \textit{N} é o número de pixels da imagem. Os centros são movidos para o local das sementes correspondentes a posição mais baixa do gradiente em uma vizinhança de 3x3, evitando que superpixels sejam centrados nas bordas ou em um posição de ruído \cite{SLIC}. Em seguida, 
-cada pixel é associado com o centro do cluster mais próximo, de modo que a região de busca se sobreponham \cite{SLIC}. A fim de aumentar o desempenho do algoritmo, a região de busca é limitada em 2 vezes o tamanho aproximado do superpixel S, gerando busca em uma área 2S x 2S \cite{SLIC}. Em seguida, um passo de atualiza os centros dos clusters e computa o erro residual E \cite{SLIC}. O algoritmo disponível na figura \ref{alg:SLIC}, resume as informações descrita nesse parágrafo.
+O algoritmo SLIC utiliza um único parâmetro $k$, correspondente a quantidade aproximada de superpixels, gerados em formato regular \cite{SLIC}. A figura \ref{fig:SLICO} ilustra o algoritmo SLIC para diferentes números de superpixels. A fim de produzir tamanhos semelhantes, o intervalo analisado é \mbox{$S=\sqrt{N/k}$}, onde $N$ é o número de pixels da imagem \cite{SLIC}. 
+
+A definição do centro dos superpixels é feita utilizando sementes, que são movidas para locais de geração. Esses locais corresponem a posição mais baixa do gradiente em uma vizinhança de 3x3 \cite{SLIC}. Esse passo evita que superpixels sejam centrados nas bordas ou em um posição de ruído \cite{SLIC}. Cada pixel, então, é associado com o centro do cluster mais próximo, de modo que as regiões de busca se sobreponham \cite{SLIC}. A fim de aumentar o desempenho do algoritmo, a região de busca é limitada em 2 vezes o tamanho aproximado do superpixel $S$, gerando busca em uma área $2S \times 2S$ \cite{SLIC}. Em seguida, um passo de atualiza os centros dos clusters e computa o erro residual $E$ \cite{SLIC}. O algoritmo disponível na figura \ref{alg:SLIC}, resume as informações descrita nesse parágrafo.
 
 \begin{figure}[ht]
 \centering
@@ -96,7 +95,7 @@ cada pixel é associado com o centro do cluster mais próximo, de modo que a reg
 \label{alg:SLIC}
 \end{figure}
 
-Para o algoritmo descrito na figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância D entre os conjuntos. Devido ao algoritmo trabalhar no \textit{colorspace} CIELAB, com o espaço-plano \textit{labxy}, a posição do pixel pode assumir um intervalo de valores de acordo com o tamanho da image \ref{alg:SLIC}. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. Para isso é utilizado a fórmula $D=\sqrt{d_c^2+(d_s/S)^2 \cdot m^2}$, onde $D$ corresponde a distância em 5 dimensões do espaço labxy, $d_c$ e $d_s$ correspondem à proximidade de cores e espacial; e $m^2$ corresponde a distância máxima entre cores no cluster \cite{SLIC}. Para o cálculo da distância em imagens em escala cinza, é utilizada a distância Euclidiana.
+Para o algoritmo descrito na figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância $D$ entre os conjuntos. Devido ao algoritmo trabalhar no \textit{colorspace} CIELAB, com o espaço-plano \textit{labxy}, a posição do pixel pode assumir um intervalo de valores. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. Para isso é utilizado a fórmula $D=\sqrt{d_c^2+(d_s/S)^2 \cdot m^2}$, onde $D$ corresponde a distância em 5 dimensões do espaço labxy, $d_c$ e $d_s$ correspondem à proximidade de cores e proximidade espacial; e $m^2$ corresponde a distância máxima entre cores no cluster \cite{SLIC}. Para o cálculo da distância em imagens em escala cinza, é utilizada a distância Euclidiana \cite{SLIC}.
 
 Uma etapa extra no processo de pós processamento é a união de \textit{pixels orfãos}. Esses pixels são adicionados ao cluster mais próximo usando o algoritmo de componentes conexos \cite{SLIC}.
 
@@ -113,7 +112,7 @@ Devido a limitação do espaço de pesquisa do algoritmo SLIC, a complexidade do
 
 \subsubsection{Superpixels EGB} \label{sssec:egb}
 
-Os superpixels EGB (\textit{Efficient Graph-Based Image Segmentation}) utilizam uma abordagem baseadas em grafos não direcionados. Nessa abordagem, cada pixel corresponde a um nó do grafo e a ligação entre eles ocorre por meio de arestas, com pesos não negativos, correspondente a medida de dissimilaridade \cite{FELZENSZWALB}. 
+Os superpixels EGB (\textit{Efficient Graph-Based Image Segmentation}) utilizam uma abordagem baseadas em grafos não direcionados. Nessa abordagem, cada \textit{pixel} corresponde a um nó do grafo e a ligação entre eles ocorre por meio de arestas, com pesos não negativos, correspondente a medida de dissimilaridade \cite{FELZENSZWALB}. 
 
 Na abordagem baseada em grafos, a segmentação $S$ é uma partição dos vértices $V$ em componentes, no qual cada região $C \in S$ corresponde a um componente conectado em um grafo $G'=(V,E')$, onde $E' \subseteq E$, ou seja, a segmentação é induzida por um conjuntos de vértices em arestas $E$ \cite{FELZENSZWALB}.
 
@@ -135,27 +134,27 @@ O algoritmo EGB, utilizando pesos inteiros e ordenação por contagem, pode ser 
 
 \subsection{Clusters} \label{ssec:clusters}
 
-Análise de cluster é a tarega de agrupar conjunto de objetos de forma que um grupo (cluster) tenha características em comuns a outros grupos, ou clusters \cite{WIKI_CLUSTER_ANALYSIS}. Clusters hierárquicos é um método de análise de clusters a fim de buscar hierarquias entre eles. As estratégias para hierarquização de cluster se dividem em dois grupos \cite{ROKACH}:
+Análise de cluster é a tarefa de agrupar um conjunto de objetos de forma que um grupo (\textit{cluster}) tenha características em comum \cite{WIKI_CLUSTER_ANALYSIS}. \textit{Clusters} hierárquicos correspondem a análise de \textit{clusters} a fim de buscar hierarquias entre eles. As estratégias para hierarquização de cluster se dividem em dois grupos \cite{ROKACH}:
 
 \begin{itemize}
- \item Aglomerativo - abordagem \textit{"bottom up"}, em que a observação inicia-se no próprio cluster e os pares de clusters são unidos na medida em que se sobe na hierarquia. 
- \item Divisivo - abordagem \textit{"top down"} onde as observações iniciam-se em um cluster e são realizadas recursivamente a medida em que se desce na hierarquia.
+ \item Aglomerativo - abordagem \textit{"bottom up"}, em que a observação inicia-se no próprio \textit{cluster} e os pares de \textit{clusters} são unidos na medida em que se sobe na hierarquia. 
+ \item Divisivo - abordagem \textit{"top down"} onde as observações iniciam-se em um \textit{cluster} e são realizadas recursivamente a medida em que se desce na hierarquia.
 \end{itemize}
 
-Os algoritmos originais de cluster possuem complexidade $O(n^3)$. Alguns algoritmos, entretanto, como o SLINK, ou \textit{single-linkage}, possuem complexidade $O(n^2)$ \cite{SLINK}. O SLINK utiliza como critério de ligação (\textit{linkage}) entre os clusters a distância mínima. A fórmula $min\{d(a,b): a \in A, b \in B \}$, corresponde a distância mínima para dois pares de clusters A e B observados, onde $d$ é a métrica de distância escolhida \cite{WIKI_CLUSTER_HIERARCHY}.
+Os algoritmos originais de cluster possuem complexidade $O(n^3)$. Alguns algoritmos, entretanto, como o SLINK, ou \textit{single-linkage}, possuem complexidade $O(n^2)$ \cite{SLINK}. O SLINK utiliza a distância mínima como critério de ligação (\textit{linkage}) entre os \textit{clusters}. A fórmula $min\{d(a,b): a \in A, b \in B \}$, corresponde a distância mínima para dois pares de clusters A e B observados, onde $d$ é a métrica de distância escolhida \cite{WIKI_CLUSTER_HIERARCHY}.
 
 A partir da aglomeração de clusters é possivel construir uma árvore hierarquica, onde os clusters são agrupados por sua similaridade. Um método de visualização dessas características é o dendrograma. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Segmentação de Imagens} \label{ssec:segmentacao}
+\subsection{Detecção de Contornos e Segmentação de Imagens} \label{ssec:segmentacao}
 
-Segmentação de imagens consiste em separar uma imagem em regiões, idealmente correspondente a objetos reais \cite{ZHANG2008}. Esse passo é utilizado como passo de processamento de imagens, vídeos e aplicações de visão computacional. Também consiste em um importante passo na tentativa de explicar uma imagem por meio de algoritmos \cite{ZHANG2008}.
+Segmentação de imagens consiste em separar uma imagem em regiões, idealmente correspondente a objetos reais \cite{ZHANG2008}. Esse passo é utilizado no processamento de imagens, vídeos e aplicações de visão computacional. Também consiste em um importante passo na tentativa de explicar uma imagem por meio de algoritmos \cite{ZHANG2008}.
 
-Extensiva pesquisa é realizada e muitas abordagens e algoritmos são utilizados, com bons resultados para um conjunto ou classes de imagens \cite{ZHANG2008}. A fim de facilitar a pesquisa, alguns trabalhos foram desenvolvidos para criação de um conjunto de imagens com suas respectivas segmentações manuais. A base BSDS500 (\textit{Berkeley Segmentation Data Set and Benchmarks 500}) provê uma base de imagens para pesquisa em segmentação e detecção de bordas. \cite{BSDS500}. Essa base de dados é uma extensão da base BSDS300, com 200 novas imagens para avaliação \cite{BSDS500}.
+Extensiva pesquisa é realizada e muitas abordagens e algoritmos são utilizados, com bons resultados para um conjunto ou classes de imagens \cite{ZHANG2008}. A fim de facilitar a pesquisa, alguns trabalhos foram desenvolvidos para criação de um conjunto de imagens com suas respectivas segmentações manuais. A base BSDS500 (\textit{Berkeley Segmentation Data Set and Benchmarks 500}) provê uma base de imagens para pesquisa de segmentação e detecção de bordas. \cite{BSDS500}. Essa base de dados é uma extensão da base BSDS300, com 200 novas imagens para avaliação \cite{BSDS500}.
 
-A fim de avaliar a efetividade das segmentações, tradicionalmente são utilizados métodos subjetivos, como a visualização humana, responsável por comparar a qualidade da segmentação ou métodos supervisionados, onde uma segmentação é comparada em relação a uma imagem manualmente segmentada \cite{ZHANG2008}. Projetos de detecção automática, como o SEISM (\textit{Supervised Evaluation of Image Segmentation Methods}) permitem a avaliação da segmentação, usando a recuperação de precisão para bordas e a recuperação de precisão para objetos e peças \cite{SEISM}
+A fim de avaliar a efetividade das segmentações, tradicionalmente são utilizados métodos subjetivos, como a visualização humana, responsável por comparar a qualidade da segmentação ou métodos supervisionados, onde uma segmentação é comparada em relação a uma imagem manualmente segmentada \cite{ZHANG2008}. Projetos de detecção automática, como o SEISM (\textit{Supervised Evaluation of Image Segmentation Methods}) permitem a avaliação da segmentação, usando a recuperação de precisão para bordas e a recuperação de precisão para objetos e peças \cite{SEISM}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -254,7 +253,7 @@ A classificação descrita acima está ilustrada na figura \ref{fig:PREC_RECALL}
 A classificação de precisão e revocação pode ser dada por uma média harmônica, chamada de \textit{F-measure} ou \textit{F-score} balanceada. Essa medida é dada pela fórmula \cite{WIKI_PREC_RECALL}:
 
 \begin{equation}
- F=2 \cdot \frac{precis \cdot revoc}{precis+revoc}
+ F=2 \cdot \frac{precis \cdot revoc}{precis + revoc}
 \end{equation}
 
 A medida é aproximadamente a média quando seus valores estão próximos, porém o valor é baixo quando as médias estão distantes, favorecendo métodos com baixo número de falsos positivos e verdadeiros negativos \cite{WIKI_PREC_RECALL}
