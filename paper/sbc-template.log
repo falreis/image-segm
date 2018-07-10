@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  10 JUL 2018 07:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  10 JUL 2018 07:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -611,54 +611,48 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 45.
-
-
-LaTeX Warning: Citation `DOMINGUEZ' on page 1 undefined on input line 47.
-
-
-LaTeX Warning: Citation `WANG201728' on page 1 undefined on input line 47.
-
-
-LaTeX Warning: Citation `WANG201728' on page 1 undefined on input line 47.
-
 <./images/superpixels.png, id=1, 716.6775pt x 232.61906pt>
 File: ./images/superpixels.png Graphic file (type png)
 <use ./images/superpixels.png>
 Package pdftex.def Info: ./images/superpixels.png  used on input line 51.
 (pdftex.def)             Requested size: 426.79135pt x 138.52896pt.
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 52.
+
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 52.
 
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+[]\OT1/ptm/m/n/12 Alguns m[]etodos de gera[][]ao de su-per-pi-xels s[]ao uti-li
+-za-dos para
+ []
 
-LaTeX Warning: Citation `FELZENSZWALB' on page 1 undefined on input line 58.
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+\OT1/ptm/m/n/12 segmenta[][]ao de ima-gens e detec[][]ao de bor-das, como os m[
+]etodos EGB
+ []
 
 
-LaTeX Warning: Citation `SLIC' on page 1 undefined on input line 58.
+Underfull \hbox (badness 1005) in paragraph at lines 58--59
+\OT1/ptm/m/n/12 [[]] e SLIC [[]]. Esse tra-ba-lho
+ []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 74.
-
-
-LaTeX Warning: Citation `CONTOUR' on page 2 undefined on input line 74.
-
-
-LaTeX Warning: Citation `SEG_MERGE' on page 2 undefined on input line 74.
+Underfull \hbox (badness 2846) in paragraph at lines 74--75
+\OT1/ptm/m/n/12 Superpixels s[]ao es-tru-tu-ras que agru-pam pi-xels se-me-lhan
+-tes em con-jun-tos. O
+ []
 
 
-LaTeX Warning: Citation `SEG_LOCALIZ' on page 2 undefined on input line 74.
-
-
-LaTeX Warning: Citation `FELZENSZWALB' on page 2 undefined on input line 76.
-
-
-LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 76.
+Underfull \hbox (badness 1052) in paragraph at lines 74--75
+\OT1/ptm/m/n/12 agru-pa-mento pos-si-bi-lita a redu[][]ao de com-ple-xi-dade da
+s ta-re-fas de pro-ces-sa-mento
+ []
 
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 79.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
@@ -666,214 +660,91 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 79.
-
-
-LaTeX Warning: Citation `FELZENSZWALB' on page 2 undefined on input line 79.
-
-
-LaTeX Warning: Citation `WATERSHEDS' on page 2 undefined on input line 80.
-
-
-LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 80.
-
-
-LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 81.
-
-
-LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 88.
-
-
-LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 88.
-
-
-LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 90.
-
-
-LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 90.
-
-
-LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 90.
-
-
-LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 90.
-
-
-LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 90.
-
-[2 <./images/superpixels.png (PNG copy)>]
-<./images/algoritmo_slic.png, id=19, 319.1925pt x 383.18156pt>
+ [2 <./images/superpixels.png (PNG copy)>]
+<./images/algoritmo_slic.png, id=18, 319.1925pt x 383.18156pt>
 File: ./images/algoritmo_slic.png Graphic file (type png)
 <use ./images/algoritmo_slic.png>
 Package pdftex.def Info: ./images/algoritmo_slic.png  used on input line 94.
 (pdftex.def)             Requested size: 256.07741pt x 307.41684pt.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
-
-
-LaTeX Warning: Citation `SLIC' on page 3 undefined on input line 95.
-
-
-LaTeX Warning: Citation `SLIC' on page 3 undefined on input line 99.
-
-
-LaTeX Warning: Citation `SLIC' on page 3 undefined on input line 99.
-
-
-LaTeX Warning: Citation `SLIC' on page 3 undefined on input line 101.
-
-[3 <./images/algoritmo_slic.png>]
-
-LaTeX Warning: Citation `SLIC' on page 4 undefined on input line 103.
-
-<./images/slic_segmentation_compare.png, id=28, 722.7pt x 264.99pt>
+ [3 <./images/algoritmo_slic.png>]
+<./images/slic_segmentation_compare.png, id=27, 722.7pt x 264.99pt>
 File: ./images/slic_segmentation_compare.png Graphic file (type png)
 <use ./images/slic_segmentation_compare.png>
 Package pdftex.def Info: ./images/slic_segmentation_compare.png  used on input 
 line 107.
 (pdftex.def)             Requested size: 426.79135pt x 156.49234pt.
 
-LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 116.
+Underfull \hbox (badness 1173) in paragraph at lines 122--123
+[]\OT1/ptm/m/n/12 Para a compara[][]ao en-tre as regi[]oes []e uti-li-zada uma 
+fun[][]ao de corte (\OT1/ptm/m/it/12 th-
+ []
 
 
-LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 118.
+Underfull \hbox (badness 1715) in paragraph at lines 122--123
+\OT1/ptm/m/it/12 reshold\OT1/ptm/m/n/12 ) $\OML/cmm/m/it/12 ^^\$\OT1/ptm/m/n/12
+ , a fim de me-dir o grau de diferen[]a en-tre os com-po-nen-tes. Esse
+ []
 
 
-LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 120.
+Underfull \hbox (badness 4429) in paragraph at lines 122--123
+\OT1/ptm/m/n/12 grau deve ser su-pe-rior a diferen[]a in-terna m[]^^Pnima, evi-
+den-ci-ando uma borda
+ []
 
 
-LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 122.
+Underfull \hbox (badness 1803) in paragraph at lines 122--123
+\OT1/ptm/m/n/12 [[]]. A fun[][]ao de corte, no al-go-ritmo, []e uti-
+ []
 
 
-LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 122.
+Underfull \hbox (badness 1460) in paragraph at lines 122--123
+\OT1/ptm/m/n/12 li-zada ba-se-ado no ta-ma-nho do com-po-nente $\OML/cmm/m/it/1
+2 ^^\ \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 k=\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
+\OMS/cmsy/m/n/12 j$\OT1/ptm/m/n/12 , onde $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
+\OMS/cmsy/m/n/12 j$ \OT1/ptm/m/n/12 cor-res-ponde
+ []
 
 
-LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 124.
+Underfull \hbox (badness 2111) in paragraph at lines 122--123
+\OT1/ptm/m/n/12 ao ta-ma-nho do com-po-nente $\OML/cmm/m/it/12 C$ \OT1/ptm/m/n/
+12 e $\OML/cmm/m/it/12 k$ \OT1/ptm/m/n/12 cor-res-ponde a um par[]ametro do al-
+go-ritmo
+ []
 
-<./images/felz_segmentation_compare.png, id=29, 719.68875pt x 264.23718pt>
+[4 <./images/slic_segmentation_compare.png (PNG copy)>]
+<./images/felz_segmentation_compare.png, id=33, 719.68875pt x 264.23718pt>
 File: ./images/felz_segmentation_compare.png Graphic file (type png)
 <use ./images/felz_segmentation_compare.png>
 Package pdftex.def Info: ./images/felz_segmentation_compare.png  used on input 
 line 128.
 (pdftex.def)             Requested size: 426.79135pt x 156.70496pt.
-
-LaTeX Warning: Citation `WIKI_CLUSTER_ANALYSIS' on page 4 undefined on input li
-ne 138.
-
-
-LaTeX Warning: Citation `ROKACH' on page 4 undefined on input line 138.
-
-[4 <./images/slic_segmentation_compare.png (PNG copy)>]
-
-LaTeX Warning: Citation `SLINK' on page 5 undefined on input line 145.
-
-
-LaTeX Warning: Citation `WIKI_CLUSTER_HIERARCHY' on page 5 undefined on input l
-ine 145.
-
-
-LaTeX Warning: Citation `ZHANG2008' on page 5 undefined on input line 154.
-
-
-LaTeX Warning: Citation `ZHANG2008' on page 5 undefined on input line 154.
-
-
-LaTeX Warning: Citation `ZHANG2008' on page 5 undefined on input line 156.
-
-
-LaTeX Warning: Citation `BSDS500' on page 5 undefined on input line 156.
-
-
-LaTeX Warning: Citation `BSDS500' on page 5 undefined on input line 156.
-
-
-LaTeX Warning: Citation `ZHANG2008' on page 5 undefined on input line 158.
-
-
-LaTeX Warning: Citation `SEISM' on page 5 undefined on input line 158.
-
-[5 <./images/felz_segmentation_compare.png (PNG copy)>]
-
-LaTeX Warning: Citation `ULTRAMETRIC' on page 6 undefined on input line 179.
-
-
-LaTeX Warning: Citation `WIKI_DENDROGRAM' on page 6 undefined on input line 183
-.
-
-
-LaTeX Warning: Citation `DENDROGRAM' on page 6 undefined on input line 183.
-
-<./images/dendrogram.png, id=37, 1167.36125pt x 1126.2075pt>
+ [5 <./images/felz_segmentation_compare.png (PNG copy)>] [6]
+<./images/dendrogram.png, id=40, 1167.36125pt x 1126.2075pt>
 File: ./images/dendrogram.png Graphic file (type png)
 <use ./images/dendrogram.png>
 Package pdftex.def Info: ./images/dendrogram.png  used on input line 187.
 (pdftex.def)             Requested size: 426.79135pt x 411.74112pt.
-[6]
-
-LaTeX Warning: Citation `SILVIO_ZENILTON' on page 7 undefined on input line 201
-.
-
-
-LaTeX Warning: Citation `SILVIO_ZENILTON' on page 7 undefined on input line 201
-.
-
-
-LaTeX Warning: Citation `SILVIO_ZENILTON' on page 7 undefined on input line 204
-.
-
-[7 <./images/dendrogram.png>]
-
-LaTeX Warning: Citation `SILVIO_ZENILTON' on page 8 undefined on input line 205
-.
-
+ [7 <./images/dendrogram.png>]
 <./images/slic_hierarquia_particoes.png, id=46, 716.6775pt x 269.50688pt>
 File: ./images/slic_hierarquia_particoes.png Graphic file (type png)
 <use ./images/slic_hierarquia_particoes.png>
 Package pdftex.def Info: ./images/slic_hierarquia_particoes.png  used on input 
 line 214.
 (pdftex.def)             Requested size: 426.79135pt x 160.49634pt.
-
-LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 8 undefined on input line 22
-7.
-
-
-LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 8 undefined on input line 23
-3.
-
-<./images/precision_recall.png, id=47, 71.69183pt x 115.632pt>
+ [8 <./images/slic_hierarquia_particoes.png (PNG copy)>]
+<./images/precision_recall.png, id=50, 71.69183pt x 115.632pt>
 File: ./images/precision_recall.png Graphic file (type png)
 <use ./images/precision_recall.png>
 Package pdftex.def Info: ./images/precision_recall.png  used on input line 240.
 
 (pdftex.def)             Requested size: 170.71393pt x 275.3593pt.
-
-LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 8 undefined on input line 24
-1.
-
-[8 <./images/slic_hierarquia_particoes.png (PNG copy)>]
-
-LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 9 undefined on input line 24
-5.
-
-
-LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 9 undefined on input line 25
-1.
-
+ [9 <./images/precision_recall.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 258.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 258.
-[9 <./images/precision_recall.png>]
-
-LaTeX Warning: Citation `BSDS500' on page 10 undefined on input line 274.
-
-
-LaTeX Warning: Citation `FELZENSZWALB' on page 10 undefined on input line 278.
-
-
-LaTeX Warning: Citation `CONT_EMPIRICAL' on page 10 undefined on input line 301
-.
-
-<./images/fmeasure_avg.png, id=55, 1190.4475pt x 622.325pt>
+[10]
+<./images/fmeasure_avg.png, id=58, 1190.4475pt x 622.325pt>
 File: ./images/fmeasure_avg.png Graphic file (type png)
 <use ./images/fmeasure_avg.png>
 Package pdftex.def Info: ./images/fmeasure_avg.png  used on input line 315.
@@ -882,33 +753,27 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <10> not available
 (Font)              Font shape `OT1/phv/b/it' tried instead on input line 316.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <10> not available
 (Font)              Font shape `OT1/phv/b/sl' tried instead on input line 316.
-<./images/fmeasure_max.png, id=56, 1190.4475pt x 622.325pt>
+<./images/fmeasure_max.png, id=59, 1190.4475pt x 622.325pt>
 File: ./images/fmeasure_max.png Graphic file (type png)
 <use ./images/fmeasure_max.png>
 Package pdftex.def Info: ./images/fmeasure_max.png  used on input line 328.
 (pdftex.def)             Requested size: 384.1096pt x 200.80035pt.
-[10] [11 <./images/fmeasure_avg.png> <./images/fmeasure_max.png>]
-(./sbc-template.bbl [12]) [13] (./sbc-template.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ){/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
-s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (13 pages, 1453149 bytes).
+ [11 <./images/fmeasure_avg.png>] (./sbc-template.bbl [12 <./images/fmeasure_ma
+x.png>]) [13] (./sbc-template.aux) ){/usr/share/texlive/texmf-dist/fonts/enc/dv
+ips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/
+uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmri8a.pfb>
+Output written on sbc-template.pdf (13 pages, 1453621 bytes).
 PDF statistics:
  119 PDF objects out of 1000 (max. 8388607)
  75 compressed objects within 1 object stream
