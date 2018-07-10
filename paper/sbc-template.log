@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.6.19)  9 JUL 2018 08:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  10 JUL 2018 07:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **sbc-template.tex
 (./sbc-template.tex
-LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 4 language(s) loaded.
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
@@ -33,11 +33,10 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
@@ -70,7 +69,7 @@ Package: times 2005/04/12 PSNFSS-v9.2a (SPQR)
 \c@instn=\count90
 
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
-Package: titlesec 2016/03/15 v2.10.1 Sectioning titles
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box26
 \beforetitleunit=\skip43
 \aftertitleunit=\skip44
@@ -82,29 +81,21 @@ Package: titlesec 2016/03/15 v2.10.1 Sectioning titles
 \titlewidthfirst=\dimen119
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 95.
+Package graphics Info: Driver file: pdftex.def on input line 99.
 
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count91
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen120
 \Gin@req@width=\dimen121
@@ -113,33 +104,45 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks17
+\verbatim@line=\toks18
+\verbatim@in@stream=\read1
+)
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2016/02/24 3.9q The Babel package
+Package: babel 2018/02/14 3.18 The Babel package
 
+(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+)
 (/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuges.ldf
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2016/02/24 3.9q Babel common definitions
-\babel@savecnt=\count92
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count91
 \U@D=\dimen122
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count92
 )
 Package babel Info: Making " an active character on input line 145.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -351,11 +354,17 @@ File: t1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
    defining Unicode char U+0219 (decimal 537)
    defining Unicode char U+021A (decimal 538)
    defining Unicode char U+021B (decimal 539)
-   defining Unicode char U+01E02 (decimal 7682)
-   defining Unicode char U+01E03 (decimal 7683)
+   defining Unicode char U+0232 (decimal 562)
+   defining Unicode char U+0233 (decimal 563)
+   defining Unicode char U+1E02 (decimal 7682)
+   defining Unicode char U+1E03 (decimal 7683)
    defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2010 (decimal 8208)
+   defining Unicode char U+2011 (decimal 8209)
+   defining Unicode char U+2012 (decimal 8210)
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2015 (decimal 8213)
    defining Unicode char U+2018 (decimal 8216)
    defining Unicode char U+2019 (decimal 8217)
    defining Unicode char U+201A (decimal 8218)
@@ -367,12 +376,14 @@ File: t1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
    defining Unicode char U+2039 (decimal 8249)
    defining Unicode char U+203A (decimal 8250)
    defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+1E20 (decimal 7712)
+   defining Unicode char U+1E21 (decimal 7713)
 )
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -413,7 +424,7 @@ Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -456,22 +467,29 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfig@top=\skip49
 \subfig@bottom=\skip50
 )
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
+\multirow@colwidth=\skip51
+\multirow@cntb=\count97
+\multirow@dima=\skip52
+\bigstrutjot=\dimen125
+)
 (./sbc-template.aux)
 \openout1 = `sbc-template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 32.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -509,264 +527,388 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count97
-\scratchdimen=\dimen125
+\scratchcounter=\count98
+\scratchdimen=\dimen126
 \scratchbox=\box27
-\nofMPsegments=\count98
-\nofMParguments=\count99
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count100
-\MPscratchDim=\dimen126
-\MPnumerator=\count101
-\makeMPintoPDFobject=\count102
-\everyMPtoPDFconversion=\toks20
-) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+\nofMPsegments=\count99
+\nofMParguments=\count100
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count101
+\MPscratchDim=\dimen127
+\MPnumerator=\count102
+\makeMPintoPDFobject=\count103
+\everyMPtoPDFconversion=\toks22
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-))
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
+(grfext)             \AppendGraphicsExtensions on input line 456.
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 33.
+(Font)              <12> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 33.
+(Font)              <8> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 33.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 33.
+(Font)              <6> on input line 34.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 34.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 35.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 45.
+
+
+LaTeX Warning: Citation `DOMINGUEZ' on page 1 undefined on input line 47.
+
+
+LaTeX Warning: Citation `WANG201728' on page 1 undefined on input line 47.
+
+
+LaTeX Warning: Citation `WANG201728' on page 1 undefined on input line 47.
 
 <./images/superpixels.png, id=1, 716.6775pt x 232.61906pt>
 File: ./images/superpixels.png Graphic file (type png)
-
 <use ./images/superpixels.png>
-Package pdftex.def Info: ./images/superpixels.png used on input line 50.
+Package pdftex.def Info: ./images/superpixels.png  used on input line 51.
 (pdftex.def)             Requested size: 426.79135pt x 138.52896pt.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 51.
-
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 52.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 51.
-
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
-[]\OT1/ptm/m/n/12 Alguns m[]etodos de gera[][]ao de su-per-pi-xels s[]ao uti-li
--za-dos para
- []
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 52.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
-\OT1/ptm/m/n/12 segmenta[][]ao de ima-gens e detec[][]ao de bor-das, como os m[
-]etodos EGB
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 1 undefined on input line 58.
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 57--58
-\OT1/ptm/m/n/12 [[]] e SLIC [[]]. Esse tra-ba-lho
- []
+LaTeX Warning: Citation `SLIC' on page 1 undefined on input line 58.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 2846) in paragraph at lines 75--76
-\OT1/ptm/m/n/12 Superpixels s[]ao es-tru-tu-ras que agru-pam pi-xels se-me-lhan
--tes em con-jun-tos. O
- []
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 74.
 
 
-Underfull \hbox (badness 1052) in paragraph at lines 75--76
-\OT1/ptm/m/n/12 agru-pa-mento pos-si-bi-lita a redu[][]ao de com-ple-xi-dade da
-s ta-re-fas de pro-ces-sa-mento
- []
+LaTeX Warning: Citation `CONTOUR' on page 2 undefined on input line 74.
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 80.
+
+LaTeX Warning: Citation `SEG_MERGE' on page 2 undefined on input line 74.
+
+
+LaTeX Warning: Citation `SEG_LOCALIZ' on page 2 undefined on input line 74.
+
+
+LaTeX Warning: Citation `FELZENSZWALB' on page 2 undefined on input line 76.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 76.
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 79.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
- [2 <./images/superpixels.png (PNG copy)>]
-<./images/algoritmo_slic.png, id=18, 319.1925pt x 383.18156pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 79.
+
+
+LaTeX Warning: Citation `FELZENSZWALB' on page 2 undefined on input line 79.
+
+
+LaTeX Warning: Citation `WATERSHEDS' on page 2 undefined on input line 80.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 80.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 81.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 88.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 88.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Citation `SLIC' on page 2 undefined on input line 90.
+
+[2 <./images/superpixels.png (PNG copy)>]
+<./images/algoritmo_slic.png, id=19, 319.1925pt x 383.18156pt>
 File: ./images/algoritmo_slic.png Graphic file (type png)
-
 <use ./images/algoritmo_slic.png>
-Package pdftex.def Info: ./images/algoritmo_slic.png used on input line 94.
+Package pdftex.def Info: ./images/algoritmo_slic.png  used on input line 94.
 (pdftex.def)             Requested size: 256.07741pt x 307.41684pt.
- [3 <./images/algoritmo_slic.png>]
-<./images/slic_segmentation_compare.png, id=27, 722.7pt x 264.99pt>
-File: ./images/slic_segmentation_compare.png Graphic file (type png)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
 
+
+LaTeX Warning: Citation `SLIC' on page 3 undefined on input line 95.
+
+
+LaTeX Warning: Citation `SLIC' on page 3 undefined on input line 99.
+
+
+LaTeX Warning: Citation `SLIC' on page 3 undefined on input line 99.
+
+
+LaTeX Warning: Citation `SLIC' on page 3 undefined on input line 101.
+
+[3 <./images/algoritmo_slic.png>]
+
+LaTeX Warning: Citation `SLIC' on page 4 undefined on input line 103.
+
+<./images/slic_segmentation_compare.png, id=28, 722.7pt x 264.99pt>
+File: ./images/slic_segmentation_compare.png Graphic file (type png)
 <use ./images/slic_segmentation_compare.png>
-Package pdftex.def Info: ./images/slic_segmentation_compare.png used on input l
-ine 107.
+Package pdftex.def Info: ./images/slic_segmentation_compare.png  used on input 
+line 107.
 (pdftex.def)             Requested size: 426.79135pt x 156.49234pt.
 
-Underfull \hbox (badness 1173) in paragraph at lines 122--123
-[]\OT1/ptm/m/n/12 Para a compara[][]ao en-tre as regi[]oes []e uti-li-zada uma 
-fun[][]ao de corte (\OT1/ptm/m/it/12 th-
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 116.
 
 
-Underfull \hbox (badness 1715) in paragraph at lines 122--123
-\OT1/ptm/m/it/12 reshold\OT1/ptm/m/n/12 ) $\OML/cmm/m/it/12 ^^\$\OT1/ptm/m/n/12
- , a fim de me-dir o grau de diferen[]a en-tre os com-po-nen-tes. Esse
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 118.
 
 
-Underfull \hbox (badness 4429) in paragraph at lines 122--123
-\OT1/ptm/m/n/12 grau deve ser su-pe-rior a diferen[]a in-terna m[]^^Pnima, evi-
-den-ci-ando uma borda
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 120.
 
 
-Underfull \hbox (badness 1803) in paragraph at lines 122--123
-\OT1/ptm/m/n/12 [[]]. A fun[][]ao de corte, no al-go-ritmo, []e uti-
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 122.
 
 
-Underfull \hbox (badness 1460) in paragraph at lines 122--123
-\OT1/ptm/m/n/12 li-zada ba-se-ado no ta-ma-nho do com-po-nente $\OML/cmm/m/it/1
-2 ^^\ \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 k=\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
-\OMS/cmsy/m/n/12 j$\OT1/ptm/m/n/12 , onde $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
-\OMS/cmsy/m/n/12 j$ \OT1/ptm/m/n/12 cor-res-ponde
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 122.
 
 
-Underfull \hbox (badness 2111) in paragraph at lines 122--123
-\OT1/ptm/m/n/12 ao ta-ma-nho do com-po-nente $\OML/cmm/m/it/12 C$ \OT1/ptm/m/n/
-12 e $\OML/cmm/m/it/12 k$ \OT1/ptm/m/n/12 cor-res-ponde a um par[]ametro do al-
-go-ritmo
- []
+LaTeX Warning: Citation `FELZENSZWALB' on page 4 undefined on input line 124.
+
+<./images/felz_segmentation_compare.png, id=29, 719.68875pt x 264.23718pt>
+File: ./images/felz_segmentation_compare.png Graphic file (type png)
+<use ./images/felz_segmentation_compare.png>
+Package pdftex.def Info: ./images/felz_segmentation_compare.png  used on input 
+line 128.
+(pdftex.def)             Requested size: 426.79135pt x 156.70496pt.
+
+LaTeX Warning: Citation `WIKI_CLUSTER_ANALYSIS' on page 4 undefined on input li
+ne 138.
+
+
+LaTeX Warning: Citation `ROKACH' on page 4 undefined on input line 138.
 
 [4 <./images/slic_segmentation_compare.png (PNG copy)>]
-<./images/felz_segmentation_compare.png, id=33, 719.68875pt x 264.23718pt>
-File: ./images/felz_segmentation_compare.png Graphic file (type png)
 
-<use ./images/felz_segmentation_compare.png>
-Package pdftex.def Info: ./images/felz_segmentation_compare.png used on input l
-ine 128.
-(pdftex.def)             Requested size: 426.79135pt x 156.70496pt.
- [5 <./images/felz_segmentation_compare.png (PNG copy)>]
-Underfull \hbox (badness 1490) in paragraph at lines 168--169
-\OT1/ptm/m/n/12 Os re-sul-ta-dos das hierarquiza[][]oes fo-ram com-pa-ra-dos ao
-s me-lho-res re-sul-ta-dos de
- []
+LaTeX Warning: Citation `SLINK' on page 5 undefined on input line 145.
 
-[6] <./images/dendrogram.png, id=40, 1167.36125pt x 1126.2075pt>
+
+LaTeX Warning: Citation `WIKI_CLUSTER_HIERARCHY' on page 5 undefined on input l
+ine 145.
+
+
+LaTeX Warning: Citation `ZHANG2008' on page 5 undefined on input line 154.
+
+
+LaTeX Warning: Citation `ZHANG2008' on page 5 undefined on input line 154.
+
+
+LaTeX Warning: Citation `ZHANG2008' on page 5 undefined on input line 156.
+
+
+LaTeX Warning: Citation `BSDS500' on page 5 undefined on input line 156.
+
+
+LaTeX Warning: Citation `BSDS500' on page 5 undefined on input line 156.
+
+
+LaTeX Warning: Citation `ZHANG2008' on page 5 undefined on input line 158.
+
+
+LaTeX Warning: Citation `SEISM' on page 5 undefined on input line 158.
+
+[5 <./images/felz_segmentation_compare.png (PNG copy)>]
+
+LaTeX Warning: Citation `ULTRAMETRIC' on page 6 undefined on input line 179.
+
+
+LaTeX Warning: Citation `WIKI_DENDROGRAM' on page 6 undefined on input line 183
+.
+
+
+LaTeX Warning: Citation `DENDROGRAM' on page 6 undefined on input line 183.
+
+<./images/dendrogram.png, id=37, 1167.36125pt x 1126.2075pt>
 File: ./images/dendrogram.png Graphic file (type png)
-
 <use ./images/dendrogram.png>
-Package pdftex.def Info: ./images/dendrogram.png used on input line 187.
+Package pdftex.def Info: ./images/dendrogram.png  used on input line 187.
 (pdftex.def)             Requested size: 426.79135pt x 411.74112pt.
- [7 <./images/dendrogram.png>]
+[6]
+
+LaTeX Warning: Citation `SILVIO_ZENILTON' on page 7 undefined on input line 201
+.
+
+
+LaTeX Warning: Citation `SILVIO_ZENILTON' on page 7 undefined on input line 201
+.
+
+
+LaTeX Warning: Citation `SILVIO_ZENILTON' on page 7 undefined on input line 204
+.
+
+[7 <./images/dendrogram.png>]
+
+LaTeX Warning: Citation `SILVIO_ZENILTON' on page 8 undefined on input line 205
+.
+
 <./images/slic_hierarquia_particoes.png, id=46, 716.6775pt x 269.50688pt>
 File: ./images/slic_hierarquia_particoes.png Graphic file (type png)
-
 <use ./images/slic_hierarquia_particoes.png>
-Package pdftex.def Info: ./images/slic_hierarquia_particoes.png used on input l
-ine 222.
+Package pdftex.def Info: ./images/slic_hierarquia_particoes.png  used on input 
+line 214.
 (pdftex.def)             Requested size: 426.79135pt x 160.49634pt.
- [8]
-<./images/precision_recall.png, id=50, 71.69183pt x 115.632pt>
+
+LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 8 undefined on input line 22
+7.
+
+
+LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 8 undefined on input line 23
+3.
+
+<./images/precision_recall.png, id=47, 71.69183pt x 115.632pt>
 File: ./images/precision_recall.png Graphic file (type png)
-
 <use ./images/precision_recall.png>
-Package pdftex.def Info: ./images/precision_recall.png used on input line 249.
+Package pdftex.def Info: ./images/precision_recall.png  used on input line 240.
+
 (pdftex.def)             Requested size: 170.71393pt x 275.3593pt.
+
+LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 8 undefined on input line 24
+1.
+
+[8 <./images/slic_hierarquia_particoes.png (PNG copy)>]
+
+LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 9 undefined on input line 24
+5.
+
+
+LaTeX Warning: Citation `WIKI_PREC_RECALL' on page 9 undefined on input line 25
+1.
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 267.
+(Font)              <7> on input line 258.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 267.
- [9 <./images/slic_hierarquia_particoes.png (PNG copy)>] <./images/fmeasure_avg
-.png, id=54, 1190.4475pt x 622.325pt>
+(Font)              <5> on input line 258.
+[9 <./images/precision_recall.png>]
+
+LaTeX Warning: Citation `BSDS500' on page 10 undefined on input line 274.
+
+
+LaTeX Warning: Citation `FELZENSZWALB' on page 10 undefined on input line 278.
+
+
+LaTeX Warning: Citation `CONT_EMPIRICAL' on page 10 undefined on input line 301
+.
+
+<./images/fmeasure_avg.png, id=55, 1190.4475pt x 622.325pt>
 File: ./images/fmeasure_avg.png Graphic file (type png)
-
 <use ./images/fmeasure_avg.png>
-Package pdftex.def Info: ./images/fmeasure_avg.png used on input line 290.
-(pdftex.def)             Requested size: 213.39568pt x 111.54836pt.
-
-<./images/fmeasure_max.png, id=55, 1190.4475pt x 622.325pt>
-File: ./images/fmeasure_max.png Graphic file (type png)
-
-<use ./images/fmeasure_max.png>
-Package pdftex.def Info: ./images/fmeasure_max.png used on input line 291.
-(pdftex.def)             Requested size: 213.39568pt x 111.54836pt.
-
-Overfull \hbox (2.28003pt too wide) in paragraph at lines 290--292
-[][] [] 
- []
-
+Package pdftex.def Info: ./images/fmeasure_avg.png  used on input line 315.
+(pdftex.def)             Requested size: 384.1096pt x 200.80035pt.
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 292.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 316.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 292.
-[10 <./images/precision_recall.png>] [11 <./images/fmeasure_avg.png> <./images/
-fmeasure_max.png>] (./sbc-template.bbl [12]) [13] (./sbc-template.aux) ){/usr/s
-hare/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (13 pages, 1475500 bytes).
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 316.
+<./images/fmeasure_max.png, id=56, 1190.4475pt x 622.325pt>
+File: ./images/fmeasure_max.png Graphic file (type png)
+<use ./images/fmeasure_max.png>
+Package pdftex.def Info: ./images/fmeasure_max.png  used on input line 328.
+(pdftex.def)             Requested size: 384.1096pt x 200.80035pt.
+[10] [11 <./images/fmeasure_avg.png> <./images/fmeasure_max.png>]
+(./sbc-template.bbl [12]) [13] (./sbc-template.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ){/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sbc-template.pdf (13 pages, 1453149 bytes).
 PDF statistics:
  119 PDF objects out of 1000 (max. 8388607)
  75 compressed objects within 1 object stream
