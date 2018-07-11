@@ -1,7 +1,7 @@
 
 # Superpixel Clustering for Image Segmentation
 
-Code started with [Superpixel Hierarchical Clustering algorithm (SPHC) For Image Segmentation](https://github.com/thompspe/image-segm) repository, but changed a lot, became much more faster.
+Code started with [Superpixel Hierarchical Clustering algorithm (SPHC) For Image Segmentation](https://github.com/thompspe/image-segm) repository, but changed a lot, using SLINK algorithm, and became much more faster.
 
 ### Superpixel Segmentation
 
