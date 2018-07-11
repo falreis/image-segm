@@ -3,6 +3,20 @@
 
 Code started with [Superpixel Hierarchical Clustering algorithm (SPHC) For Image Segmentation](https://github.com/thompspe/image-segm) repository, but changed a lot, became much more faster.
 
+### Superpixel Segmentation
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/falreis/image-segm/master/paper/images/superpixels.png" >
+  <span>Superpixel segmentation methods</span>
+</p>
+
+### Hierarchical Methods for Superpixel Segmentation
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/falreis/image-segm/master/paper/images/slic_hierarquia_particoes.png" >
+  <span>Partition hierarchy of segmentation methods</span>
+</p>
+
 ## Goals
 
 - New hierarchical superpixel clustering method;
