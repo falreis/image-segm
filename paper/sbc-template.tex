@@ -91,28 +91,31 @@ Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou re
 
 O algoritmo SLIC utiliza um único parâmetro $k$, correspondente a quantidade aproximada de superpixels, gerados em formato regular \cite{SLIC}. A Figura \ref{fig:SLICO} ilustra o algoritmo SLIC para diferentes números de superpixels. A fim de produzir tamanhos semelhantes, o intervalo analisado é \mbox{$S=\sqrt{N/k}$}, onde $N$ é o número de pixels da imagem \cite{SLIC}. 
 
-A definição do centro dos superpixels é feita utilizando sementes, que são movidas para locais de geração. Esses locais corresponem a posição mais baixa do gradiente em uma vizinhança de 3x3 \cite{SLIC}. Esse passo evita que superpixels sejam centrados nas bordas ou em um posição de ruído \cite{SLIC}. Cada pixel, então, é associado com o centro do cluster mais próximo, de modo que as regiões de busca se sobreponham \cite{SLIC}. A fim de aumentar o desempenho do algoritmo, a região de busca é limitada em 2 vezes o tamanho aproximado do superpixel $S$, gerando busca em uma área $2S \times 2S$ \cite{SLIC}. Em seguida, um passo de atualiza os centros dos clusters e computa o erro residual $E$ \cite{SLIC}. O algoritmo disponível na Figura \ref{alg:SLIC}, resume as informações descrita nesse parágrafo.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=.6\textwidth]{algoritmo_slic.png}
-\caption{Algoritmo SLIC - Adaptado de \cite{SLIC}}
-\label{alg:SLIC}
-\end{figure}
+A definição do centro dos superpixels é feita utilizando sementes, que são movidas para locais de geração. Esses locais corresponem a posição mais baixa do gradiente em uma vizinhança de 3x3 \cite{SLIC}. Esse passo evita que superpixels sejam centrados nas bordas ou em um posição de ruído \cite{SLIC}. Cada pixel, então, é associado com o centro do cluster mais próximo, de modo que as regiões de busca se sobreponham \cite{SLIC}. A fim de aumentar o desempenho do algoritmo, a região de busca é limitada em 2 vezes o tamanho aproximado do superpixel $S$, gerando busca em uma área $2S \times 2S$ \cite{SLIC}. Em seguida, um passo de atualiza os centros dos clusters e computa o erro residual $E$ \cite{SLIC}. O algoritmo disponível no Algoritmo \ref{alg:SLIC}, resume as informações descrita nesse parágrafo.
 
 \begin{algorithm}
-    \caption{Euclid’s algorithm}
-    \label{euclid}
-    \begin{algorithmic}[1] % The number tells where the line numbering should start
-        \Procedure{Euclid}{$a,b$} \Comment{The g.c.d. of a and b}
-            \State $r\gets a \bmod b$
-            \While{$r\not=0$} \Comment{We have the answer if r is 0}
-                \State $a \gets b$
-                \State $b \gets r$
-                \State $r \gets a \bmod b$
-            \EndWhile\label{euclidendwhile}
-            \State \textbf{return} $b$\Comment{The gcd is b}
-        \EndProcedure
+    \caption{Segmentação por superpixels SLIC (\textit{Adaptado de } \cite{SLIC})}
+    \label{alg:SLIC}
+    \begin{algorithmic}[1]
+        \State{\textit{ /* Inicialização */}}
+        \State{Inicialize os centros dos clusters $C_k = [l_k, a_k, b_k, x_k, y_k]^T$ por amostragem de pixels em etapas de grade regulares $S$}
+        \State{Mova os centros dos clusters para a posição de menor gradiente em uma vizinhança $3 \times 3$}
+        \State{Faça label $l(i) = -1$ para cada pixel $i$}
+        \State{Faça distância $d(i) = \infty $ para cada pixel $i$}
+        \Repeat
+            \For{cada cluster centrado em $C_k$}
+                \For{cada pixel $i$ em uma região $2S \times 2S$ ao redor de $C_k$}
+                \State{Compute a distância $D$ entre $C_k$ e $i$}
+                \If{$D < d(i)$}
+                    \State{faça $d(i) = D$}
+                    \State{faça $l(i) = k$}
+                \EndIf
+                \EndFor
+            \EndFor    
+            \State{\textit{ /* Atualização */}}
+            \State{Compute novos centros dos clusters}
+            \State{Compute o erro residual $E$}
+        \Until{$E \leq threshold$}
     \end{algorithmic}
 \end{algorithm}
 
@@ -156,7 +159,7 @@ O algoritmo EGB, utilizando pesos inteiros e ordenação por contagem, pode ser 
 
 \subsection{Clusters} \label{ssec:clusters}
 
-Análise de cluster é a tarefa de agrupar um conjunto de objetos de forma que um grupo (\textit{cluster}) tenha características em comum \cite{WIKI_CLUSTER_ANALYSIS}. \textit{Clusters} hierárquicos correspondem a análise de \textit{clusters} a fim de buscar hierarquias entre eles. As estratégias para hierarquização de cluster se dividem em dois grupos \cite{ROKACH}:
+% Análise de cluster é a tarefa de agrupar dados em grupos (\textit{clusters}) que tenham características em comum, sejam signinficativos e/ou úteis \cite{CLUSTER_HIER}. \textit{Clusters} hierárquicos correspondem a análise de \textit{clusters} a fim de buscar hierarquias entre eles. As estratégias para hierarquização de cluster se dividem em dois grupos \cite{ROKACH}:
 
 \begin{itemize}
  \item Aglomerativo - abordagem \textit{"bottom up"}, em que a observação inicia-se no próprio \textit{cluster} e os pares de \textit{clusters} são unidos na medida em que se sobe na hierarquia. 
@@ -206,7 +209,7 @@ Para verificação da estrutura da árvore foi utilizado um dendrograma, como re
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1.\textwidth]{dendrogram.png}
-\caption{Dendrograma com a correlação entre os superpixels}
+\caption{Dendrograma dos superpixels de uma imagem}
 \label{fig:DENDROGRAM}
 \end{figure}
 
