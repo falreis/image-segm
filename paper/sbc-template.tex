@@ -13,6 +13,10 @@
 \usepackage{multirow}
 \usepackage{graphicx}
 
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
 %\usepackage[numbib,nottoc]{blindtext}
 %\usepackage[numbib,nottoc]{tocbibind}
 
@@ -44,12 +48,12 @@
 
 \section{Introdução} \label{sec:introducao}
 
-A segmentação de imagens consiste em dividir uma imagem em um conjunto de regiões logicamente agrupadas, de modo a reunir áreas que contém informação relevante dentro dos grupos \cite{DOMINGUEZ}. Nessa tarefa, tomamos os \textit{pixels} como unidades básicas de processamento \cite{WANG201728}. O agrupamento de pixels em unidades maiores permite um tipo de segmentação chamado de \textit{oversegmentation} \cite{WANG201728}, ilustrado na figura \ref{fig:superpixel}. O uso de superpixels possibilita o aumento da velocidade de processamento posterior, uma vez que a quantidade de pixels diminui consideravelmente em relação a imagem original.
+A segmentação de imagens consiste em dividir uma imagem em um conjunto de regiões logicamente agrupadas, de modo a reunir áreas que contém informação relevante dentro dos grupos \cite{DOMINGUEZ}. Nessa tarefa, tomamos os \textit{pixels} como unidades básicas de processamento \cite{WANG201728}. O agrupamento de pixels em unidades maiores permite um tipo de segmentação chamado de \textit{oversegmentation} \cite{WANG201728}, ilustrado na Figura \ref{fig:superpixel}. O uso de superpixels possibilita o aumento da velocidade de processamento posterior, uma vez que a quantidade de pixels diminui consideravelmente em relação a imagem original.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1.\textwidth]{superpixels.png}
-\caption{Imagens segmentadas utilizando superpixels SLIC e EGB}
+\caption{Imagens segmentadas utilizando superpixels SLICO e EGB}
 \label{fig:superpixel}
 \end{figure}
 
@@ -85,9 +89,9 @@ Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou re
 
 \subsubsection{Superpixels SLIC} \label{sssec:slic}
 
-O algoritmo SLIC utiliza um único parâmetro $k$, correspondente a quantidade aproximada de superpixels, gerados em formato regular \cite{SLIC}. A figura \ref{fig:SLICO} ilustra o algoritmo SLIC para diferentes números de superpixels. A fim de produzir tamanhos semelhantes, o intervalo analisado é \mbox{$S=\sqrt{N/k}$}, onde $N$ é o número de pixels da imagem \cite{SLIC}. 
+O algoritmo SLIC utiliza um único parâmetro $k$, correspondente a quantidade aproximada de superpixels, gerados em formato regular \cite{SLIC}. A Figura \ref{fig:SLICO} ilustra o algoritmo SLIC para diferentes números de superpixels. A fim de produzir tamanhos semelhantes, o intervalo analisado é \mbox{$S=\sqrt{N/k}$}, onde $N$ é o número de pixels da imagem \cite{SLIC}. 
 
-A definição do centro dos superpixels é feita utilizando sementes, que são movidas para locais de geração. Esses locais corresponem a posição mais baixa do gradiente em uma vizinhança de 3x3 \cite{SLIC}. Esse passo evita que superpixels sejam centrados nas bordas ou em um posição de ruído \cite{SLIC}. Cada pixel, então, é associado com o centro do cluster mais próximo, de modo que as regiões de busca se sobreponham \cite{SLIC}. A fim de aumentar o desempenho do algoritmo, a região de busca é limitada em 2 vezes o tamanho aproximado do superpixel $S$, gerando busca em uma área $2S \times 2S$ \cite{SLIC}. Em seguida, um passo de atualiza os centros dos clusters e computa o erro residual $E$ \cite{SLIC}. O algoritmo disponível na figura \ref{alg:SLIC}, resume as informações descrita nesse parágrafo.
+A definição do centro dos superpixels é feita utilizando sementes, que são movidas para locais de geração. Esses locais corresponem a posição mais baixa do gradiente em uma vizinhança de 3x3 \cite{SLIC}. Esse passo evita que superpixels sejam centrados nas bordas ou em um posição de ruído \cite{SLIC}. Cada pixel, então, é associado com o centro do cluster mais próximo, de modo que as regiões de busca se sobreponham \cite{SLIC}. A fim de aumentar o desempenho do algoritmo, a região de busca é limitada em 2 vezes o tamanho aproximado do superpixel $S$, gerando busca em uma área $2S \times 2S$ \cite{SLIC}. Em seguida, um passo de atualiza os centros dos clusters e computa o erro residual $E$ \cite{SLIC}. O algoritmo disponível na Figura \ref{alg:SLIC}, resume as informações descrita nesse parágrafo.
 
 \begin{figure}[ht]
 \centering
@@ -96,7 +100,24 @@ A definição do centro dos superpixels é feita utilizando sementes, que são m
 \label{alg:SLIC}
 \end{figure}
 
-Para o algoritmo descrito na figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância $D$ entre os conjuntos. Devido ao algoritmo trabalhar no \textit{colorspace} CIELAB, com o espaço-plano \textit{labxy}, a posição do pixel pode assumir um intervalo de valores. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. Para isso é utilizado a fórmula $D=\sqrt{d_c^2+(d_s/S)^2 \cdot m^2}$, onde $D$ corresponde a distância em 5 dimensões do espaço labxy, $d_c$ e $d_s$ correspondem à proximidade de cores e proximidade espacial; e $m^2$ corresponde a distância máxima entre cores no cluster \cite{SLIC}. Para o cálculo da distância em imagens em escala cinza, é utilizada a distância Euclidiana \cite{SLIC}.
+\begin{algorithm}
+    \caption{Euclid’s algorithm}
+    \label{euclid}
+    \begin{algorithmic}[1] % The number tells where the line numbering should start
+        \Procedure{Euclid}{$a,b$} \Comment{The g.c.d. of a and b}
+            \State $r\gets a \bmod b$
+            \While{$r\not=0$} \Comment{We have the answer if r is 0}
+                \State $a \gets b$
+                \State $b \gets r$
+                \State $r \gets a \bmod b$
+            \EndWhile\label{euclidendwhile}
+            \State \textbf{return} $b$\Comment{The gcd is b}
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+
+
+Para o algoritmo descrito na Figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância $D$ entre os conjuntos. Devido ao algoritmo trabalhar no \textit{colorspace} CIELAB, com o espaço-plano \textit{labxy}, a posição do pixel pode assumir um intervalo de valores. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. Para isso é utilizado a fórmula $D=\sqrt{d_c^2+(d_s/S)^2 \cdot m^2}$, onde $D$ corresponde a distância em 5 dimensões do espaço labxy, $d_c$ e $d_s$ correspondem à proximidade de cores e proximidade espacial; e $m^2$ corresponde a distância máxima entre cores no cluster \cite{SLIC}. Para o cálculo da distância em imagens em escala cinza, é utilizada a distância Euclidiana \cite{SLIC}.
 
 Uma etapa extra no processo de pós processamento é a união de \textit{pixels orfãos}. Esses pixels são adicionados ao cluster mais próximo usando o algoritmo de componentes conexos \cite{SLIC}.
 
@@ -180,7 +201,7 @@ A hierarquização das segmentações tem como objetivo possibilitar a utilizaç
 
 Para construção das hierarquias foram gerados \textit{clusters} com as correlações entre os grupos de \textit{superpixels} adjcentes, após a segmentação inicial. Foi utilizado o algoritmo SLINK (\textit{single-linkage}) para agrupamento dos \textit{superpixels} próximos, gerando uma árvore com as correlações entre os \textit{superpixels}.
 
-Para verificação da estrutura da árvore foi utilizado um dendrograma, como representado na figura \ref{fig:DENDROGRAM}. O dendrograma é um tipo de árvore utilizado para ilustração de uma clusterização hierarquica \cite{WIKI_DENDROGRAM}. Frequentemente é utilizado nas áreas de biologia para indicar a mudanças evolucionárias entre ancestrais e descendentes, baseados em suas características \cite{DENDROGRAM}.
+Para verificação da estrutura da árvore foi utilizado um dendrograma, como representado na Figura \ref{fig:DENDROGRAM}. O dendrograma é um tipo de árvore utilizado para ilustração de uma clusterização hierarquica \cite{WIKI_DENDROGRAM}. Frequentemente é utilizado nas áreas de biologia para indicar a mudanças evolucionárias entre ancestrais e descendentes, baseados em suas características \cite{DENDROGRAM}.
 
 \begin{figure}[ht]
 \centering
@@ -205,9 +226,9 @@ Para que os níveis hierarquicos possam garantir a manutenção da informação,
  \item Localidade - a medida em que o número de regiões diminui, os contornos devem ser estáveis (não devem se mover). A união corresponde a manutenção das bordas dos grupos que se fundiram \cite{SILVIO_ZENILTON}.
 \end{itemize}
 
-O método de hierarquização descrito nesse trabalho manteve as características da análise multiescala. A figura \ref{fig:hierarq_partit} mostra os possíveis cortes na hierarquia de uma segmentação SEGB, sem recoloração da imagem. Nesse modelo, a segmentação é capaz de unir pixels por similaridade.
+O método de hierarquização descrito nesse trabalho manteve as características da análise multiescala. A Figura \ref{fig:hierarq_partit} mostra os possíveis cortes na hierarquia de uma segmentação SEGB, sem recoloração da imagem. Nesse modelo, a segmentação é capaz de unir pixels por similaridade.
 
-É importante salientar que os métodos originais (SLIC e EGB), quando apenas variados os parâmetros de criação de superpixels não mantém as características de análise multiescala, conforme podemos ver nas figuras \ref{fig:SLICO} e \ref{fig:EGB}; essas características somente são obtidas pelos processos hierárquicos aplicados aos métodos após a criação dos superpixels.
+É importante salientar que os métodos originais (SLIC e EGB), quando apenas variados os parâmetros de criação de superpixels não mantém as características de análise multiescala, conforme podemos ver nas Figuras \ref{fig:SLICO} e \ref{fig:EGB}; essas características somente são obtidas pelos processos hierárquicos aplicados aos métodos após a criação dos superpixels.
 
 \begin{figure}[ht]
 \centering
@@ -233,7 +254,7 @@ O método de precisão é um método de classificação binária, onde a precis�
  \item Verdadeiros Negativos - correspondem aos valores que foram classificados corretamente como negativos \cite{WIKI_PREC_RECALL};
 \end{itemize}
 
-A classificação descrita acima está ilustrada na figura \ref{fig:PREC_RECALL}. 
+A classificação descrita acima está ilustrada na Figura \ref{fig:PREC_RECALL}. 
 
 \begin{figure}[ht]
 \centering
@@ -298,7 +319,7 @@ A  fim de obter a melhor parametrização possível, foram executados diversos t
   \end{center}
 \end{table}
 
-Os algoritmos hierárquicos foram executados e a melhor partição obtida para todo o conjunto de imagens (ODS - \textit{Optimal Data Set Scale}) \cite{CONT_EMPIRICAL} foi utilizada. Em seguida os valores foram comparados aos demais algoritmos utilizando com métrica a medida \textit{F-measure}. A eficiência média dos algoritmos está ilustrada na figura \ref{fig:FMEASURE_AVG}.
+Os algoritmos hierárquicos foram executados e a melhor partição obtida para todo o conjunto de imagens (ODS - \textit{Optimal Data Set Scale}) \cite{CONT_EMPIRICAL} foi utilizada. Em seguida os valores foram comparados aos demais algoritmos utilizando com métrica a medida \textit{F-measure}. A eficiência média dos algoritmos está ilustrada na Figura \ref{fig:FMEASURE_AVG}.
 
 \begin{comment}
 
@@ -317,11 +338,11 @@ Os algoritmos hierárquicos foram executados e a melhor partição obtida para t
 \label{fig:FMEASURE_AVG}
 \end{figure}
 
-Conforme observamos na figura \ref{fig:FMEASURE_AVG}, o valor médio do algoritmo SEGB teve valores próximois aos obtidos pelo algoritmo EGB. O algoritmo EGB teve valor superior ao algoritmo SLIC, em todos os casos.
+Conforme observamos na Figura \ref{fig:FMEASURE_AVG}, o valor médio do algoritmo SEGB teve valores próximois aos obtidos pelo algoritmo EGB. O algoritmo EGB teve valor superior ao algoritmo SLIC, em todos os casos.
 
-Os algoritmos hierárquicos, conforme figura \ref{fig:FMEASURE_AVG}, resultaram em valores superiores aos algoritmos sem hierarquização. O resultado observado é superior àqueles sem hierarquização. Esse resultado é previsível devido a possibilidade de melhor adequação a base de dados.
+Os algoritmos hierárquicos, conforme Figura \ref{fig:FMEASURE_AVG}, resultaram em valores superiores aos algoritmos sem hierarquização. O resultado observado é superior àqueles sem hierarquização. Esse resultado é previsível devido a possibilidade de melhor adequação a base de dados.
 
-Outra análise possível para os algoritmos são os valores máximos de \textit{F-measure}. Esses valores estão ilustrados na figura \ref{fig:FMEASURE_MAX}. A figura mostra mais uma vez que as melhores hierarquias obtiveram resultados superiores às versões sem hierarquização. Por fim, vemos que o resultado máximo do algoritmo EGB é superior ao algoritmo SEGB, diferindo do valor médio das amostras.
+Outra análise possível para os algoritmos são os valores máximos de \textit{F-measure}. Esses valores estão ilustrados na Figura \ref{fig:FMEASURE_MAX}. A Figura mostra mais uma vez que as melhores hierarquias obtiveram resultados superiores às versões sem hierarquização. Por fim, vemos que o resultado máximo do algoritmo EGB é superior ao algoritmo SEGB, diferindo do valor médio das amostras.
 
 \begin{figure}[ht]
 \centering

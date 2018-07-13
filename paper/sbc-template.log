@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  10 JUL 2018 07:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.7.13)  13 JUL 2018 11:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -474,23 +474,67 @@ Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@dima=\skip52
 \bigstrutjot=\dimen125
 )
-(./sbc-template.aux)
+(./algpseudocode.sty
+Package: algpseudocode 
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(./algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count98
+\c@ALG@rem=\count99
+\c@ALG@nested=\count100
+\ALG@tlm=\skip53
+\ALG@thistlm=\skip54
+\c@ALG@Lnr=\count101
+\c@ALG@blocknr=\count102
+\c@ALG@storecount=\count103
+\c@ALG@tmpcounter=\count104
+\ALG@tmplength=\skip55
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count105
+\float@exts=\toks21
+\float@box=\box27
+\@float@everytoks=\toks22
+\@floatcapt=\box28
+)
+\@float@every@algorithm=\toks23
+\c@algorithm=\count106
+) (./algpascal.sty
+Package: algpascal 
+
+Document Style - pascal environments for the `algorithmicx' style
+) (./algc.sty
+Package: algc 
+
+Document Style - c/c++ environments for use with the `algorithmicx' style
+) (./sbc-template.aux)
 \openout1 = `sbc-template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 32.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 38.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 *geometry* driver: auto-detecting
@@ -529,17 +573,17 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count98
+\scratchcounter=\count107
 \scratchdimen=\dimen126
-\scratchbox=\box27
-\nofMPsegments=\count99
-\nofMParguments=\count100
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count101
+\scratchbox=\box29
+\nofMPsegments=\count108
+\nofMParguments=\count109
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count110
 \MPscratchDim=\dimen127
-\MPnumerator=\count102
-\makeMPintoPDFobject=\count103
-\everyMPtoPDFconversion=\toks22
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
+\everyMPtoPDFconversion=\toks25
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -593,111 +637,392 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 34.
+(Font)              <12> on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 34.
+(Font)              <8> on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 34.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 34.
+(Font)              <6> on input line 40.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 36.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 42.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 45.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
 <./images/superpixels.png, id=1, 716.6775pt x 232.61906pt>
 File: ./images/superpixels.png Graphic file (type png)
 <use ./images/superpixels.png>
-Package pdftex.def Info: ./images/superpixels.png  used on input line 51.
+Package pdftex.def Info: ./images/superpixels.png  used on input line 57.
 (pdftex.def)             Requested size: 426.79135pt x 138.52896pt.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 52.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 58.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 52.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 58.
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
 []\OT1/ptm/m/n/12 Alguns m[]etodos de gera[][]ao de su-per-pi-xels s[]ao uti-li
 -za-dos para
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
 \OT1/ptm/m/n/12 segmenta[][]ao de ima-gens e detec[][]ao de bor-das, como os m[
 ]etodos EGB
  []
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 58--59
+Underfull \hbox (badness 1005) in paragraph at lines 64--65
 \OT1/ptm/m/n/12 [[]] e SLIC [[]]. Esse tra-ba-lho
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 2846) in paragraph at lines 74--75
+Underfull \hbox (badness 2846) in paragraph at lines 80--81
 \OT1/ptm/m/n/12 Superpixels s[]ao es-tru-tu-ras que agru-pam pi-xels se-me-lhan
 -tes em con-jun-tos. O
  []
 
 
-Underfull \hbox (badness 1052) in paragraph at lines 74--75
+Underfull \hbox (badness 1052) in paragraph at lines 80--81
 \OT1/ptm/m/n/12 agru-pa-mento pos-si-bi-lita a redu[][]ao de com-ple-xi-dade da
 s ta-re-fas de pro-ces-sa-mento
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 79.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 85.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 79.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 85.
  [2 <./images/superpixels.png (PNG copy)>]
 <./images/algoritmo_slic.png, id=18, 319.1925pt x 383.18156pt>
 File: ./images/algoritmo_slic.png Graphic file (type png)
 <use ./images/algoritmo_slic.png>
-Package pdftex.def Info: ./images/algoritmo_slic.png  used on input line 94.
+Package pdftex.def Info: ./images/algoritmo_slic.png  used on input line 100.
 (pdftex.def)             Requested size: 256.07741pt x 307.41684pt.
- [3 <./images/algoritmo_slic.png>]
+
+! Undefined control sequence.
+<argument> ...{the\@captype }}{\ignorespaces \euk 
+                                                  's algorithm}}{\thepage }}
+l.106 \caption{\euk's algorithm}
+                                \label{euclid}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \ignorespaces \euk 
+                              's algorithm
+l.106 \caption{\euk's algorithm}
+                                \label{euclid}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.108 \Procedure{\euk
+                     }{$a,b$}\Comment{The g.c.d. of a and b}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109    \State
+                $r\gets a\bmod b$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109    \State
+                $r\gets a\bmod b$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109    \State
+                $r\gets a\bmod b$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110    \While
+               {$r\not=0$}\Comment{We have the answer if r is 0}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110    \While
+               {$r\not=0$}\Comment{We have the answer if r is 0}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110    \While
+               {$r\not=0$}\Comment{We have the answer if r is 0}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.110    \While{$r\not=0$}
+                          \Comment{We have the answer if r is 0}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110    \While{$r\not=0$}
+                          \Comment{We have the answer if r is 0}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111       \State
+                   $a\gets b$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111       \State
+                   $a\gets b$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111       \State
+                   $a\gets b$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.112       \State
+                   $b\gets r$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.112       \State
+                   $b\gets r$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.112       \State
+                   $b\gets r$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.113       \State
+                   $r\gets a\bmod b$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.113       \State
+                   $r\gets a\bmod b$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.113       \State
+                   $r\gets a\bmod b$
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.115    \State
+                \Return $b$\Comment{The gcd is b}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.115    \State
+                \Return $b$\Comment{The gcd is b}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.115    \State
+                \Return $b$\Comment{The gcd is b}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 \end{algorithmic}
+                       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[3 <./images/algoritmo_slic.png>]
 <./images/slic_segmentation_compare.png, id=27, 722.7pt x 264.99pt>
 File: ./images/slic_segmentation_compare.png Graphic file (type png)
 <use ./images/slic_segmentation_compare.png>
 Package pdftex.def Info: ./images/slic_segmentation_compare.png  used on input 
-line 107.
+line 129.
 (pdftex.def)             Requested size: 426.79135pt x 156.49234pt.
-
-Underfull \hbox (badness 1173) in paragraph at lines 122--123
+ [4 <./images/slic_segmentation_compare.png (PNG copy)>]
+Underfull \hbox (badness 1173) in paragraph at lines 144--145
 []\OT1/ptm/m/n/12 Para a compara[][]ao en-tre as regi[]oes []e uti-li-zada uma 
 fun[][]ao de corte (\OT1/ptm/m/it/12 th-
  []
 
 
-Underfull \hbox (badness 1715) in paragraph at lines 122--123
+Underfull \hbox (badness 1715) in paragraph at lines 144--145
 \OT1/ptm/m/it/12 reshold\OT1/ptm/m/n/12 ) $\OML/cmm/m/it/12 ^^\$\OT1/ptm/m/n/12
  , a fim de me-dir o grau de diferen[]a en-tre os com-po-nen-tes. Esse
  []
 
 
-Underfull \hbox (badness 4429) in paragraph at lines 122--123
+Underfull \hbox (badness 4429) in paragraph at lines 144--145
 \OT1/ptm/m/n/12 grau deve ser su-pe-rior a diferen[]a in-terna m[]^^Pnima, evi-
 den-ci-ando uma borda
  []
 
 
-Underfull \hbox (badness 1803) in paragraph at lines 122--123
+Underfull \hbox (badness 1803) in paragraph at lines 144--145
 \OT1/ptm/m/n/12 [[]]. A fun[][]ao de corte, no al-go-ritmo, []e uti-
  []
 
 
-Underfull \hbox (badness 1460) in paragraph at lines 122--123
+Underfull \hbox (badness 1460) in paragraph at lines 144--145
 \OT1/ptm/m/n/12 li-zada ba-se-ado no ta-ma-nho do com-po-nente $\OML/cmm/m/it/1
 2 ^^\ \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 k=\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
 \OMS/cmsy/m/n/12 j$\OT1/ptm/m/n/12 , onde $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 C
@@ -705,78 +1030,81 @@ Underfull \hbox (badness 1460) in paragraph at lines 122--123
  []
 
 
-Underfull \hbox (badness 2111) in paragraph at lines 122--123
+Underfull \hbox (badness 2111) in paragraph at lines 144--145
 \OT1/ptm/m/n/12 ao ta-ma-nho do com-po-nente $\OML/cmm/m/it/12 C$ \OT1/ptm/m/n/
 12 e $\OML/cmm/m/it/12 k$ \OT1/ptm/m/n/12 cor-res-ponde a um par[]ametro do al-
 go-ritmo
  []
 
-[4 <./images/slic_segmentation_compare.png (PNG copy)>]
 <./images/felz_segmentation_compare.png, id=33, 719.68875pt x 264.23718pt>
 File: ./images/felz_segmentation_compare.png Graphic file (type png)
 <use ./images/felz_segmentation_compare.png>
 Package pdftex.def Info: ./images/felz_segmentation_compare.png  used on input 
-line 128.
+line 150.
 (pdftex.def)             Requested size: 426.79135pt x 156.70496pt.
- [5 <./images/felz_segmentation_compare.png (PNG copy)>] [6]
+[5 <./images/felz_segmentation_compare.png (PNG copy)>] [6]
 <./images/dendrogram.png, id=40, 1167.36125pt x 1126.2075pt>
 File: ./images/dendrogram.png Graphic file (type png)
 <use ./images/dendrogram.png>
-Package pdftex.def Info: ./images/dendrogram.png  used on input line 187.
+Package pdftex.def Info: ./images/dendrogram.png  used on input line 209.
 (pdftex.def)             Requested size: 426.79135pt x 411.74112pt.
  [7 <./images/dendrogram.png>]
 <./images/slic_hierarquia_particoes.png, id=46, 716.6775pt x 269.50688pt>
 File: ./images/slic_hierarquia_particoes.png Graphic file (type png)
 <use ./images/slic_hierarquia_particoes.png>
 Package pdftex.def Info: ./images/slic_hierarquia_particoes.png  used on input 
-line 214.
+line 236.
 (pdftex.def)             Requested size: 426.79135pt x 160.49634pt.
  [8 <./images/slic_hierarquia_particoes.png (PNG copy)>]
 <./images/precision_recall.png, id=50, 71.69183pt x 115.632pt>
 File: ./images/precision_recall.png Graphic file (type png)
 <use ./images/precision_recall.png>
-Package pdftex.def Info: ./images/precision_recall.png  used on input line 240.
+Package pdftex.def Info: ./images/precision_recall.png  used on input line 262.
 
 (pdftex.def)             Requested size: 170.71393pt x 275.3593pt.
  [9 <./images/precision_recall.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 258.
+(Font)              <7> on input line 280.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 258.
-[10]
+(Font)              <5> on input line 280.
+ [10]
 <./images/fmeasure_avg.png, id=58, 1190.4475pt x 622.325pt>
 File: ./images/fmeasure_avg.png Graphic file (type png)
 <use ./images/fmeasure_avg.png>
-Package pdftex.def Info: ./images/fmeasure_avg.png  used on input line 315.
+Package pdftex.def Info: ./images/fmeasure_avg.png  used on input line 337.
 (pdftex.def)             Requested size: 384.1096pt x 200.80035pt.
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 316.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 338.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 316.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 338.
 <./images/fmeasure_max.png, id=59, 1190.4475pt x 622.325pt>
 File: ./images/fmeasure_max.png Graphic file (type png)
 <use ./images/fmeasure_max.png>
-Package pdftex.def Info: ./images/fmeasure_max.png  used on input line 328.
+Package pdftex.def Info: ./images/fmeasure_max.png  used on input line 350.
 (pdftex.def)             Requested size: 384.1096pt x 200.80035pt.
- [11 <./images/fmeasure_avg.png>] (./sbc-template.bbl [12 <./images/fmeasure_ma
-x.png>]) [13] (./sbc-template.aux) ){/usr/share/texlive/texmf-dist/fonts/enc/dv
-ips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/
-uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (13 pages, 1453621 bytes).
+ [11 <./images/fmeasure_avg.png>]
+No file sbc-template.bbl.
+[12 <./images/fmeasure_max.png>] (./sbc-template.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ){/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sbc-template.pdf (12 pages, 1449504 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
