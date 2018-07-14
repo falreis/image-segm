@@ -120,7 +120,7 @@ A definição do centro dos superpixels é feita utilizando sementes, que são m
 \end{algorithm}
 
 
-Para o algoritmo descrito na Figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância $D$ entre os conjuntos. Devido ao algoritmo trabalhar no \textit{colorspace} CIELAB, com o espaço-plano \textit{labxy}, a posição do pixel pode assumir um intervalo de valores. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. Para isso é utilizado a fórmula $D=\sqrt{d_c^2+(d_s/S)^2 \cdot m^2}$, onde $D$ corresponde a distância em 5 dimensões do espaço labxy, $d_c$ e $d_s$ correspondem à proximidade de cores e proximidade espacial; e $m^2$ corresponde a distância máxima entre cores no cluster \cite{SLIC}. Para o cálculo da distância em imagens em escala cinza, é utilizada a distância Euclidiana \cite{SLIC}.
+Para o algoritmo descrito na Figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância $D$ entre os conjuntos. Devido ao algoritmo trabalhar no espaço de cores $CIELAB$, com o espaço-plano $labxy$, a posição do pixel pode assumir um intervalo de valores. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. Para isso é utilizado a fórmula $D=\sqrt{d_c^2+(d_s/S)^2 \cdot m^2}$, onde $D$ corresponde a distância em 5 dimensões do espaço $labxy$, $d_c$ e $d_s$ correspondem à proximidade de cores e proximidade espacial; e $m^2$ corresponde a distância máxima entre cores no cluster \cite{SLIC}. Para o cálculo da distância em imagens em escala cinza, é utilizada a distância Euclidiana \cite{SLIC}.
 
 Uma etapa extra no processo de pós processamento é a união de \textit{pixels orfãos}. Esses pixels são adicionados ao cluster mais próximo usando o algoritmo de componentes conexos \cite{SLIC}.
 
@@ -157,18 +157,20 @@ O algoritmo EGB, utilizando pesos inteiros e ordenação por contagem, pode ser 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Clusters} \label{ssec:clusters}
+\subsection{Análise de Clusters} \label{ssec:clusters}
 
-% Análise de cluster é a tarefa de agrupar dados em grupos (\textit{clusters}) que tenham características em comum, sejam signinficativos e/ou úteis \cite{CLUSTER_HIER}. \textit{Clusters} hierárquicos correspondem a análise de \textit{clusters} a fim de buscar hierarquias entre eles. As estratégias para hierarquização de cluster se dividem em dois grupos \cite{ROKACH}:
+Análise de cluster é a tarefa de agrupar dados em grupos (\textit{clusters}) que tenham características em comum, sejam signinficativos e/ou úteis \cite{CLUSTER_HIER}. \textit{Clusters} hierárquicos correspondem a análise de \textit{clusters} a fim de buscar hierarquias entre eles. As estratégias para hierarquização de cluster se dividem em dois grupos \cite{ROKACH}:
 
 \begin{itemize}
  \item Aglomerativo - abordagem \textit{"bottom up"}, em que a observação inicia-se no próprio \textit{cluster} e os pares de \textit{clusters} são unidos na medida em que se sobe na hierarquia. 
  \item Divisivo - abordagem \textit{"top down"} onde as observações iniciam-se em um \textit{cluster} e são realizadas recursivamente a medida em que se desce na hierarquia.
 \end{itemize}
 
-Os algoritmos originais de cluster possuem complexidade $O(n^3)$. Alguns algoritmos, entretanto, como o SLINK, ou \textit{single-linkage}, possuem complexidade $O(n^2)$ \cite{SLINK}. O SLINK utiliza a distância mínima como critério de ligação (\textit{linkage}) entre os \textit{clusters}. A fórmula $min\{d(a,b): a \in A, b \in B \}$, corresponde a distância mínima para dois pares de clusters A e B observados, onde $d$ é a métrica de distância escolhida \cite{WIKI_CLUSTER_HIERARCHY}.
+Os algoritmos de clusterização hierárquicos aglomerativos, podem ser classificados, em geral, como gulosos \cite{SINGLE_LINKAGE}. Uma sequência de passos irreversíveis são usados para construção dos dados desejados \cite{SINGLE_LINKAGE}. A abordagem de clustering hierárquico de ligação única (\textit{single-linkage}) produz um conjunto de clusters em cada nível - ou para cada valor de limite que produz uma nova partição \cite{SINGLE_LINKAGE}. O nome ligação única surge quando a dissimilaridade de interconexão entre dois grupos ou componentes é definida como a menor diferença de interconexão entre um membro de um e um membro do outro \cite{SINGLE_LINKAGE}.
 
-A partir da aglomeração de clusters é possivel construir uma árvore hierarquica, onde os clusters são agrupados por sua similaridade. Um método de visualização dessas características é o dendrograma. 
+Os algoritmos originais de clusterização possuem complexidade $O(n^3)$. Alguns algoritmos de \textit{single-linkage}, entretanto, como o SLINK, possuem complexidade $O(n^2)$ \cite{SLINK} \cite{SINGLE_LINKAGE}. O SLINK utiliza a distância mínima como critério de ligação (\textit{linkage}) entre os \textit{clusters}. A fórmula de dissimilaridade de Lance-Williams $min\{d_{ik}, d_{jk}\}$, corresponde a distância mínima para dois pares de clusters $i$ e $j$ observados, onde $d$ é a métrica de distância escolhida \cite{SINGLE_LINKAGE}.
+
+A partir da aglomeração de clusters é possivel construir uma árvore hierarquica binária, onde os clusters são agrupados por sua similaridade. Esse tipo de árvore binária para visualização também é conhecido como dendrograma \cite{SINGLE_LINKAGE}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -180,6 +182,43 @@ Segmentação de imagens consiste em separar uma imagem em regiões, idealmente 
 Extensiva pesquisa é realizada e muitas abordagens e algoritmos são utilizados, com bons resultados para um conjunto ou classes de imagens \cite{ZHANG2008}. A fim de facilitar a pesquisa, alguns trabalhos foram desenvolvidos para criação de um conjunto de imagens com suas respectivas segmentações manuais. A base BSDS500 (\textit{Berkeley Segmentation Data Set and Benchmarks 500}) provê uma base de imagens para pesquisa de segmentação e detecção de bordas. \cite{BSDS500}. Essa base de dados é uma extensão da base BSDS300, com 200 novas imagens para avaliação \cite{BSDS500}.
 
 A fim de avaliar a efetividade das segmentações, tradicionalmente são utilizados métodos subjetivos, como a visualização humana, responsável por comparar a qualidade da segmentação ou métodos supervisionados, onde uma segmentação é comparada em relação a uma imagem manualmente segmentada \cite{ZHANG2008}. Projetos de detecção automática, como o SEISM (\textit{Supervised Evaluation of Image Segmentation Methods}) permitem a avaliação da segmentação, usando a recuperação de precisão para bordas e a recuperação de precisão para objetos e peças \cite{SEISM}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Precisão e Revocação} \label{ssec:prec_recall}
+
+Em um problema de decisão, os classificadores podem ser positivos ou negativos \cite{PRECISION_RECALL}. A decisão feita por um classificador pode ser representada por uma estrutura conhecida como matriz de confusão ou tabela de contigência. Essa matriz pode identificar 4 tipos de dados possíveis \cite{PRECISION_RECALL}:
+
+\begin{itemize}
+ \item Verdadeiros Positivos - correspondem aos valores que foram corretamente classificados como positivos;
+ \item Falsos Negativos - correspondem aos valores que foram classificados incorretamente como negativos;
+ \item Falsos Positivos - correspondem aos valores que foram classificados incorretamente como positivos;
+ \item Verdadeiros Negativos - correspondem aos valores que foram classificados corretamente como negativos \cite{PRECISION_RECALL};
+\end{itemize}
+
+O método de precisão e revocação é um método de classificação binária, onde a precisão (\textit{prediction}) mede a proporção de eventos do modelo que são reais; enquanto a revocação (\textit{recall}), mede a proporção de eventos ocorridos no domínio que são capturados pelos modelos \cite{PREC_RECALL_REGR}. A classificação está ilustrada na Figura \ref{fig:PREC_RECALL}. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.4\textwidth]{precision_recall.png}
+\caption{Precisão e revocação. Adaptado de \cite{WIKI_PREC_RECALL}}
+\label{fig:PREC_RECALL}
+\end{figure}
+
+A partir dos valores de precisão e revocação, é possível construir curvas que associem ambos os valores. Essas curvas possibilitam uma informação visual da performance de um algoritmo \cite{PRECISION_RECALL}. 
+
+% TODO: Adicionar informação sobre f-measure
+
+\cite{F_MEASURE}
+
+A classificação de precisão e revocação pode ser dada por uma média harmônica, chamada de \textit{F-measure} ou \textit{F-score} balanceada. Essa medida é dada pela fórmula \cite{WIKI_PREC_RECALL}:
+
+\begin{equation}
+ F=2 \cdot \frac{precis \cdot revoc}{precis + revoc}
+\end{equation}
+
+A medida é aproximadamente a média quando seus valores estão próximos, porém o valor é baixo quando as médias estão distantes, favorecendo métodos com baixo número de falsos positivos e verdadeiros negativos \cite{WIKI_PREC_RECALL}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -204,7 +243,7 @@ A hierarquização das segmentações tem como objetivo possibilitar a utilizaç
 
 Para construção das hierarquias foram gerados \textit{clusters} com as correlações entre os grupos de \textit{superpixels} adjcentes, após a segmentação inicial. Foi utilizado o algoritmo SLINK (\textit{single-linkage}) para agrupamento dos \textit{superpixels} próximos, gerando uma árvore com as correlações entre os \textit{superpixels}.
 
-Para verificação da estrutura da árvore foi utilizado um dendrograma, como representado na Figura \ref{fig:DENDROGRAM}. O dendrograma é um tipo de árvore utilizado para ilustração de uma clusterização hierarquica \cite{WIKI_DENDROGRAM}. Frequentemente é utilizado nas áreas de biologia para indicar a mudanças evolucionárias entre ancestrais e descendentes, baseados em suas características \cite{DENDROGRAM}.
+Para verificação da estrutura da árvore foi utilizado um dendrograma, como representado na Figura \ref{fig:DENDROGRAM}. O dendrograma é um tipo de árvore binária utilizado para ilustração de uma clusterização hierarquica \cite{SINGLE_LINKAGE}.
 
 \begin{figure}[ht]
 \centering
@@ -246,33 +285,10 @@ O método de hierarquização descrito nesse trabalho manteve as característica
 
 \subsection{Avaliação de Resultados} \label{ssec:aval_resultados}
 
-Para avaliação das imagens, foi primeiramente utilizada a classificação visual, comparando a qualidade dos resultados. Em seguida utilizou-se um método de comparação de precisão e revocação, para detecção de contornos e bordas.
+% TODO Reescrever essa seção
 
-O método de precisão é um método de classificação binária, onde a precisão (\textit{prediction}) corresponde à ``fração de instâncias recuperadas que são relevantes'', enquanto revocação (\textit{recall}), corresponde ``a fração de instâncias relevantes que são recuperadas'' \cite{WIKI_PREC_RECALL}. Ambos os métodos são avaliados juntos para que possam identificar 4 tipos de dados possíveis:
+Para avaliação das imagens, foi primeiramente utilizada a classificação visual, comparando a qualidade dos resultados. Em seguida utilizou-se um método de comparação de precisão e revocação, para detecção de contornos e bordas, conforme mostrado na Seção \ref{ssec:prec_recall}.
 
-\begin{itemize}
- \item Verdadeiros Positivos - correspondem aos valores que foram corretamente classificados como positivos;
- \item Falsos Negativos - correspondem aos valores que foram classificados incorretamente como negativos;
- \item Falsos Positivos - correspondem aos valores que foram classificados incorretamente como positivos;
- \item Verdadeiros Negativos - correspondem aos valores que foram classificados corretamente como negativos \cite{WIKI_PREC_RECALL};
-\end{itemize}
-
-A classificação descrita acima está ilustrada na Figura \ref{fig:PREC_RECALL}. 
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.4\textwidth]{precision_recall.png}
-\caption{Precisão e revocação. Adaptado de \cite{WIKI_PREC_RECALL}}
-\label{fig:PREC_RECALL}
-\end{figure}
-
-A classificação de precisão e revocação pode ser dada por uma média harmônica, chamada de \textit{F-measure} ou \textit{F-score} balanceada. Essa medida é dada pela fórmula \cite{WIKI_PREC_RECALL}:
-
-\begin{equation}
- F=2 \cdot \frac{precis \cdot revoc}{precis + revoc}
-\end{equation}
-
-A medida é aproximadamente a média quando seus valores estão próximos, porém o valor é baixo quando as médias estão distantes, favorecendo métodos com baixo número de falsos positivos e verdadeiros negativos \cite{WIKI_PREC_RECALL}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
