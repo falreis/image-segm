@@ -315,18 +315,15 @@ A  fim de obter a melhor parametrização possível, foram executados diversos t
 
 \begin{table}
   \begin{center}
-  \begin{tabular}{| l | c | c | c |}
-  \hline & \multicolumn{3}{ |c| }{Algoritmos} \\
-  \hline %\multirow{4}{*}{Parâmetros} 
-    & SLIC & EGB & SEGB \\ 
+  \begin{tabular}{{l}{c}{c}{c}{c}{c}{c}}
+  \hline 
+    Parâmetros & SLIC & EGB & SEGB & H-SLIC & H-EGB & H-SEGB \\
   \hline
-    $k$ & 300 & - & 1408 \\
-  \hline
-    $scale$ & - & 300 & 1408 \\
-  \hline
-    $sigma$ & - & 0.8 & 0.8 \\ 
-  \hline
-    $min\_size$ & - & 30 & 30 \\
+    $k$ & 300 & - & 1408 & 300 & - & 1408 \\
+    $scale$ & - & 300 & 1408 & - & 300 & 1408 \\
+    $sigma$ & - & 0.8 & 0.8  & - & 0.8 & 0.8 \\
+    $min\_size$ & - & 30 & 30 & - & 30 & 30 \\
+    \textit{melhor partição} & - & - & - & 150 & 150 & 150 \\
   \hline
   \end{tabular}
   \caption{Parametrização dos algoritmos.}
