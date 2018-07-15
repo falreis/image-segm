@@ -208,17 +208,14 @@ O método de precisão e revocação é um método de classificação binária, 
 
 A partir dos valores de precisão e revocação, é possível construir curvas que associem ambos os valores. Essas curvas possibilitam uma informação visual da performance de um algoritmo \cite{PRECISION_RECALL}. 
 
-% TODO: Adicionar informação sobre f-measure
+A classificação de precisão e revocação pode ser dada por uma média harmônica, chamada de \textit{F-measure} \cite{F_MEASURE}. Essa medida é utilizada para diferentes problemas de classificação e impõe um melhor equilíbrio entre o desempenho entre precisão e revocação, respectivamente, e, portanto, é mais adequado no caso de dados desequilibrados \cite{F_MEASURE}. 
 
-\cite{F_MEASURE}
-
-A classificação de precisão e revocação pode ser dada por uma média harmônica, chamada de \textit{F-measure} ou \textit{F-score} balanceada. Essa medida é dada pela fórmula \cite{WIKI_PREC_RECALL}:
+Dado um vetor binário $m$-dimensional e classes de precisão e revocação, cujo conjunto estejam associados ao vetor $m$-dimensional, a medida F-measure é dada pela Equação \ref{equ:PREC_RECALL}, correspondente a média harmônica entre ambas as medidas \cite{F_MEASURE}.
 
 \begin{equation}
- F=2 \cdot \frac{precis \cdot revoc}{precis + revoc}
+ F=\frac{ 2 \sum\limits_{i=1}^m {prec \cdot revoc}}{ \sum\limits_{i=1}^m {prec} + \sum\limits_{i=1}^m {revoc}}  \in [0,1]
+ \label{equ:PREC_RECALL}
 \end{equation}
-
-A medida é aproximadamente a média quando seus valores estão próximos, porém o valor é baixo quando as médias estão distantes, favorecendo métodos com baixo número de falsos positivos e verdadeiros negativos \cite{WIKI_PREC_RECALL}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -285,9 +282,9 @@ O método de hierarquização descrito nesse trabalho manteve as característica
 
 \subsection{Avaliação de Resultados} \label{ssec:aval_resultados}
 
-% TODO Reescrever essa seção
+Para avaliação das imagens, foi primeiramente utilizada a classificação visual, comparando a qualidade dos resultados. Em seguida utilizou-se um método de comparação de precisão e revocação, para detecção de contornos e bordas, conforme Seção \ref{ssec:prec_recall}. 
 
-Para avaliação das imagens, foi primeiramente utilizada a classificação visual, comparando a qualidade dos resultados. Em seguida utilizou-se um método de comparação de precisão e revocação, para detecção de contornos e bordas, conforme mostrado na Seção \ref{ssec:prec_recall}.
+A avaliação de contornos e bordas foi feito utilizando o benchmarks de avaliação de performance das segmentações, disponíveis na base de dados BSDS500\footnote{https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/resources.html}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -297,11 +294,10 @@ Para avaliação das imagens, foi primeiramente utilizada a classificação visu
 
 Os códigos fontes gerados, realizando as segmentações, hierarquias, geração de mapas ultramétricos, avaliação dos resultados e os gráficos presentes nesse trabalhos estão disponíveis publicamente na página pessoal do autor no Github \footnote{https://github.com/falreis/image-segm}.
 
-Os algoritmos SLIC e EGB utilizados para realização desse trabalho foram obtidos pela biblioteca Scikit-Image\footnote{http://scikit-image.org/docs/dev/api/skimage.segmentation.html}.
-Os algoritmos de geração de cluster SLINK e representação de dendrogramas foram obtido na biblioteca Scipy.org\footnote{https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html}. 
-O algoritmo de avaliação do resultado foi obtido no projeto Image-Segmentation, no Github\footnote{https://github.com/Htiango/Image-Segmentation/blob/master/main/eval\_boundary.py}. 
+Os algoritmos SLIC e EGB utilizados para realização desse trabalho foram obtidos pela biblioteca Scikit-Image\footnote{http://scikit-image.org/docs/dev/api/skimage.segmentation.html}. 
+Os algoritmos de geração de cluster de ligação única (\textit{single-linkage}) e representação de dendrogramas foram obtidos na biblioteca Scipy.org\footnote{https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html}. 
 
-%Também foi utilizado o benchmarks de avaliação de performance das segmentações, disponíveis na base de dados BSDS500\footnote{https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/resources.html}.
+%O algoritmo de avaliação do resultado foi obtido no projeto Image-Segmentation, no Github\footnote{https://github.com/Htiango/Image-Segmentation/blob/master/main/eval\_boundary.py}. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
