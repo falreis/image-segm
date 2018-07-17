@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: sbc-template.aux
+The style file: sbc.bst
+Database file #1: sbc-template.bib
+Warning--entry type for "WIKI_PREC_RECALL" isn't style-file defined
+--line 182 of file sbc-template.bib
+Warning--can't use both volume and number fields in DOMINGUEZ
+Warning--empty publisher in DOMINGUEZ
+Warning--empty journal in SINGLE_LINKAGE
+Warning--can't use both author and editor fields in ROKACH
+You've used 22 entries,
+            1935 wiz_defined-function locations,
+            641 strings with 7880 characters,
+and the built_in function-call counts, 10328 in all, are:
+= -- 1037
+> -- 376
+< -- 24
++ -- 132
+- -- 123
+* -- 844
+:= -- 1667
+add.period$ -- 68
+call.type$ -- 22
+change.case$ -- 167
+chr.to.int$ -- 21
+cite$ -- 26
+duplicate$ -- 424
+empty$ -- 755
+format.name$ -- 165
+if$ -- 2147
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 23
+newline$ -- 111
+num.names$ -- 70
+pop$ -- 159
+preamble$ -- 1
+purify$ -- 169
+quote$ -- 0
+skip$ -- 341
+stack$ -- 0
+substring$ -- 823
+swap$ -- 111
+text.length$ -- 11
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 128
+warning$ -- 4
+while$ -- 83
+width$ -- 0
+write$ -- 294
+(There were 5 warnings)

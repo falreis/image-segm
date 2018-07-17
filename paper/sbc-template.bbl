@@ -1,0 +1,132 @@
+\begin{thebibliography}{}
+
+\bibitem[Achanta et~al. 2012]{SLIC}
+Achanta, R., Shaji, A., Smith, K., Lucchi, A., Fua, P., and Süsstrunk, S.
+  (2012).
+\newblock Slic superpixels compared to state-of-the-art superpixel methods.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  34(11):2274--2282.
+
+\bibitem[Arbelaez 2006]{ULTRAMETRIC}
+Arbelaez, P. (2006).
+\newblock Boundary extraction in natural images using ultrametric contour maps.
+\newblock In {\em 2006 Conference on Computer Vision and Pattern Recognition
+  Workshop (CVPRW'06)}, pages 182--182.
+
+\bibitem[Arbelaez et~al. 2009]{CONT_EMPIRICAL}
+Arbelaez, P., Maire, M., Fowlkes, C., and Malik, J. (2009).
+\newblock From contours to regions: An empirical evaluation.
+\newblock In {\em 2009 IEEE Conference on Computer Vision and Pattern
+  Recognition}, pages 2294--2301.
+
+\bibitem[Arbelaez et~al. 2011]{BSDS500}
+Arbelaez, P., Maire, M., Fowlkes, C., and Malik, J. (2011).
+\newblock Contour detection and hierarchical image segmentation.
+\newblock {\em IEEE Trans. Pattern Anal. Mach. Intell.}, 33(5):898--916.
+
+\bibitem[Davis and Goadrich 2006]{PRECISION_RECALL}
+Davis, J. and Goadrich, M. (2006).
+\newblock The relationship between precision-recall and roc curves.
+\newblock In {\em Proceedings of the 23rd International Conference on Machine
+  Learning}, ICML '06, pages 233--240, New York, NY, USA. ACM.
+
+\bibitem[Dembczy\'{n}ski et~al. 2011]{F_MEASURE}
+Dembczy\'{n}ski, K., Waegeman, W., Cheng, W., and H\"{u}llermeier, E. (2011).
+\newblock An exact algorithm for f-measure maximization.
+\newblock In {\em Proceedings of the 24th International Conference on Neural
+  Information Processing Systems}, NIPS'11, pages 1404--1412, USA. Curran
+  Associates Inc.
+
+\bibitem[Domínguez and Morales 2016]{DOMINGUEZ}
+Domínguez, D. and Morales, R.~R. (2016).
+\newblock {\em Image Segmentation: Advances}, volume~1.
+
+\bibitem[Felzenszwalb and Huttenlocher 2004]{FELZENSZWALB}
+Felzenszwalb, P.~F. and Huttenlocher, D.~P. (2004).
+\newblock Efficient graph-based image segmentation.
+\newblock {\em International Journal of Computer Vision}, 59(2):167--181.
+
+\bibitem[Fulkerson et~al. 2009]{SEG_LOCALIZ}
+Fulkerson, B., Vedaldi, A., and Soatto, S. (2009).
+\newblock Class segmentation and object localization with superpixel
+  neighborhoods.
+\newblock In {\em 2009 IEEE 12th International Conference on Computer Vision},
+  pages 670--677.
+
+\bibitem[Guimar{\~a}es and Patroc{\'i}nio 2013]{SILVIO_ZENILTON}
+Guimar{\~a}es, S. J.~F. and Patroc{\'i}nio, Z. K.~G. (2013).
+\newblock A graph-based hierarchical image segmentation method based on a
+  statistical merging predicate.
+\newblock In Petrosino, A., editor, {\em Image Analysis and Processing -- ICIAP
+  2013}, pages 11--20, Berlin, Heidelberg. Springer Berlin Heidelberg.
+
+\bibitem[Jeyalakshmi and Shanmugapriya 2016]{CLUSTER_HIER}
+Jeyalakshmi, K. and Shanmugapriya, S. (2016).
+\newblock An efficient hierarchical clustering algorithms approach based on
+  various-widths algometric clustering.
+\newblock In {\em International Journal of Innovative Research in Computer and
+  Communication Engineering}, volume~4, pages 13151--13155.
+
+\bibitem[Liu et~al. 2016]{SEG_MERGE}
+Liu, T., Seyedhosseini, M., and Tasdizen, T. (2016).
+\newblock Image segmentation using hierarchical merge tree.
+\newblock {\em IEEE Transactions on Image Processing}, 25(10):4596--4607.
+
+\bibitem[Murtagh and Contreras 2012]{SINGLE_LINKAGE}
+Murtagh, F. and Contreras, P. (2012).
+\newblock Algorithms for hierarchical clustering: An overview.
+\newblock 2:86--97.
+
+\bibitem[Pont-Tuset and Marques 2016]{SEISM}
+Pont-Tuset, J. and Marques, F. (2016).
+\newblock Supervised evaluation of image segmentation and object proposal
+  techniques.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence
+  (TPAMI)}, 38(7):1465--1478.
+
+\bibitem[Rokach and Maimon 2005]{ROKACH}
+Rokach, L. and Maimon, O. (2005).
+\newblock {\em Clustering Methods}, pages 321--352.
+\newblock Springer US, Boston, MA.
+
+\bibitem[Sibson 1973]{SLINK}
+Sibson, R. (1973).
+\newblock Slink: An optimally efficient algorithm for the single-link cluster
+  method.
+\newblock {\em Comput. J.}, 16:30--34.
+
+\bibitem[Torgo and Ribeiro 2009]{PREC_RECALL_REGR}
+Torgo, L. and Ribeiro, R. (2009).
+\newblock Precision and recall for regression.
+\newblock In Gama, J., Costa, V.~S., Jorge, A.~M., and Brazdil, P.~B., editors,
+  {\em Discovery Science}, pages 332--346, Berlin, Heidelberg. Springer Berlin
+  Heidelberg.
+
+\bibitem[Vincent and Soille 1991]{WATERSHEDS}
+Vincent, L. and Soille, P. (1991).
+\newblock Watersheds in digital spaces: an efficient algorithm based on
+  immersion simulations.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  13(6):583--598.
+
+\bibitem[Wang et~al. 2017a]{WANG201728}
+Wang, M., Liu, X., Gao, Y., Ma, X., and Soomro, N.~Q. (2017a).
+\newblock Superpixel segmentation: A benchmark.
+\newblock {\em Signal Processing: Image Communication}, 56:28 -- 39.
+
+\bibitem[Wang et~al. 2017b]{CONTOUR}
+Wang, X.-Y., Wu, C.-W., Xiang, K., and Chen, W. (2017b).
+\newblock Efficient local and global contour detection based on superpixels.
+\newblock {\em Journal of Visual Communication and Image Representation}, 48:77
+  -- 87.
+
+\bibitem[Wikipedia 2018]{WIKI_PREC_RECALL}
+Wikipedia (2018).
+\newblock Precision and recall.
+
+\bibitem[Zhang et~al. 2008]{ZHANG2008}
+Zhang, H., Fritts, J.~E., and Goldman, S.~A. (2008).
+\newblock Image segmentation evaluation: A survey of unsupervised methods.
+\newblock {\em Computer Vision and Image Understanding}, 110(2):260 -- 280.
+
+\end{thebibliography}
