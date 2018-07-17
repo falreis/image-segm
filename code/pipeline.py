@@ -16,7 +16,8 @@ def generate_boundaries(image, blank_image, method='sgb', black_color = False):
                                         , felz_scale = 1408
                                         , felz_min_size = 20
                                         , ultrametric = False
-                                        , save=False)
+                                        , save=False
+                                        , black_color = black_color)
     elif(method=='egb'):
         f_segs = felzenszwalb(image, scale=300, sigma=0.8, min_size=20)
         border = mark_boundaries(blank_image, f_segs, color=color)

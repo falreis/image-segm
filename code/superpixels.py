@@ -168,12 +168,13 @@ def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size =
     
     #borders
     img = np.zeros(image.shape,dtype=np.uint8) #create blank image to save
-    img.fill(255)
-    
+
     if black_color == False:
         fs_borders = mark_boundaries(img, segs_fs, color=(0, 0, 0))
+        img.fill(255)
     else:
         fs_borders = mark_boundaries(img, segs_fs, color=(1, 1, 1))
+        
     
     #ultrametric
     if ultrametric == True:
