@@ -61,7 +61,7 @@ def generate_ultrametric_map(blank_image, colors, segments, n_seg, step = 1, sta
     cutz_nsegs = []
     
     if start_at <= 0:
-        cutz_images.append(mark_boundaries(blank_image, segments, color=(0, 0, 0))[:,:,0:1])
+        cutz_images.append(mark_boundaries(blank_image, segments, color=(0, 0, 0)))
         cutz_nsegs.append(n_seg)
 
     for ix in range(it-step, stop_at, -step):
@@ -76,7 +76,7 @@ def generate_ultrametric_map(blank_image, colors, segments, n_seg, step = 1, sta
                 index = segments[i][j]
                 cutz_segs[i][j] = cutz[index][0]                
                 
-        cutz_images.append(mark_boundaries(blank_image, cutz_segs, color=(0, 0, 0))[:,:,0:1])
+        cutz_images.append(mark_boundaries(blank_image, cutz_segs, color=(0, 0, 0)))
         cutz_nsegs.append(cluster_size)
     
     return cutz_images, cutz_nsegs
@@ -140,7 +140,8 @@ def generate_ultrametric_image(empty_image, colors, segments, n_seg, step = 1, s
 
 def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size = 30
                   , ultrametric = True, save=False, filename = '', paths=[]
-                  , ult_step = 1, ult_start_at = 0, ult_stop_at = 1):
+                  , ult_step = 1, ult_start_at = 0, ult_stop_at = 1
+                  , black_color = False):
     '''
     Process image using SLIC and Felzenszwalb algorithms
      * image: image for processing
@@ -168,12 +169,16 @@ def process_image(image, slic_segments = 512, felz_scale = 1536, felz_min_size =
     #borders
     img = np.zeros(image.shape,dtype=np.uint8) #create blank image to save
     img.fill(255)
-    fs_borders = mark_boundaries(img, segs_fs, color=(0, 0, 0))
+    
+    if black_color == False:
+        fs_borders = mark_boundaries(img, segs_fs, color=(0, 0, 0))
+    else:
+        fs_borders = mark_boundaries(img, segs_fs, color=(1, 1, 1))
     
     #ultrametric
     if ultrametric == True:
         ultra_images, ultra_nsegs = generate_ultrametric_map(img, colors_fs, segs_fs, n_segs_fs
-                                                             , ult_step, ult_start_at, ult_stop_at)
+                                                             , ult_step, ult_start_at, ult_stop_at, black_color)
     else:
         ultra_images = None
     
