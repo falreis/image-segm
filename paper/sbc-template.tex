@@ -197,14 +197,16 @@ Em um problema de decisão, os classificadores podem ser positivos ou negativos 
  \item Verdadeiros Negativos - correspondem aos valores que foram classificados corretamente como negativos \cite{PRECISION_RECALL};
 \end{itemize}
 
-O método de precisão e revocação é um método de classificação binária, onde a precisão (\textit{prediction}) mede a proporção de eventos do modelo que são reais; enquanto a revocação (\textit{recall}), mede a proporção de eventos ocorridos no domínio que são capturados pelos modelos \cite{PREC_RECALL_REGR}. A classificação está ilustrada na Figura \ref{fig:PREC_RECALL}. 
+O método de precisão e revocação é um método de classificação binária, onde a precisão (\textit{prediction}) mede a proporção de eventos do modelo que são reais; enquanto a revocação (\textit{recall}), mede a proporção de eventos ocorridos no domínio que são capturados pelos modelos \cite{PREC_RECALL_REGR}. %A classificação está ilustrada na Figura \ref{fig:PREC_RECALL}. 
 
+\begin{comment}
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.4\textwidth]{precision_recall.png}
 \caption{Precisão e revocação. Adaptado de \cite{WIKI_PREC_RECALL}}
 \label{fig:PREC_RECALL}
 \end{figure}
+\end{comment}
 
 A partir dos valores de precisão e revocação, é possível construir curvas que associem ambos os valores. Essas curvas possibilitam uma informação visual da performance de um algoritmo \cite{PRECISION_RECALL}. 
 
@@ -309,7 +311,7 @@ Os algoritmos de geração de cluster de ligação única (\textit{single-linkag
 
 Para avaliação do desempenho dos algoritmos foi executada a segmentação das imagens do conjunto de validação da base de dados  BSDB500 (\textit{Berkeley Segmentation Data Set}). O conjunto possui 100 imagens naturais com seus respectivos \textit{groundtruths} feito por anotações humanas \cite{BSDS500}. 
 
-Os algoritmos foram aplicados a base de testes e comparados com os \textit{groundtruths} disponíveis na base de dados. A adequação do algoritmo em relação ao \textit{ground-truth} foi feita por meio do mecanismo de precisão e revocação, utilizando a medida \textit{F-measure}, conforme descrito na seção \ref{ssec:aval_resultados}.
+Os algoritmos foram aplicados a base de testes e comparados com os \textit{groundtruths} disponíveis na base de dados. A adequação do algoritmo em relação ao \textit{ground-truth} foi feita por meio do mecanismo de precisão e revocação, utilizando o benchmark disponível na base de dados BSDS500, conforme descrito na seção \ref{ssec:aval_resultados}.
 
 A  fim de obter a melhor parametrização possível, foram executados diversos testes para cada algoritmo. Somente o algoritmo EGB não foi extensamente executado a fim de obter a melhor parametrização, uma vez que os valores obtidos pelos autores estão disponíveis no artigo \textit{Efficient Graph-Based Image Segmentation} \cite{FELZENSZWALB}. A parametrização dos algoritmos está detalhada na Tabela \ref{table:PARAMETROS}.
 
@@ -331,43 +333,40 @@ A  fim de obter a melhor parametrização possível, foram executados diversos t
   \end{center}
 \end{table}
 
-Os algoritmos hierárquicos foram executados e a melhor partição obtida para todo o conjunto de imagens (ODS - \textit{Optimal Data Set Scale}) \cite{CONT_EMPIRICAL} foi utilizada. Em seguida os valores foram comparados aos demais algoritmos utilizando com métrica a medida \textit{F-measure}. A eficiência média dos algoritmos está ilustrada na Figura \ref{fig:FMEASURE_AVG}.
+Os algoritmos hierárquicos foram executados e um conjunto de partições  foram selecionadas empíricamente para avaliação. O benchmark da base de dados BSDS500 retornou os melhores valores para cada um dos algoritmos, em duas métricas diferentes:
 
-\begin{comment}
+\begin{itemize}
+ \item ODS (\textit{Optimal Data Set Scale}) - melhor parametrização para a base de dados \cite{CONT_EMPIRICAL};
+ \item OIS (\textit{Optimal Image Scale}) - melhor parametrização para uma única imagem da base de dados \cite{CONT_EMPIRICAL}.
+\end{itemize}
 
-\begin{figure}[ht]
- \subfigure[Valor médio]{\label{fig:FMEASURE_AVG}\includegraphics[width=0.5\linewidth]{fmeasure_avg.png}}
- \subfigure[Valor máximo]{\label{fig:FMEASURE_MAX}\includegraphics[width=0.5\linewidth]{fmeasure_max.png}}
- \caption{Valor médio e máximo de \textit{F-measure} para os algoritmos.}
-\end{figure}
-
-\end{comment}
+Os resultados da métrica \textit{ODS} estão disponíveis na Figura \ref{gra:PREC_RECALL}. Além dos algoritmo avaliados, também está disponível um valor relativo ao desempenho de um ``Humano'' para comparação.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.95\textwidth]{graph_precision_recall.png}
 \caption{Valor médio de \textit{F-measure} para os algoritmos avaliados.}
-\label{fig:FMEASURE_AVG}
+\label{gra:PREC_RECALL}
 \end{figure}
 
-Conforme observamos na Figura \ref{fig:FMEASURE_AVG}, o valor médio do algoritmo SEGB teve valores próximois aos obtidos pelo algoritmo EGB. O algoritmo EGB teve valor superior ao algoritmo SLIC, em todos os casos.
+Conforme observamos na Figura \ref{gra:PREC_RECALL}, o valor médio do algoritmo SEGB teve valores próximois aos obtidos pelo algoritmo EGB. O algoritmo EGB teve valor superior ao algoritmo SLIC, em todos os casos.
 
-Os algoritmos hierárquicos, conforme Figura \ref{fig:FMEASURE_AVG}, resultaram em valores superiores aos algoritmos sem hierarquização. O resultado observado é superior àqueles sem hierarquização. Esse resultado é previsível devido a possibilidade de melhor adequação a base de dados.
+Os algoritmos hierárquicos, conforme Figura \ref{gra:PREC_RECALL}, resultaram em valores superiores aos algoritmos sem hierarquização. O resultado observado é superior àqueles sem hierarquização. Esse resultado é previsível devido a possibilidade de melhor adequação a base de dados.
 
-Outra análise possível para os algoritmos são os valores máximos de \textit{F-measure}. Esses valores estão ilustrados na Figura \ref{fig:FMEASURE_MAX}. A Figura mostra mais uma vez que as melhores hierarquias obtiveram resultados superiores às versões sem hierarquização. Por fim, vemos que o resultado máximo do algoritmo EGB é superior ao algoritmo SEGB, diferindo do valor médio das amostras.
+Outra análise possível para os algoritmos são os valores máximos de \textit{F-measure}. Esses valores estão ilustrados na Figura \ref{gra:FMEASURE}. A Figura mostra mais uma vez que as melhores hierarquias obtiveram resultados superiores às versões sem hierarquização. Por fim, vemos que o resultado máximo do algoritmo EGB é superior ao algoritmo SEGB, diferindo do valor médio das amostras.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.95\textwidth]{graph_fmeasure.png}
 \caption{Valor máximo de \textit{F-measure} para os algoritmos avaliados.}
-\label{fig:FMEASURE_MAX}
+\label{gra:FMEASURE}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.95\textwidth]{graph_threshold.png}
 \caption{Valor máximo de \textit{F-measure} para os algoritmos avaliados.}
-\label{fig:FMEASURE_MAX}
+\label{gra:THRESHOLD}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
