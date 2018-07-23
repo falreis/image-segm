@@ -1,5 +1,11 @@
 \begin{thebibliography}{}
 
+\bibitem[Achanta et~al. 2010]{SLIC1}
+Achanta, R., Shaji, A., Smith, K., Lucchi, A., Fua, P., and Süsstrunk, S.
+  (2010).
+\newblock Slic superpixels.
+\newblock page~15.
+
 \bibitem[Achanta et~al. 2012]{SLIC}
 Achanta, R., Shaji, A., Smith, K., Lucchi, A., Fua, P., and Süsstrunk, S.
   (2012).
@@ -119,10 +125,6 @@ Wang, X.-Y., Wu, C.-W., Xiang, K., and Chen, W. (2017b).
 \newblock Efficient local and global contour detection based on superpixels.
 \newblock {\em Journal of Visual Communication and Image Representation}, 48:77
   -- 87.
-
-\bibitem[Wikipedia 2018]{WIKI_PREC_RECALL}
-Wikipedia (2018).
-\newblock Precision and recall.
 
 \bibitem[Zhang et~al. 2008]{ZHANG2008}
 Zhang, H., Fritts, J.~E., and Goldman, S.~A. (2008).
