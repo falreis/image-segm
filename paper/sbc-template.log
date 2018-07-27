@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.19)  27 JUL 2018 19:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  27 JUL 2018 19:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **sbc-template.tex
 (./sbc-template.tex
-LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
@@ -33,11 +33,10 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
@@ -70,7 +69,7 @@ Package: times 2005/04/12 PSNFSS-v9.2a (SPQR)
 \c@instn=\count90
 
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
-Package: titlesec 2016/03/15 v2.10.1 Sectioning titles
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box26
 \beforetitleunit=\skip43
 \aftertitleunit=\skip44
@@ -82,29 +81,21 @@ Package: titlesec 2016/03/15 v2.10.1 Sectioning titles
 \titlewidthfirst=\dimen119
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 95.
+Package graphics Info: Driver file: pdftex.def on input line 99.
 
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count91
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen120
 \Gin@req@width=\dimen121
@@ -120,15 +111,21 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@in@stream=\read1
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2016/02/24 3.9q The Babel package
+Package: babel 2018/02/14 3.18 The Babel package
 
+(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+)
 (/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuges.ldf
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2016/02/24 3.9q Babel common definitions
-\babel@savecnt=\count92
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count91
 \U@D=\dimen122
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count92
 )
 Package babel Info: Making " an active character on input line 145.
 ))
@@ -138,14 +135,14 @@ Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@posthook=\toks20
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -357,11 +354,17 @@ File: t1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
    defining Unicode char U+0219 (decimal 537)
    defining Unicode char U+021A (decimal 538)
    defining Unicode char U+021B (decimal 539)
-   defining Unicode char U+01E02 (decimal 7682)
-   defining Unicode char U+01E03 (decimal 7683)
+   defining Unicode char U+0232 (decimal 562)
+   defining Unicode char U+0233 (decimal 563)
+   defining Unicode char U+1E02 (decimal 7682)
+   defining Unicode char U+1E03 (decimal 7683)
    defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2010 (decimal 8208)
+   defining Unicode char U+2011 (decimal 8209)
+   defining Unicode char U+2012 (decimal 8210)
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2015 (decimal 8213)
    defining Unicode char U+2018 (decimal 8216)
    defining Unicode char U+2019 (decimal 8217)
    defining Unicode char U+201A (decimal 8218)
@@ -373,12 +376,14 @@ File: t1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
    defining Unicode char U+2039 (decimal 8249)
    defining Unicode char U+203A (decimal 8250)
    defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+1E20 (decimal 7712)
+   defining Unicode char U+1E21 (decimal 7713)
 )
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -419,7 +424,7 @@ Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
+File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -443,6 +448,10 @@ Now handling font encoding U ...
    defining Unicode char U+2423 (decimal 9251)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
+\multirow@colwidth=\skip45
+\multirow@cntb=\count93
+\multirow@dima=\skip46
 \bigstrutjot=\dimen123
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
@@ -451,7 +460,7 @@ nment
 
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count93
+\c@float@type=\count94
 \float@exts=\toks21
 \float@box=\box27
 \@float@everytoks=\toks22
@@ -461,21 +470,21 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks23
-\c@algorithm=\count94
+\c@algorithm=\count95
 ) (./algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count95
-\c@ALG@rem=\count96
-\c@ALG@nested=\count97
-\ALG@tlm=\skip45
-\ALG@thistlm=\skip46
-\c@ALG@Lnr=\count98
-\c@ALG@blocknr=\count99
-\c@ALG@storecount=\count100
-\c@ALG@tmpcounter=\count101
-\ALG@tmplength=\skip47
+\c@ALG@line=\count96
+\c@ALG@rem=\count97
+\c@ALG@nested=\count98
+\ALG@tlm=\skip47
+\ALG@thistlm=\skip48
+\c@ALG@Lnr=\count99
+\c@ALG@blocknr=\count100
+\c@ALG@storecount=\count101
+\c@ALG@tmpcounter=\count102
+\ALG@tmplength=\skip49
 ) (./algpseudocode.sty
 Package: algpseudocode 
 
@@ -534,58 +543,66 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count102
+\scratchcounter=\count103
 \scratchdimen=\dimen124
 \scratchbox=\box29
-\nofMPsegments=\count103
-\nofMParguments=\count104
+\nofMPsegments=\count104
+\nofMParguments=\count105
 \everyMPshowfont=\toks24
-\MPscratchCnt=\count105
+\MPscratchCnt=\count106
 \MPscratchDim=\dimen125
-\MPnumerator=\count106
-\makeMPintoPDFobject=\count107
+\MPnumerator=\count107
+\makeMPintoPDFobject=\count108
 \everyMPtoPDFconversion=\toks25
-) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-))
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
+(grfext)             \AppendGraphicsExtensions on input line 456.
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
@@ -618,12 +635,10 @@ u-per-pi-xels s[]ao uti-li-za-
 
 <./images/superpixels.png, id=1, 716.6775pt x 232.61906pt>
 File: ./images/superpixels.png Graphic file (type png)
-
 <use ./images/superpixels.png>
-Package pdftex.def Info: ./images/superpixels.png used on input line 56.
+Package pdftex.def Info: ./images/superpixels.png  used on input line 56.
 (pdftex.def)             Requested size: 426.79135pt x 138.52896pt.
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 57.
-
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
@@ -652,10 +667,9 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
  [2 <./images/superpixels.png (PNG copy)>] [3]
 <./images/slic_segmentation_compare.png, id=25, 722.7pt x 264.99pt>
 File: ./images/slic_segmentation_compare.png Graphic file (type png)
-
 <use ./images/slic_segmentation_compare.png>
-Package pdftex.def Info: ./images/slic_segmentation_compare.png used on input l
-ine 153.
+Package pdftex.def Info: ./images/slic_segmentation_compare.png  used on input 
+line 153.
 (pdftex.def)             Requested size: 426.79135pt x 156.49234pt.
  [4]
 Underfull \hbox (badness 1173) in paragraph at lines 168--169
@@ -697,10 +711,9 @@ go-ritmo
 
 <./images/felz_segmentation_compare.png, id=30, 719.68875pt x 264.23718pt>
 File: ./images/felz_segmentation_compare.png Graphic file (type png)
-
 <use ./images/felz_segmentation_compare.png>
-Package pdftex.def Info: ./images/felz_segmentation_compare.png used on input l
-ine 174.
+Package pdftex.def Info: ./images/felz_segmentation_compare.png  used on input 
+line 174.
 (pdftex.def)             Requested size: 426.79135pt x 156.70496pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 184--185
@@ -749,19 +762,17 @@ Underfull \hbox (badness 1226) in paragraph at lines 226--227
 -dimensional e clas-ses de pre-cis[]ao e revoca[][]ao,
  []
 
-[7] <./images/dendrogram.png, id=41, 1167.36125pt x 1126.2075pt>
+[7]
+<./images/dendrogram.png, id=41, 1167.36125pt x 1126.2075pt>
 File: ./images/dendrogram.png Graphic file (type png)
-
 <use ./images/dendrogram.png>
-Package pdftex.def Info: ./images/dendrogram.png used on input line 272.
+Package pdftex.def Info: ./images/dendrogram.png  used on input line 272.
 (pdftex.def)             Requested size: 426.79135pt x 411.74112pt.
-
 <./images/slic_hierarquia_particoes.png, id=43, 716.6775pt x 269.50688pt>
 File: ./images/slic_hierarquia_particoes.png Graphic file (type png)
-
 <use ./images/slic_hierarquia_particoes.png>
-Package pdftex.def Info: ./images/slic_hierarquia_particoes.png used on input l
-ine 287.
+Package pdftex.def Info: ./images/slic_hierarquia_particoes.png  used on input 
+line 287.
 (pdftex.def)             Requested size: 426.79135pt x 160.49634pt.
 
 Underfull \vbox (badness 3557) has occurred while \output is active []
@@ -769,17 +780,17 @@ Underfull \vbox (badness 3557) has occurred while \output is active []
  [8]
 [9 <./images/dendrogram.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 309.
+(Font)              <7> on input line 308.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 309.
+(Font)              <5> on input line 308.
 
-Underfull \hbox (badness 2020) in paragraph at lines 330--331
+Underfull \hbox (badness 2020) in paragraph at lines 329--330
 []\OT1/ptm/m/n/12 A fim de ob-ter a me-lhor parametriza[][]ao poss[]^^Pvel, fo-
 ram exe-cu-ta-dos di-
  []
 
 
-Underfull \hbox (badness 4927) in paragraph at lines 330--331
+Underfull \hbox (badness 4927) in paragraph at lines 329--330
 \OT1/ptm/m/n/12 ver-sos tes-tes para cada al-go-ritmo. Para o al-go-ritmo EGB f
 oi uti-li-zada a
  []
@@ -787,28 +798,24 @@ oi uti-li-zada a
 [10 <./images/slic_hierarquia_particoes.png (PNG copy)>]
 <./images/graph_precision_recall.png, id=54, 609.27625pt x 451.6875pt>
 File: ./images/graph_precision_recall.png Graphic file (type png)
-
 <use ./images/graph_precision_recall.png>
-Package pdftex.def Info: ./images/graph_precision_recall.png used on input line
- 361.
+Package pdftex.def Info: ./images/graph_precision_recall.png  used on input lin
+e 360.
 (pdftex.def)             Requested size: 384.1096pt x 284.7714pt.
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 362.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 361.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 362.
-
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 361.
 <./images/graph_fmeasure.png, id=55, 559.08875pt x 321.2pt>
 File: ./images/graph_fmeasure.png Graphic file (type png)
-
 <use ./images/graph_fmeasure.png>
-Package pdftex.def Info: ./images/graph_fmeasure.png used on input line 368.
+Package pdftex.def Info: ./images/graph_fmeasure.png  used on input line 367.
 (pdftex.def)             Requested size: 384.1096pt x 220.68233pt.
  [11 <./images/graph_precision_recall.png>]
 <./images/graph_threshold.png, id=61, 558.085pt x 245.91875pt>
 File: ./images/graph_threshold.png Graphic file (type png)
-
 <use ./images/graph_threshold.png>
-Package pdftex.def Info: ./images/graph_threshold.png used on input line 379.
+Package pdftex.def Info: ./images/graph_threshold.png  used on input line 378.
 (pdftex.def)             Requested size: 384.1096pt x 169.26009pt.
  [12 <./images/graph_fmeasure.png> <./images/graph_threshold.png>] (./sbc-templ
 ate.bbl [13] [14]) [15] (./sbc-template.aux) ){/usr/share/texlive/texmf-dist/fo
@@ -825,7 +832,7 @@ ts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (15 pages, 1300611 bytes).
+Output written on sbc-template.pdf (15 pages, 1299528 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
  79 compressed objects within 1 object stream

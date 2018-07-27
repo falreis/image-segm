@@ -74,12 +74,11 @@ O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teori
 
 Superpixels são estruturas que agrupam pixels semelhantes em conjuntos. O agrupamento possibilita a redução de complexidade das tarefas de processamento \cite{SLIC}, ao reduzir a quantidade de itens a serem processados. Os superpixels são utilizados na área de visão computacional para solução de vasto número de problemas, como detecção de contorno \cite{CONTOUR}, segmentação \cite{SEG_MERGE} e localização de objetos \cite{SEG_LOCALIZ}.
 
-Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou regiões, refletindo aspectos da imagem. Devem também ser executados em tempo próximo ao linear em relação a quantidade de pixels. Existem diversas abordagens para a geração de superpixels \cite{SLIC}. Dentre elas, podemos classificá-las, segundo o método de agrupamento em: 
+Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou regiões, refletindo aspectos da imagem. Devem também ser executados em tempo próximo ao linear em relação a quantidade de pixels. Existem diversas abordagens para a geração de superpixels \cite{SLIC}. Dentre elas, podemos classificá-las, segundo o método de agrupamento, em dois grandes grupos \cite{SLIC}: 
 
 \begin{itemize}
- \item \textit{Algoritmos baseados em grafos}: utilizam abordagem baseadas em grafos para correlação entre pixels e criação dos conjuntos. Dentre os algoritmos baseados em grafos podemos citar o \textit{Efficient Graph-Based Image Segmentation} (EGB) \cite{FELZENSZWALB};
- \item \textit{Algoritmos baseados em gradiente ascendente}: utilizam métodos de gradiente ascendente iterativamente até que os critérios de convergência correspondam a forma de um superpixel. Nesse conjunto, podemos  citar as abordagens \textit{watersheds} \cite{WATERSHEDS} \cite{SLIC}
- \item \textit{Algoritmos de clusterização iterativo}: utilizam métodos de clusterização, como o \textit{k-means}, para produção de superpixels. Um exemplo desse algoritmo é o SLIC (\textit{Simple Linear Iteravite Clustering}) \cite{SLIC}
+ \item \textit{Algoritmos baseados em grafos}: tratam cada pixel como um nó do grafo. Os pesos das arestas são proporcionais a similaridade entre os pixels vizinhos \cite{SLIC}. Dentre os algoritmos baseados em grafos podemos citar o \textit{Efficient Graph-Based Image Segmentation} (EGB) \cite{FELZENSZWALB};
+ \item \textit{Algoritmos baseados em gradiente ascendente}: partem de um conjunto inicial de pixels, e utilizam métodos de gradiente ascendente iterativamente para refinar os conjuntos (\textit{clusters}) até que se atinja um critério de convergência \cite{SLIC}. Nesse conjunto, podemos  citar as abordagens \textit{watersheds} \cite{WATERSHEDS} e SLIC (\textit{Simple Linear Iteravite Clustering}) \cite{SLIC}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -259,7 +258,7 @@ Os resultados das hierarquizações foram comparados aos melhores resultados de 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Hierarquias das segmentações} \label{ssec:hierquia_segm}
+\subsection{Hierarquias} \label{ssec:hierquia_segm}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -296,15 +295,14 @@ O método de hierarquização descrito nesse trabalho manteve as característica
 
 A fim de facilitar a pesquisa, alguns trabalhos foram desenvolvidos para criação de um conjunto de imagens com suas respectivas segmentações manuais. A base BSDS500 (\textit{Berkeley Segmentation Data Set and Benchmarks 500}) provê uma base de imagens para pesquisa de segmentação e detecção de bordas. \cite{BSDS500}. Essa base de dados é uma extensão da base BSDS300, com 200 novas imagens para avaliação \cite{BSDS500}.
 
-A fim de avaliar a efetividade das segmentações, tradicionalmente são utilizados métodos subjetivos, como a visualização humana, responsável por comparar a qualidade da segmentação ou métodos supervisionados, onde uma segmentação é comparada em relação a uma imagem manualmente segmentada \cite{ZHANG2008}. Projetos de detecção automática, como o SEISM (\textit{Supervised Evaluation of Image Segmentation Methods}) permitem a avaliação da segmentação, usando a recuperação de precisão para bordas e a recuperação de precisão para objetos e peças \cite{SEISM}.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Avaliação de Resultados} \label{ssec:aval_resultados}
 
-Para avaliação das imagens, foi primeiramente utilizada a classificação visual, comparando a qualidade dos resultados. Em seguida utilizou-se um método de comparação de precisão e revocação, para detecção de contornos e bordas, conforme Seção \ref{ssec:prec_recall}. 
+A fim de avaliar a efetividade das segmentações, tradicionalmente são utilizados métodos subjetivos, como a visualização humana ou métodos supervisionados, onde uma segmentação é comparada, de forma automatizada, a uma imagem manualmente segmentada \cite{ZHANG2008}. %Projetos de detecção automática, como o SEISM (\textit{Supervised Evaluation of Image Segmentation Methods}) permitem a avaliação da segmentação, usando a recuperação de precisão para bordas e a recuperação de precisão para objetos e peças \cite{SEISM}.
+
+Para avaliação das imagens, foi primeiramente utilizada a classificação visual, comparando a qualidade dos resultados. Em seguida utilizou-se um método de comparação de precisão e revocação, para detecção de contornos e bordas, conforme detalhado na Seção \ref{ssec:prec_recall}. 
 
 A avaliação de contornos e bordas foi feito utilizando o benchmarks de avaliação de performance das segmentações, disponíveis na base de dados BSDS500\footnote{https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/resources.html}.
 
