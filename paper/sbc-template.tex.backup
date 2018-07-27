@@ -145,9 +145,9 @@ A Equação \ref{equ:CIELAB2}, por sua vez, pode ser simplificada na forma adota
 
 Uma etapa extra no processo de pós processamento é a união de \textit{pixels orfãos}. Esses pixels são adicionados ao cluster mais próximo usando o algoritmo de componentes conexos \cite{SLIC}.
 
-Devido a limitação do espaço de pesquisa do algoritmo SLIC, a complexidade do algoritmo é $O(n)$. Outros algoritmos que utilizam \textit{k-means} para segmentação tem custo $O(kNI)$, onde $N$ é o número de pontos (pixels na imagem), $k$ corresponde ao número de clusters (ou sementes) e $I$ corresponde ao número de iterações para convergência.  \cite{SLIC1}. A modificação no algoritmo SLIC está na redução de cálculos redundantes de distância \cite{SLIC1}. 
+A complexidade do Algoritmo \ref{alg:SLIC} é $O(n)$, devido a limitação do espaço de pesquisa do algoritmo SLIC \cite{SLIC1}. Outros algoritmos que utilizam \textit{k-means} para segmentação tem custo $O(kNI)$, onde $N$ é o número de pontos (pixels na imagem), $k$ corresponde ao número de clusters (ou sementes) e $I$ corresponde ao número de iterações para convergência \cite{SLIC1}. A modificação no algoritmo SLIC está na redução de cálculos redundantes de distância \cite{SLIC1}. 
 
-Em uma análise mais detalhada do Algoritmo \ref{alg:SLIC}, vemos que cada pixel estará em um, e somente um, cluster. No entanto, a busca é realizada no espaço de $2S \times 2S$, correspondente a uma área 4 vezes maior que o tamanho aproximado do superpixel. Com isso, cada pixel será avaliado até 4 vezes, devido a sobreposição de intervalos de busca para superpixels. Considerando somente as operações aplicadas aos clusters e aos pixels, entre as linhas 7 e 15 do Algoritmo 1, desconsiderando as operações de controle dos laços $for$ e que todas as operações tem custo computacional igual a 1, temos, no pior caso, 4 operações para cada pixel. Como cada pixel é avaliado 4 vezes, o custo computacional de avaliação de cada pixel é $C = 4 \times (4n) = 16n$. O algoritmo ainda conta com operações extras, porém que independem da quantidade de pixels na imagem. 
+%Em uma análise mais detalhada do Algoritmo \ref{alg:SLIC}, vemos que cada pixel estará em um, e somente um, cluster. No entanto, a busca é realizada no espaço de $2S \times 2S$, correspondente a uma área 4 vezes maior que o tamanho aproximado do superpixel. Com isso, cada pixel será avaliado até 4 vezes, devido a sobreposição de intervalos de busca para superpixels. Considerando somente as operações aplicadas aos clusters e aos pixels, entre as linhas 7 e 15 do Algoritmo 1, desconsiderando as operações de controle dos laços $for$ e que todas as operações tem custo computacional igual a 1, temos, no pior caso, 4 operações para cada pixel. Como cada pixel é avaliado 4 vezes, o custo computacional de avaliação de cada pixel é $C = 4 \times (4n) = 16n$. O algoritmo ainda conta com operações extras, porém que independem da quantidade de pixels na imagem. 
 
 \begin{figure}[ht]
 \centering
@@ -322,9 +322,6 @@ Os códigos fontes gerados, realizando as segmentações, hierarquias, geração
 Os algoritmos SLIC e EGB utilizados para realização desse trabalho foram obtidos pela biblioteca Scikit-Image\footnote{http://scikit-image.org/docs/dev/api/skimage.segmentation.html}. 
 Os algoritmos de geração de cluster de ligação única (\textit{single-linkage}) e representação de dendrogramas foram obtidos na biblioteca Scipy.org\footnote{https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html}. 
 
-%O algoritmo de avaliação do resultado foi obtido no projeto Image-Segmentation, no Github\footnote{https://github.com/Htiango/Image-Segmentation/blob/master/main/eval\_boundary.py}. 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -332,7 +329,7 @@ Os algoritmos de geração de cluster de ligação única (\textit{single-linkag
 
 \section{Testes, Resultados e Discussões} \label{sec:testes}
 
-Para avaliação do desempenho dos algoritmos foi executada a segmentação das imagens do conjunto de validação da base de dados  BSDB500 (\textit{Berkeley Segmentation Data Set}). O conjunto possui 100 imagens naturais com seus respectivos \textit{ground truths} feito por anotações humanas \cite{BSDS500}. A classificação dos algoritmos foi feita utilizando o benchmark da base de dados BSDS500, conforme descrito na seção \ref{ssec:aval_resultados}.
+Para avaliação do desempenho dos algoritmos foi executada a segmentação das imagens do conjunto de validação da base de dados BSDB500 (\textit{Berkeley Segmentation Data Set}). O conjunto possui 100 imagens naturais com seus respectivos \textit{ground truths} feito por anotações humanas \cite{BSDS500}. A classificação dos algoritmos foi feita utilizando o benchmark da base de dados BSDS500, conforme descrito na seção \ref{ssec:aval_resultados}.
 
 A  fim de obter a melhor parametrização possível, foram executados diversos testes para cada algoritmo. Para o algoritmo EGB foi utilizada a parametrização informada pelos autores no artigo \textit{Efficient Graph-Based Image Segmentation} \cite{FELZENSZWALB}. A parametrização dos algoritmos está detalhada na Tabela \ref{table:PARAMETROS}.
 
@@ -365,30 +362,30 @@ Os resultados da métrica \textit{ODS} estão disponíveis nas Figuras \ref{gra:
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.95\textwidth]{graph_precision_recall.png}
+\includegraphics[width=0.9\textwidth]{graph_precision_recall.png}
 \caption{Valor médio de \textit{F-measure} para os algoritmos avaliados.}
 \label{gra:PREC_RECALL}
 \end{figure}
 
-Conforme observamos na Figura \ref{gra:PREC_RECALL}, o valor médio do algoritmo SGB teve valores próximois aos obtidos pelo algoritmo EGB. O algoritmo EGB teve valor superior ao algoritmo SLIC, em todos os casos.
-
-Os algoritmos hierárquicos, conforme Figura \ref{gra:PREC_RECALL}, resultaram em valores superiores aos algoritmos sem hierarquização. O resultado observado é superior àqueles sem hierarquização. Esse resultado é previsível devido a possibilidade de melhor adequação a base de dados.
-
-Outra análise possível para os algoritmos são os valores máximos de \textit{F-measure}. Esses valores estão ilustrados na Figura \ref{gra:FMEASURE}. A Figura mostra mais uma vez que as melhores hierarquias obtiveram resultados superiores às versões sem hierarquização. Por fim, vemos que o resultado máximo do algoritmo EGB é superior ao algoritmo SGB, diferindo do valor médio das amostras.
-
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.95\textwidth]{graph_fmeasure.png}
+\includegraphics[width=0.90\textwidth]{graph_fmeasure.png}
 \caption{Valor máximo de \textit{F-measure} para os algoritmos avaliados.}
 \label{gra:FMEASURE}
 \end{figure}
 
+Conforme observamos na Figura \ref{gra:PREC_RECALL}, os algoritmos SGB e HSGB tiveram valores mais altos na métrica precisão, em relação ao algoritmo EGB e sua versão hierárquica. Entretanto, o algoritmos baseados em EGB tiveram valores superiores na métrica de revocação. Comparando ambas as métricas, por meio da \textit{F-measure}, observamos na Figura \ref{gra:PREC_RECALL}, que o algoritmo SGB teve valor ligeiramente superior ao algoritmo EGB. Ambos os algoritmos, e suas versões hierárquias, tiveram resultados consideravelmente superiores aos algoritmos SLIC.
+
+A análise da Figura \ref{gra:PREC_RECALL} indica que os algoritmos hierárquicos resultaram em valores superiores aos algoritmos sem hierarquização. Somente para o algoritmo HSGB, o resultado foi ligeiramente inferior ao obtido pelo algoritmo sem hierarquia. Em relação a variação dos resultados, a Figura \ref{gra:FMEASURE} indica a variação entre os resultados obtidos pelos métodos. Podemos verificar que a variação existente para os algoritmos SGB, HSGB e HEGB é consideravelmente inferior aos demais algoritmos. Esse critério indica que esses algoritmos são mais consistentes, produzindo resultados semelhantes para diferentes imagens.
+
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.95\textwidth]{graph_threshold.png}
+\includegraphics[width=0.9\textwidth]{graph_threshold.png}
 \caption{Valor máximo de \textit{F-measure} para os algoritmos avaliados.}
 \label{gra:THRESHOLD}
 \end{figure}
+
+A partir dos resultados obtidos, verifica-se que algoritmo SLIC, apesar das vantagens de produzir superpixels de tamanhos regulares, apresentou a menor eficiência para segmentação de imagens, em relação aos demais algoritmos estudados. A combinação dos algoritmos SGB para detecção de contornos não apresentou resultado superior ao algoritmo EGB. Além disso, o custo computacional para execução dos dois algoritmos em sequência, bem como os custos para recoloração da imagens mostraram-se injustificáveis frente aos ganhos obtidos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -399,15 +396,13 @@ Outra análise possível para os algoritmos são os valores máximos de \textit{
 
 \section{Conclusão} \label{sec:conclusao}
 
-Os algoritmos de geração de superpixels avaliados nesse trabalho tiveram resultados baixos para tarefas de segmentação e detecção de contornos, mesmo quando combinados. As versões hierárquicas dos algoritmos apresentaram resultados superiores àqueles obtidos sem hieraquias.
+Os algoritmos de geração de superpixels avaliados nesse trabalho tiveram razoáveis para tarefas de segmentação e detecção de contornos, mesmo quando combinados. As versões hierárquicas dos algoritmos apresentaram resultados ligeiramente superiores àqueles obtidos sem hieraquias.
 
-O algoritmo SLIC, apesar das vantagens de produzir superpixels de tamanhos regulares, apresentou a menor eficiência para segmentação de imagens, em relação aos demais algoritmos estudados. A combinação dos algoritmos SGB para detecção de contornos não apresentou resultado   superior ao algoritmo EGB. Além disso, o custo computacional para execução dos dois algoritmos em sequência, bem como os custos para recoloração da imagens mostraram-se injustificáveis frente aos ganhos obtidos.
+A utilização de hierarquias após a aplicação dos métodos de geração de \textit{superpixels} aumentou consideravelmente os resultados de alguns métodos. Apesar da utilização não resultar em melhora significativa da capacidade de segmentação, justifica-se a utilização das versões hierárquias em relação às versões originais dos algoritmos quando houver necessidade ampliação e redução de contornos, para efeito de agrupamento de informações. Os parâmetros descritos nesse trabalho podem ser utilizados como passo inicial para refinamento dos parâmetros em trabalhos futuros.
 
-A utilização de hierarquias após a aplicação dos métodos de geração de \textit{superpixels} aumentou consideravelmente os resultados de alguns métodos. Apesar da utilização não resultar em alto grau de desempenho na detecção de bordas e segmentação, justifica-se a utilização das versões hierárquias em relação às versões originais dos algoritmos quando houver necessidade ampliação e redução de contornos, para efeito de agrupamento de informações. Os parâmetros descritos nesse trabalho podem ser utilizados como passo inicial para refinamento dos parâmetros em trabalhos futuros.
+Os métodos hierarquicos apresentados no trabalho também permitem a utilização em diferentes cenários, principalmente para redução e agrupamento de informação relevante em imagens, atendendo aos preceitos de análise multiescala. 
 
-Os métodos hierarquicos apresentados no trabalho também permitem a utilização em diferentes cenários, principalmente para redução e agrupamento de informação relevante em imagens, atendendo aos preceitos de análise multiescala.
-
-Como trabalho futuro sugere-se a utilização dos algoritmos mostrados nesse trabalho como passo de pré processamento de outras técnicas de segmentação, como redes neurais convolucionais. Esses passos de segmentação iniciais podem permitir treinamento mais rápido e menor quantidade de informação a ser processadas, além de identificação mais rápida de bordas e contornos.
+Como trabalho futuro sugere-se a utilização dos algoritmos mostrados nesse trabalho como passo de pré processamento de outras técnicas de segmentação, como redes neurais convolucionais. Esses passos de segmentação iniciais podem permitir treinamento mais rápido e menor quantidade de informação a ser processadas, além de identificação mais rápida de bordas e contornos. Além disso, podem ser utilizados outros métodos de hierarquização, como o \textit{complete-linkage}. Por fim, outros métodos de geração de superpixels podem ser comparados aos valores descritos nesse artigo, possibilitando comparação de diferentes métodos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

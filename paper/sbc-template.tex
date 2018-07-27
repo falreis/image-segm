@@ -9,16 +9,13 @@
 %sudo apt install texlive-lang-portuguese
 \usepackage[portuguese]{babel}   
 \usepackage[utf8]{inputenc} 
-\usepackage{subfigure}
+%\usepackage{subfigure}
 \usepackage{multirow}
 \usepackage{graphicx}
 
 \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
-
-%\usepackage[numbib,nottoc]{blindtext}
-%\usepackage[numbib,nottoc]{tocbibind}
 
 \graphicspath{ {./images/} } 
 
@@ -48,7 +45,11 @@
 
 \section{Introdução} \label{sec:introducao}
 
-A segmentação de imagens consiste em dividir uma imagem em um conjunto de regiões logicamente agrupadas, de modo a reunir áreas que contém informação relevante dentro dos grupos \cite{DOMINGUEZ}. Nessa tarefa, tomamos os \textit{pixels} como unidades básicas de processamento \cite{WANG201728}. O agrupamento de pixels em unidades maiores permite um tipo de segmentação chamado de \textit{oversegmentation} \cite{WANG201728}, ilustrado na Figura \ref{fig:superpixel}. O uso de superpixels possibilita o aumento da velocidade de processamento posterior, uma vez que a quantidade de pixels diminui consideravelmente em relação a imagem original.
+A segmentação de imagens consiste em dividir uma imagem em um conjunto de regiões logicamente agrupadas, de modo a reunir áreas que contém informação relevante dentro dos grupos, idealmente correspondente a objetos reais \cite{DOMINGUEZ} \cite{ZHANG2008}. A segmentação é utilizada no processamento de imagens, vídeos e aplicações de visão computacional. Também consiste em um importante passo na tentativa de explicar uma imagem por meio de algoritmos \cite{ZHANG2008}. Extensiva pesquisa é realizada e muitas abordagens e algoritmos são utilizados, com bons resultados para um conjunto ou classes de imagens \cite{ZHANG2008}. 
+
+Para tarefas de segmentação, tomamos os \textit{pixels} como unidades básicas de processamento \cite{WANG201728}. O agrupamento de pixels em unidades maiores permite um tipo de segmentação chamado de \textit{oversegmentation} \cite{WANG201728}, ilustrado na Figura \ref{fig:superpixel}. Alguns métodos de geração de superpixels são utilizados para segmentação de imagens e detecção de bordas, como os métodos EGB \cite{FELZENSZWALB} e SLIC \cite{SLIC}. Esse trabalho investiga se a utilização de métodos segmentação e detecção de contornos baseados em superpixels.
+
+%A utilização de superpixels pode possibilitar a redução de itens a serem processados, ao agrupar características semelhantes. Entretanto, o agrupamento de pixels com baixa correlação pode causar perda de informação importante. Em alguns casos, a perda de qualidade pode se justificar em relação ao ganho de velocidade obtido utilizando esse tipo de operação. Essa relação consiste então em um \textit{trade-off} entre ambas as características, sendo viáveis em alguns cenários de processamento em tempo real ou para dispositivos com baixo desempenho.
 
 \begin{figure}[ht]
 \centering
@@ -56,10 +57,6 @@ A segmentação de imagens consiste em dividir uma imagem em um conjunto de regi
 \caption{Imagens segmentadas utilizando superpixels SLICO e EGB}
 \label{fig:superpixel}
 \end{figure}
-
-A utilização de superpixels possibilita a redução de itens a serem processados, entretanto pode causar perda de informação importante. No entanto, para alguns casos, a perda de qualidade pode se justificar em relação ao ganho de velocidade obtido utilizando esse tipo de operação. Essa relação consiste então em um \textit{trade-off} entre ambas as características, sendo viáveis em alguns cenários de processamento em tempo real ou para dispositivos com baixo desempenho.
-
-Alguns métodos de geração de superpixels são utilizados para segmentação de imagens e detecção de bordas, como os métodos EGB \cite{FELZENSZWALB} e SLIC \cite{SLIC}. Esse trabalho investiga se a utilização de métodos segmentação e detecção de contornos baseados em superpixels.
 
 O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teorico} mostra o referencial teórico para construção do trabalho, a Seção  \ref{sec:mat_metodos}, exibe os materiais e métodos utilizados nos testes; a Seção \ref{sec:testes} mostra os resultados obtidos nos testes realizados e a discussões dos mesmos; a Seção \ref{sec:conclusao} contém a conclusão do artigo, com as considerações finais.
 
@@ -87,7 +84,7 @@ Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou re
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Superpixels SLIC} \label{sssec:slic}
+\subsubsection{Superpixels SLIC e SLICO} \label{sssec:slic}
 
 O algoritmo SLIC utiliza um único parâmetro $k$, correspondente a quantidade aproximada de superpixels, gerados em formato regular \cite{SLIC}. A Figura \ref{fig:SLICO} ilustra o algoritmo SLIC para diferentes números de superpixels. A fim de produzir tamanhos semelhantes, o intervalo analisado é \mbox{$S=\sqrt{N/k}$}, onde $N$ é o número de pixels da imagem \cite{SLIC}. 
 
@@ -145,9 +142,11 @@ A Equação \ref{equ:CIELAB2}, por sua vez, pode ser simplificada na forma adota
 
 Uma etapa extra no processo de pós processamento é a união de \textit{pixels orfãos}. Esses pixels são adicionados ao cluster mais próximo usando o algoritmo de componentes conexos \cite{SLIC}.
 
-Devido a limitação do espaço de pesquisa do algoritmo SLIC, a complexidade do algoritmo é $O(n)$. Outros algoritmos que utilizam \textit{k-means} para segmentação tem custo $O(kNI)$, onde $N$ é o número de pontos (pixels na imagem), $k$ corresponde ao número de clusters (ou sementes) e $I$ corresponde ao número de iterações para convergência.  \cite{SLIC1}. A modificação no algoritmo SLIC está na redução de cálculos redundantes de distância \cite{SLIC1}. 
+A complexidade do algoritmo SLIC é $O(n)$, devido a limitação do espaço de pesquisa do algoritmo SLIC \cite{SLIC1}. Outros algoritmos que utilizam \textit{k-means} para segmentação tem custo $O(kNI)$, onde $N$ é o número de pontos (pixels na imagem), $k$ corresponde ao número de clusters (ou sementes) e $I$ corresponde ao número de iterações para convergência \cite{SLIC1}. A modificação no algoritmo SLIC está na redução de cálculos redundantes de distância \cite{SLIC1}. 
 
-Em uma análise mais detalhada do Algoritmo \ref{alg:SLIC}, vemos que cada pixel estará em um, e somente um, cluster. No entanto, a busca é realizada no espaço de $2S \times 2S$, correspondente a uma área 4 vezes maior que o tamanho aproximado do superpixel. Com isso, cada pixel será avaliado até 4 vezes, devido a sobreposição de intervalos de busca para superpixels. Considerando somente as operações aplicadas aos clusters e aos pixels, entre as linhas 7 e 15 do Algoritmo 1, desconsiderando as operações de controle dos laços $for$ e que todas as operações tem custo computacional igual a 1, temos, no pior caso, 4 operações para cada pixel. Como cada pixel é avaliado 4 vezes, o custo computacional de avaliação de cada pixel é $C = 4 \times (4n) = 16n$. O algoritmo ainda conta com operações extras, porém que independem da quantidade de pixels na imagem. 
+%TODO Estrutura de dados utilizada
+
+%Em uma análise mais detalhada do Algoritmo \ref{alg:SLIC}, vemos que cada pixel estará em um, e somente um, cluster. No entanto, a busca é realizada no espaço de $2S \times 2S$, correspondente a uma área 4 vezes maior que o tamanho aproximado do superpixel. Com isso, cada pixel será avaliado até 4 vezes, devido a sobreposição de intervalos de busca para superpixels. Considerando somente as operações aplicadas aos clusters e aos pixels, entre as linhas 7 e 15 do Algoritmo 1, desconsiderando as operações de controle dos laços $for$ e que todas as operações tem custo computacional igual a 1, temos, no pior caso, 4 operações para cada pixel. Como cada pixel é avaliado 4 vezes, o custo computacional de avaliação de cada pixel é $C = 4 \times (4n) = 16n$. O algoritmo ainda conta com operações extras, porém que independem da quantidade de pixels na imagem. 
 
 \begin{figure}[ht]
 \centering
@@ -198,17 +197,6 @@ A partir da aglomeração de clusters é possivel construir uma árvore hierarqu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Detecção de Contornos e Segmentação de Imagens} \label{ssec:segmentacao}
-
-Segmentação de imagens consiste em separar uma imagem em regiões, idealmente correspondente a objetos reais \cite{ZHANG2008}. Esse passo é utilizado no processamento de imagens, vídeos e aplicações de visão computacional. Também consiste em um importante passo na tentativa de explicar uma imagem por meio de algoritmos \cite{ZHANG2008}.
-
-Extensiva pesquisa é realizada e muitas abordagens e algoritmos são utilizados, com bons resultados para um conjunto ou classes de imagens \cite{ZHANG2008}. A fim de facilitar a pesquisa, alguns trabalhos foram desenvolvidos para criação de um conjunto de imagens com suas respectivas segmentações manuais. A base BSDS500 (\textit{Berkeley Segmentation Data Set and Benchmarks 500}) provê uma base de imagens para pesquisa de segmentação e detecção de bordas. \cite{BSDS500}. Essa base de dados é uma extensão da base BSDS300, com 200 novas imagens para avaliação \cite{BSDS500}.
-
-A fim de avaliar a efetividade das segmentações, tradicionalmente são utilizados métodos subjetivos, como a visualização humana, responsável por comparar a qualidade da segmentação ou métodos supervisionados, onde uma segmentação é comparada em relação a uma imagem manualmente segmentada \cite{ZHANG2008}. Projetos de detecção automática, como o SEISM (\textit{Supervised Evaluation of Image Segmentation Methods}) permitem a avaliação da segmentação, usando a recuperação de precisão para bordas e a recuperação de precisão para objetos e peças \cite{SEISM}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsection{Precisão e Revocação} \label{ssec:prec_recall}
 
 Em um problema de decisão, os classificadores podem ser positivos ou negativos \cite{PRECISION_RECALL}. A decisão feita por um classificador pode ser representada por uma estrutura conhecida como matriz de confusão ou tabela de contigência. Essa matriz pode identificar 4 tipos de dados possíveis \cite{PRECISION_RECALL}:
@@ -244,9 +232,23 @@ Dado um vetor binário $m$-dimensional e classes de precisão e revocação, cuj
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Hierarquia de Segmentações} \label{ssec:hierarq_segmentacao}
+
+A hierarquização das segmentações tem como objetivo possibilitar a utilização dos algoritmos para produzir segmentação em diferentes níveis de detalhamento: desde um nível mais aprofundado até um nível macro. Os diferentes níveis hierárquicos podem ser combinados em termos do contorno das hierárquias, permitindo a representação das hierarquias indexadas como bordas suaves, chamadas Mapas de Contorno Ultramétrico (UCM - \textit{Ultrametric Contour Map}) \cite{ULTRAMETRIC}.
+
+Para que os níveis hierarquicos possam garantir a manutenção da informação, agrupando apenas características semelhantes, as hierarquias devem seguir os princípios de análise multiescala \cite{SILVIO_ZENILTON}. Esses princípios asseguram manutenção de duas características principais \cite{SILVIO_ZENILTON}:
+
+\begin{itemize}
+ \item Causalidade - um contorno presente em uma escala $k1$ deve estar presente em qualquer escala $k2 < k1$ \cite{SILVIO_ZENILTON};
+ \item Localidade - a medida em que o número de regiões diminui, os contornos devem ser estáveis (não devem se mover). A união corresponde a manutenção das bordas dos grupos que se fundiram \cite{SILVIO_ZENILTON}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Aplicação de Hierarquia de Partições aos Superpixels} \label{sec:mat_metodos}
+\section{Métodos} \label{sec:mat_metodos}
 
 Para confecção do trabalho foram escolhidos os algoritmos de SLIC e EGB. Os algoritmos possuem características diferentes: o SLIC é capaz de produzir \textit{superpixels} em formas regulares, porém não é tão preciso ao separar os conjuntos por similaridade; por outro lado, o EGB, produz \textit{superpixels} irregulares, porém é mais aderente às diferenças de cores entre \textit{pixels}.
 
@@ -257,11 +259,9 @@ Os resultados das hierarquizações foram comparados aos melhores resultados de 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Hierarquia de Segmentações} \label{ssec:hierquia_segm}
+\subsection{Hierarquias das segmentações} \label{ssec:hierquia_segm}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-A hierarquização das segmentações tem como objetivo possibilitar a utilização dos algoritmos para produzir segmentação em diferentes níveis de detalhamento: desde um nível mais aprofundado até um nível macro. Os diferentes níveis hierárquicos podem ser combinados em termos do contorno das hierárquias, permitindo a representação das hierarquias indexadas como bordas suaves, chamadas Mapas de Contorno Ultramétrico (UCM - \textit{Ultrametric Contour Map}) \cite{ULTRAMETRIC}.
 
 Para construção das hierarquias foram gerados \textit{clusters} com as correlações entre os grupos de \textit{superpixels} adjcentes, após a segmentação inicial. Foi utilizado o algoritmo SLINK (\textit{single-linkage}) para agrupamento dos \textit{superpixels} próximos, gerando uma árvore com as correlações entre os \textit{superpixels}.
 
@@ -278,18 +278,6 @@ Em um árvore de estrutura semelhante à representada por um dendrograma é poss
 
 Devido às características da segmentação, quando comparados ao \textit{ground truth}, não foram validados todos os níveis hierárquicos. A fim de reduzir o número de comparações, somente foram avaliados níveis hierárquicos intermediários que apresentaram melhores resultados em testes empíricos. Com isso, foi estabelecido um limite máximo e mínimo para os cortes na hierarquia, de modo que os cortes foram feitos dentro de um intervalo, evitando avalição de níveis com baixa probabilidade adequação ao \textit{ground truth}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Análise Multiescala} \label{ssec:analise_multiescala}
-
-Para que os níveis hierarquicos possam garantir a manutenção da informação, agrupando apenas características semelhantes, as hierarquias devem seguir os princípios de análise multiescala \cite{SILVIO_ZENILTON}. Esses princípios asseguram manutenção de duas características principais \cite{SILVIO_ZENILTON}:
-
-\begin{itemize}
- \item Causalidade - um contorno presente em uma escala $k1$ deve estar presente em qualquer escala $k2 < k1$ \cite{SILVIO_ZENILTON};
- \item Localidade - a medida em que o número de regiões diminui, os contornos devem ser estáveis (não devem se mover). A união corresponde a manutenção das bordas dos grupos que se fundiram \cite{SILVIO_ZENILTON}.
-\end{itemize}
-
 O método de hierarquização descrito nesse trabalho manteve as características da análise multiescala. A Figura \ref{fig:hierarq_partit} mostra os possíveis cortes na hierarquia de uma segmentação SGB, sem recoloração da imagem. Nesse modelo, a segmentação é capaz de unir pixels por similaridade.
 
 É importante salientar que os métodos originais (SLIC e EGB), quando apenas variados os parâmetros de criação de superpixels não mantém as características de análise multiescala, conforme podemos ver nas Figuras \ref{fig:SLICO} e \ref{fig:EGB}; essas características somente são obtidas pelos processos hierárquicos aplicados aos métodos após a criação dos superpixels.
@@ -300,6 +288,15 @@ O método de hierarquização descrito nesse trabalho manteve as característica
 \caption{Hierarquia de partições utilizando superpixel SLIC+EGB.}
 \label{fig:hierarq_partit}
 \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Base de Dados} \label{ssec:segmentacao}
+
+A fim de facilitar a pesquisa, alguns trabalhos foram desenvolvidos para criação de um conjunto de imagens com suas respectivas segmentações manuais. A base BSDS500 (\textit{Berkeley Segmentation Data Set and Benchmarks 500}) provê uma base de imagens para pesquisa de segmentação e detecção de bordas. \cite{BSDS500}. Essa base de dados é uma extensão da base BSDS300, com 200 novas imagens para avaliação \cite{BSDS500}.
+
+A fim de avaliar a efetividade das segmentações, tradicionalmente são utilizados métodos subjetivos, como a visualização humana, responsável por comparar a qualidade da segmentação ou métodos supervisionados, onde uma segmentação é comparada em relação a uma imagem manualmente segmentada \cite{ZHANG2008}. Projetos de detecção automática, como o SEISM (\textit{Supervised Evaluation of Image Segmentation Methods}) permitem a avaliação da segmentação, usando a recuperação de precisão para bordas e a recuperação de precisão para objetos e peças \cite{SEISM}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -322,17 +319,13 @@ Os códigos fontes gerados, realizando as segmentações, hierarquias, geração
 Os algoritmos SLIC e EGB utilizados para realização desse trabalho foram obtidos pela biblioteca Scikit-Image\footnote{http://scikit-image.org/docs/dev/api/skimage.segmentation.html}. 
 Os algoritmos de geração de cluster de ligação única (\textit{single-linkage}) e representação de dendrogramas foram obtidos na biblioteca Scipy.org\footnote{https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html}. 
 
-%O algoritmo de avaliação do resultado foi obtido no projeto Image-Segmentation, no Github\footnote{https://github.com/Htiango/Image-Segmentation/blob/master/main/eval\_boundary.py}. 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Testes e Resultados} \label{sec:testes}
 
-\section{Testes, Resultados e Discussões} \label{sec:testes}
-
-Para avaliação do desempenho dos algoritmos foi executada a segmentação das imagens do conjunto de validação da base de dados  BSDB500 (\textit{Berkeley Segmentation Data Set}). O conjunto possui 100 imagens naturais com seus respectivos \textit{ground truths} feito por anotações humanas \cite{BSDS500}. A classificação dos algoritmos foi feita utilizando o benchmark da base de dados BSDS500, conforme descrito na seção \ref{ssec:aval_resultados}.
+Para avaliação do desempenho dos algoritmos foi executada a segmentação das imagens do conjunto de validação da base de dados BSDB500 (\textit{Berkeley Segmentation Data Set}). O conjunto possui 100 imagens naturais com seus respectivos \textit{ground truths} feito por anotações humanas \cite{BSDS500}. A classificação dos algoritmos foi feita utilizando o benchmark da base de dados BSDS500, conforme descrito na seção \ref{ssec:aval_resultados}.
 
 A  fim de obter a melhor parametrização possível, foram executados diversos testes para cada algoritmo. Para o algoritmo EGB foi utilizada a parametrização informada pelos autores no artigo \textit{Efficient Graph-Based Image Segmentation} \cite{FELZENSZWALB}. A parametrização dos algoritmos está detalhada na Tabela \ref{table:PARAMETROS}.
 
