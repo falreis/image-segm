@@ -45,11 +45,9 @@
 
 \section{Introdução} \label{sec:introducao}
 
-A segmentação de imagens consiste em dividir uma imagem em um conjunto de regiões logicamente agrupadas, de modo a reunir áreas que contém informação relevante dentro dos grupos, idealmente correspondente a objetos reais \cite{DOMINGUEZ} \cite{ZHANG2008}. A segmentação é utilizada no processamento de imagens, vídeos e aplicações de visão computacional. Também consiste em um importante passo na tentativa de explicar uma imagem por meio de algoritmos \cite{ZHANG2008}. Extensiva pesquisa é realizada e muitas abordagens e algoritmos são utilizados, com bons resultados para um conjunto ou classes de imagens \cite{ZHANG2008}. 
+A segmentação consiste em dividir uma imagem em um conjunto de regiões logicamente agrupadas, de modo a reunir áreas que contém informação relevante dentro dos grupos, idealmente correspondente a objetos reais \cite{DOMINGUEZ} \cite{ZHANG2008}. A segmentação é utilizada no processamento de imagens, vídeos e aplicações de visão computacional. Também consiste em um importante passo na tentativa de explicar uma imagem por meio de algoritmos \cite{ZHANG2008}. Extensiva pesquisa é realizada e muitas abordagens e algoritmos são utilizados, com bons resultados para um conjunto ou classes de imagens \cite{ZHANG2008}. 
 
-Para tarefas de segmentação, tomamos os \textit{pixels} como unidades básicas de processamento \cite{WANG201728}. O agrupamento de pixels em unidades maiores permite um tipo de segmentação chamado de \textit{oversegmentation} \cite{WANG201728}, ilustrado na Figura \ref{fig:superpixel}. Alguns métodos de geração de superpixels são utilizados para segmentação de imagens e detecção de bordas, como os métodos EGB \cite{FELZENSZWALB} e SLIC \cite{SLIC}. Esse trabalho investiga se a utilização de métodos segmentação e detecção de contornos baseados em superpixels.
-
-%A utilização de superpixels pode possibilitar a redução de itens a serem processados, ao agrupar características semelhantes. Entretanto, o agrupamento de pixels com baixa correlação pode causar perda de informação importante. Em alguns casos, a perda de qualidade pode se justificar em relação ao ganho de velocidade obtido utilizando esse tipo de operação. Essa relação consiste então em um \textit{trade-off} entre ambas as características, sendo viáveis em alguns cenários de processamento em tempo real ou para dispositivos com baixo desempenho.
+Para tarefas de segmentação, podemos tomar os \textit{pixels} como unidades básicas de processamento \cite{WANG201728}. O agrupamento de pixels em unidades maiores permite um tipo de segmentação chamado de \textit{oversegmentation} \cite{WANG201728}, ilustrado na Figura \ref{fig:superpixel}. Alguns métodos de geração de superpixels são utilizados para segmentação de imagens e detecção de bordas, como os métodos EGB \cite{FELZENSZWALB} e SLIC \cite{SLIC}. Esse trabalho investiga se a utilização de métodos segmentação e detecção de contornos baseados em superpixels. Também investiga o agrupamento de superpixels e a criação de hierarquias, permitindo maior ou menor nível de detalhamento para uma representação.
 
 \begin{figure}[ht]
 \centering
@@ -58,7 +56,7 @@ Para tarefas de segmentação, tomamos os \textit{pixels} como unidades básicas
 \label{fig:superpixel}
 \end{figure}
 
-O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teorico} mostra o referencial teórico para construção do trabalho, a Seção  \ref{sec:mat_metodos}, exibe os materiais e métodos utilizados nos testes; a Seção \ref{sec:testes} mostra os resultados obtidos nos testes realizados e a discussões dos mesmos; a Seção \ref{sec:conclusao} contém a conclusão do artigo, com as considerações finais.
+O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teorico} mostra o referencial teórico para construção do trabalho, a Seção \ref{sec:mat_metodos}, exibe os métodos desenvolvidos, algoritmos e os critérios para elaboração dos testes; a Seção \ref{sec:testes} mostra os resultados obtidos nos testes realizados e a discussões dos mesmos; a Seção \ref{sec:conclusao} contém a conclusão do artigo, com as considerações finais.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -74,20 +72,20 @@ O presente trabalho apresenta a seguinte estrutura: a Seção \ref{sec:ref_teori
 
 Superpixels são estruturas que agrupam pixels semelhantes em conjuntos. O agrupamento possibilita a redução de complexidade das tarefas de processamento \cite{SLIC}, ao reduzir a quantidade de itens a serem processados. Os superpixels são utilizados na área de visão computacional para solução de vasto número de problemas, como detecção de contorno \cite{CONTOUR}, segmentação \cite{SEG_MERGE} e localização de objetos \cite{SEG_LOCALIZ}.
 
-Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou regiões, refletindo aspectos da imagem. Devem também ser executados em tempo próximo ao linear em relação a quantidade de pixels. Existem diversas abordagens para a geração de superpixels \cite{SLIC}. Dentre elas, podemos classificá-las, segundo o método de agrupamento, em dois grandes grupos \cite{SLIC}: 
+Superpixels, segundo \cite{FELZENSZWALB}, devem capturar importante grupos ou regiões, refletindo aspectos da imagem. Devem também ser executados em tempo próximo ao linear em relação a quantidade de pixels. Existem diversas abordagens para a geração de superpixels \cite{SLIC}. Podemos classificá-las, segundo o método de agrupamento, em dois grandes grupos \cite{SLIC}: 
 
 \begin{itemize}
  \item \textit{Algoritmos baseados em grafos}: tratam cada pixel como um nó do grafo. Os pesos das arestas são proporcionais a similaridade entre os pixels vizinhos \cite{SLIC}. Dentre os algoritmos baseados em grafos podemos citar o \textit{Efficient Graph-Based Image Segmentation} (EGB) \cite{FELZENSZWALB};
- \item \textit{Algoritmos baseados em gradiente ascendente}: partem de um conjunto inicial de pixels, e utilizam métodos de gradiente ascendente iterativamente para refinar os conjuntos (\textit{clusters}) até que se atinja um critério de convergência \cite{SLIC}. Nesse conjunto, podemos  citar as abordagens \textit{watersheds} \cite{WATERSHEDS} e SLIC (\textit{Simple Linear Iteravite Clustering}) \cite{SLIC}
-\end{itemize}
+ \item \textit{Algoritmos baseados em gradiente ascendente}: partem de um conjunto inicial de pixels, e utilizam métodos de gradiente ascendente iterativamente para refinar os conjuntos (\textit{clusters}) até que se atinja um critério de convergência \cite{SLIC}. Nesse conjunto, podemos  citar as abordagens \textit{watersheds} \cite{WATERSHEDS} e o algortimo SLIC (\textit{Simple Linear Iteravite Clustering}) \cite{SLIC}
+\end{itemize}'
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Superpixels SLIC e SLICO} \label{sssec:slic}
 
-O algoritmo SLIC utiliza um único parâmetro $k$, correspondente a quantidade aproximada de superpixels, gerados em formato regular \cite{SLIC}. A Figura \ref{fig:SLICO} ilustra o algoritmo SLIC para diferentes números de superpixels. A fim de produzir tamanhos semelhantes, o intervalo analisado é \mbox{$S=\sqrt{N/k}$}, onde $N$ é o número de pixels da imagem \cite{SLIC}. 
+O algoritmo SLIC utiliza um único parâmetro $k$, correspondente a quantidade aproximada de superpixels, gerados em formato regular \cite{SLIC}. A Figura \ref{fig:SLICO} ilustra o algoritmo SLIC para diferentes números de superpixels. A fim de produzir tamanhos semelhantes, o intervalo de busca analisado é \mbox{$S=\sqrt{N/k}$}, onde $N$ é o número de pixels da imagem \cite{SLIC}. 
 
-A definição do centro dos superpixels é feita utilizando sementes, que são movidas para locais de geração. Esses locais corresponem a posição mais baixa do gradiente em uma vizinhança de 3x3 \cite{SLIC}. Esse passo evita que superpixels sejam centrados nas bordas ou em um posição de ruído \cite{SLIC}. Cada pixel, então, é associado com o centro do cluster mais próximo, de modo que as regiões de busca se sobreponham \cite{SLIC}. A fim de aumentar o desempenho do algoritmo, a região de busca é limitada em 2 vezes o tamanho aproximado do superpixel $S$, gerando busca em uma área $2S \times 2S$ \cite{SLIC}. Em seguida, um passo de atualiza os centros dos clusters e computa o erro residual $E$ \cite{SLIC}. O algoritmo disponível no Algoritmo \ref{alg:SLIC}, resume as informações descrita nesse parágrafo.
+A definição do centro dos superpixels é feita utilizando sementes, que são movidas para locais de geração. Esses locais corresponem a posição mais baixa do gradiente em uma vizinhança de 3x3 \cite{SLIC}. Esse passo evita que superpixels sejam centrados nas bordas ou em um posição de ruído \cite{SLIC}. Cada pixel, então, é associado com o centro do cluster mais próximo, de modo que as regiões de busca se sobreponham \cite{SLIC}. A fim de aumentar o desempenho do algoritmo, a região de busca é limitada em 2 vezes o tamanho aproximado do superpixel $S$, gerando busca em uma área $2S \times 2S$ \cite{SLIC}. Em seguida, um passo atualiza os centros dos clusters e computa o erro residual $E$ \cite{SLIC}. O Algoritmo \ref{alg:SLIC}, resume as informações descrita nesse parágrafo.
 
 \begin{algorithm}
     \caption{Segmentação por superpixels SLIC (\textit{Adaptado de } \cite{SLIC})}
@@ -116,23 +114,23 @@ A definição do centro dos superpixels é feita utilizando sementes, que são m
 \end{algorithm}
 
 
-Para o algoritmo descrito na Figura \ref{alg:SLIC}, é necessário compreender o método para cálculo da medida de distância $D$ entre os conjuntos. Devido ao algoritmo trabalhar no espaço de cores $CIELAB$, com o espaço-plano $labxy$, a posição do pixel pode assumir um intervalo de valores. Com isso, o cálculo da distância não pode ser feito utilizando uma distância euclidiana, sendo necessária uma prévia normalização da proximidade espacial e de cor. 
+Para compreensão mais precisa do Algoritmo \ref{alg:SLIC}, é necessário entender o método para cálculo da medida de distância $D$ entre os conjuntos. O algoritmo SLIC trabalha no espaço de cores $CIELAB$ junto ao espaço-plano $labxy$ \cite{SLIC}. Nesse cenário, a posição do pixel pode assumir um intervalo de valores, fazendo com que o cálculo da distância não possa ser feito utilizando uma distância euclidiana; é necessária uma prévia normalização da proximidade espacial e de cor \cite{SLIC}. 
 
-No espaço de cores CIELAB, cada pixel de cores é representado por $[l a b]^T$, sendo que uma grande variedade de valores é possível \cite{SLIC}. A posição do pixel $[x y]^T$, por sua vez, pode asssumir um conjunto de valores de acordo com o tamanho da imagem \cite{SLIC}. A definição simples de $D$ como uma distância Euclidiana de 5 dimensões no espaço $labxy$, pode causar inconsistências no comportamento dos clusters para diferentes tamanhos de superpixels \cite{SLIC}. Em superpixels grandes, as distâncias espaciais superam a proximidade da cor, dando mais importância relativa à proximidade espacial do que à cor \cite{SLIC}, fazendo com que os superpixels não sejam aderentes as bordas. Para solucionar o problema, é necessário normalizar a proximidade espacial e de cores, com as respectivas distâncias máximas dentro do cluster $N_s$ e $N_c$. Com isso, considerando $d_c = \sqrt{(l_j - l_i)^2 + (a_j - a_i)^2 + (b_j - b_i)^2}$ a distância entre as cores e $d_s =  \sqrt{(x_j - x_i)^2 + (y_j - y_i)^2}$, a distância espacial, temos:
+No espaço de cores $CIELAB$, cada pixel de cores é representado por $[l a b]^T$, sendo que uma grande variedade de valores é possível \cite{SLIC}. A posição do pixel $[x y]^T$, por sua vez, pode asssumir um conjunto de valores de acordo com o tamanho da imagem \cite{SLIC}. A definição simples de $D$ como uma distância Euclidiana de 5 dimensões no espaço $labxy$, pode causar inconsistências no comportamento dos clusters para diferentes tamanhos de superpixels \cite{SLIC}. Em superpixels grandes, as distâncias espaciais superam a proximidade da cor, dando mais importância relativa à proximidade espacial do que à cor \cite{SLIC}, fazendo com que os superpixels não sejam aderentes as bordas. Para solucionar o problema, é necessário normalizar a proximidade espacial ($S$) e de cores ($C$), com as respectivas distâncias máximas dentro do cluster $N_s$ e $N_c$. Com isso, considerando $d_c = \sqrt{(l_j - l_i)^2 + (a_j - a_i)^2 + (b_j - b_i)^2}$ a distância entre as cores e $d_s =  \sqrt{(x_j - x_i)^2 + (y_j - y_i)^2}$, a distância espacial, temos:
 
 \begin{equation}
  D' = \sqrt{ \left(\frac{d_c}{N_c} \right)^2 + \left(\frac{d_s}{N_s} \right)^2}
  \label{equ:CIELAB1}
 \end{equation}
 
-Como a distância espacial máxima esperada dentro de um cluster corresponde ao tamanho da amostra $N_S = S = \sqrt{N/K}$. Considerando também que a distância máxima de cores $N_c$, pode variar de cluster para cluster, podemos fixar $N_c$, como uma constante $m$ e reescrever a Equação \ref{equ:CIELAB1} \cite{SLIC}:
+Como a distância espacial máxima esperada dentro de um cluster corresponde ao tamanho da amostra $N_S = S = \sqrt{N/K}$ e considerando também que a distância máxima de cores $N_c$, pode variar de cluster para cluster, podemos fixar $N_c$, como uma constante $m$ e reescrever a Equação \ref{equ:CIELAB1} \cite{SLIC}:
 
 \begin{equation}
  D' = \sqrt{ \left(\frac{d_c}{m} \right)^2 + \left(\frac{d_s}{S} \right)^2}
  \label{equ:CIELAB2}
 \end{equation}
 
-A Equação \ref{equ:CIELAB2}, por sua vez, pode ser simplificada na forma adotada pelos autores, como na Equação \ref{equ:CIELAB3}:
+A Equação \ref{equ:CIELAB2}, por sua vez, pode ser simplificada na forma adotada pelos autores, como na Equação \ref{equ:CIELAB3} \cite{SLIC}:
 
 \begin{equation}
  D = \sqrt{d_c^2 + \left(\frac{d_s}{S} \right)^2 \cdot m^2}
@@ -141,11 +139,7 @@ A Equação \ref{equ:CIELAB2}, por sua vez, pode ser simplificada na forma adota
 
 Uma etapa extra no processo de pós processamento é a união de \textit{pixels orfãos}. Esses pixels são adicionados ao cluster mais próximo usando o algoritmo de componentes conexos \cite{SLIC}.
 
-A complexidade do algoritmo SLIC é $O(n)$, devido a limitação do espaço de pesquisa do algoritmo SLIC \cite{SLIC1}. Outros algoritmos que utilizam \textit{k-means} para segmentação tem custo $O(kNI)$, onde $N$ é o número de pontos (pixels na imagem), $k$ corresponde ao número de clusters (ou sementes) e $I$ corresponde ao número de iterações para convergência \cite{SLIC1}. A modificação no algoritmo SLIC está na redução de cálculos redundantes de distância \cite{SLIC1}. 
-
-%TODO Estrutura de dados utilizada
-
-%Em uma análise mais detalhada do Algoritmo \ref{alg:SLIC}, vemos que cada pixel estará em um, e somente um, cluster. No entanto, a busca é realizada no espaço de $2S \times 2S$, correspondente a uma área 4 vezes maior que o tamanho aproximado do superpixel. Com isso, cada pixel será avaliado até 4 vezes, devido a sobreposição de intervalos de busca para superpixels. Considerando somente as operações aplicadas aos clusters e aos pixels, entre as linhas 7 e 15 do Algoritmo 1, desconsiderando as operações de controle dos laços $for$ e que todas as operações tem custo computacional igual a 1, temos, no pior caso, 4 operações para cada pixel. Como cada pixel é avaliado 4 vezes, o custo computacional de avaliação de cada pixel é $C = 4 \times (4n) = 16n$. O algoritmo ainda conta com operações extras, porém que independem da quantidade de pixels na imagem. 
+A complexidade do algoritmo SLIC é $O(n)$, devido a limitação do espaço de pesquisa do algoritmo SLIC \cite{SLIC1}. Outros algoritmos que utilizam \textit{k-means} para segmentação tem custo $O(kNI)$, onde $N$ é o número de pontos (\textit{pixels} na imagem), $k$ corresponde ao número de clusters (ou sementes) e $I$ corresponde ao número de iterações para convergência \cite{SLIC1}. A modificação no algoritmo SLIC está na redução de cálculos redundantes de distância \cite{SLIC1}. 
 
 \begin{figure}[ht]
 \centering
@@ -314,8 +308,11 @@ A avaliação de contornos e bordas foi feito utilizando o benchmarks de avalia�
 
 Os códigos fontes gerados, realizando as segmentações, hierarquias, geração de mapas ultramétricos, avaliação dos resultados e os gráficos presentes nesse trabalhos estão disponíveis publicamente na página pessoal do autor no Github \footnote{https://github.com/falreis/image-segm}.
 
-Os algoritmos SLIC e EGB utilizados para realização desse trabalho foram obtidos pela biblioteca Scikit-Image\footnote{http://scikit-image.org/docs/dev/api/skimage.segmentation.html}. 
-Os algoritmos de geração de cluster de ligação única (\textit{single-linkage}) e representação de dendrogramas foram obtidos na biblioteca Scipy.org\footnote{https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html}. 
+Os algoritmos desenvolvidos para esse trabalho foram programados em Python, com auxílio da ferramenta web open-source Jupyter Notebook. As estrutura de dados utilizadas foram \textit{arrays}, matrizes e listas, disponíveis na linguagem e adequadas ao objetivo do código fonte. As bibliotecas utilizadas foram gerenciadas pelo ambiente virtual Anaconda. O arquivo contendo as bibliotecas necessárias para configuração do ambiente está disponível na página pessoal do autor no Github.
+
+Os algoritmos SLIC e EGB utilizados para realização desse trabalho foram obtidos pela biblioteca Scikit-Image\footnote{http://scikit-image.org/docs/dev/api/skimage.segmentation.html}. Ambos os algoritmos foram desenvolvidos em Python, utilizando \textit{arrays} em sua implementação. Para melhor desempenho, os códigos em Python foram compilados utilizando compilador C++ por meio do plugin Cython. A biblioteca utilizada já contém os códigos compilados, disponíveis na página oficial da biblioteca no Github \footnote{https://github.com/scikit-image/scikit-image/tree/master/skimage/segmentation}.
+
+Os algoritmos de geração de cluster de ligação única (\textit{single-linkage}) e representação de dendrogramas foram obtidos na biblioteca Scipy.org\footnote{https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.cluster.hierarchy.linkage.html}. A implementação, assim como os algoritmos SLIC e EGB, são desenvolvidos em Python e compilados usando Cython, para melhor desempenho. Utilizam arrays multidimensionais \textit{numpy.ndarray} e também pilhas explicítas para controle das informações, conforme página oficial da biblioteca no Github \footnote{https://github.com/scipy/scipy/tree/master/scipy/cluster}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -337,7 +334,7 @@ A  fim de obter a melhor parametrização possível, foram executados diversos t
     $scale$ & - & 300 & 1408 & - & 300 & 1408 \\
     $sigma$ & - & 0.8 & 0.8  & - & 0.8 & 0.8 \\
     $min\_size$ & - & 30 & 30 & - & 30 & 30 \\
-    \textit{melhor partição} & - & - & - & 150 & 150 & 150 \\
+    \textit{partições avaliadas} & - & - & - & 150 & 150 & 150 \\
   \hline
   \end{tabular}
   \caption{Parametrização dos algoritmos.}
