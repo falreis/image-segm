@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  29 JUL 2018 14:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.5.3)  29 JUL 2018 19:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -696,6 +696,12 @@ Package pdftex.def Info: ./images/slic_segmentation_compare.png  used on input
 line 146.
 (pdftex.def)             Requested size: 426.79135pt x 156.49234pt.
 
+Underfull \hbox (badness 1348) in paragraph at lines 155--156
+\OT1/ptm/m/n/12 Fi-gura 3[], uti-li-zam uma abor-da-gem ba-se-ada em gra-fos n[
+]ao di-re-ci-o-na-dos. Nela,
+ []
+
+
 Underfull \vbox (badness 1057) has occurred while \output is active []
 
  [4]
@@ -717,6 +723,12 @@ Underfull \hbox (badness 2197) in paragraph at lines 177--178
 n-fi-ca-ti-vos e/ou []uteis
  []
 
+
+Underfull \hbox (badness 1005) in paragraph at lines 177--178
+\OT1/ptm/m/n/12 de \OT1/ptm/m/it/12 clus-ters \OT1/ptm/m/n/12 com fi-na-li-dade
+ de bus-car hi-e-rar-quias en-tre eles. As es-trat[]egias para
+ []
+
 [5 <./images/slic_segmentation_compare.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 184--185
 []\OT1/ptm/m/n/12 Os al-go-rit-mos de clusteriza[][]ao hier[]arquicos aglo-me-r
@@ -729,9 +741,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--185
  []
 
 
-Underfull \hbox (badness 1721) in paragraph at lines 188--189
-[]\OT1/ptm/m/n/12 A par-tir da aglomera[][]ao de clus-ters []e pos-si-vel cons-
-truir uma []arvore hi-
+Underfull \hbox (badness 1661) in paragraph at lines 188--189
+[]\OT1/ptm/m/n/12 A par-tir da aglomera[][]ao de \OT1/ptm/m/it/12 clus-ters []\
+OT1/ptm/m/n/12 e pos-si-vel cons-truir uma []arvore hi-
  []
 
 
@@ -746,8 +758,14 @@ Underfull \hbox (badness 1077) in paragraph at lines 188--189
 -nhe-cido como den-dro-grama
  []
 
+
+Underfull \hbox (badness 2521) in paragraph at lines 195--196
+\OT1/ptm/m/n/12 Nos pro-ble-mas de de-cis[]ao os clas-si-fi-ca-do-res po-dem se
+r po-si-ti-vos ou ne-ga-ti-vos
+ []
+
 [6 <./images/felz_segmentation_compare.png (PNG copy)>]
-Underfull \hbox (badness 1226) in paragraph at lines 210--211
+Underfull \hbox (badness 1226) in paragraph at lines 208--209
 []\OT1/ptm/m/n/12 Dado um ve-tor bin[]ario $\OML/cmm/m/it/12 m$\OT1/ptm/m/n/12 
 -dimensional e clas-ses de pre-cis[]ao e revoca[][]ao,
  []
@@ -756,64 +774,57 @@ Underfull \hbox (badness 1226) in paragraph at lines 210--211
 <./images/dendrogram.png, id=41, 1167.36125pt x 1126.2075pt>
 File: ./images/dendrogram.png Graphic file (type png)
 <use ./images/dendrogram.png>
-Package pdftex.def Info: ./images/dendrogram.png  used on input line 256.
+Package pdftex.def Info: ./images/dendrogram.png  used on input line 254.
 (pdftex.def)             Requested size: 384.1096pt x 370.567pt.
  [8]
 <./images/slic_hierarquia_particoes.png, id=46, 716.6775pt x 269.50688pt>
 File: ./images/slic_hierarquia_particoes.png Graphic file (type png)
 <use ./images/slic_hierarquia_particoes.png>
 Package pdftex.def Info: ./images/slic_hierarquia_particoes.png  used on input 
-line 273.
+line 271.
 (pdftex.def)             Requested size: 426.79135pt x 160.49634pt.
-
-Underfull \hbox (badness 1142) in paragraph at lines 290--291
-\OT1/ptm/m/n/12 A fim de ava-liar a efe-ti-vi-dade das segmenta[][]oes, tra-di-
-ci-o-nal-mente s[]ao uti-li-za-dos
- []
-
-[9 <./images/dendrogram.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 292.
+(Font)              <7> on input line 290.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 292.
+(Font)              <5> on input line 290.
 
-Underfull \hbox (badness 3557) in paragraph at lines 292--293
+Underfull \hbox (badness 3557) in paragraph at lines 290--291
 []\OT1/ptm/m/n/12 Para avalia[][]ao das ima-gens nesse ar-tigo, foi pri-mei-ra-
 mente uti-li-zada a
  []
 
-
-Underfull \hbox (badness 1043) in paragraph at lines 304--305
+[9 <./images/dendrogram.png>]
+Underfull \hbox (badness 1043) in paragraph at lines 302--303
 []\OT1/ptm/m/n/12 Os al-go-rit-mos SLIC e EGB uti-li-za-dos fo-ram ob-ti-dos na
  bi-bli-o-teca Scikit-
  []
 
 
-Underfull \hbox (badness 4913) in paragraph at lines 306--307
+Underfull \hbox (badness 4913) in paragraph at lines 304--305
 []\OT1/ptm/m/n/12 Os al-go-rit-mos de gera[][]ao de clus-ter de liga[][]ao []un
 ica (\OT1/ptm/m/it/12 single-linkage\OT1/ptm/m/n/12 )
  []
 
 
-Underfull \hbox (badness 3439) in paragraph at lines 306--307
+Underfull \hbox (badness 3439) in paragraph at lines 304--305
 \OT1/ptm/m/n/12 e representa[][]ao de den-dro-gra-mas fo-ram ob-ti-dos na bi-bl
 i-o-teca Scipy.org[]. A
  []
 
 [10 <./images/slic_hierarquia_particoes.png (PNG copy)>]
-Underfull \hbox (badness 3219) in paragraph at lines 316--317
+Underfull \hbox (badness 3219) in paragraph at lines 314--315
 []\OT1/ptm/m/n/12 A fim de ob-ter uma boa segmenta[][]ao, fo-ram exe-cu-ta-dos 
 di-ver-sos tes-
  []
 
 
-Underfull \hbox (badness 1394) in paragraph at lines 316--317
+Underfull \hbox (badness 1394) in paragraph at lines 314--315
 \OT1/ptm/m/n/12 tes para cada al-go-ritmo. Para o al-go-ritmo EGB foi uti-li-za
 da a parametriza[][]ao
  []
 
 
-Underfull \hbox (badness 5446) in paragraph at lines 316--317
+Underfull \hbox (badness 5446) in paragraph at lines 314--315
 \OT1/ptm/m/n/12 in-for-mada pe-los au-to-res no ar-tigo \OT1/ptm/m/it/12 Ef-fi-
 ci-ent Graph-Based Image Seg-men-ta-tion
  []
@@ -822,25 +833,27 @@ ci-ent Graph-Based Image Seg-men-ta-tion
 File: ./images/graph_precision_recall.png Graphic file (type png)
 <use ./images/graph_precision_recall.png>
 Package pdftex.def Info: ./images/graph_precision_recall.png  used on input lin
-e 347.
-(pdftex.def)             Requested size: 362.77525pt x 268.95381pt.
+e 345.
+(pdftex.def)             Requested size: 405.45047pt x 300.58896pt.
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 348.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 346.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 348.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 346.
 <./images/graph_fmeasure.png, id=55, 559.08875pt x 321.2pt>
 File: ./images/graph_fmeasure.png Graphic file (type png)
 <use ./images/graph_fmeasure.png>
-Package pdftex.def Info: ./images/graph_fmeasure.png  used on input line 354.
-(pdftex.def)             Requested size: 362.77525pt x 208.42464pt.
+Package pdftex.def Info: ./images/graph_fmeasure.png  used on input line 352.
+(pdftex.def)             Requested size: 405.45047pt x 232.94pt.
 [11]
 <./images/graph_threshold.png, id=59, 558.085pt x 245.91875pt>
 File: ./images/graph_threshold.png Graphic file (type png)
 <use ./images/graph_threshold.png>
-Package pdftex.def Info: ./images/graph_threshold.png  used on input line 365.
+Package pdftex.def Info: ./images/graph_threshold.png  used on input line 363.
 (pdftex.def)             Requested size: 384.1096pt x 169.26009pt.
- [12 <./images/graph_precision_recall.png>] (./sbc-template.bbl [13 <./images/g
-raph_fmeasure.png> <./images/graph_threshold.png>] [14]) [15]
+ [12 <./images/graph_precision_recall.png>] (./sbc-template.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13 <./images/graph_fmeasure.png> <./images/graph_threshold.png>] [14]) [15]
 (./sbc-template.aux) ){/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.en
 c}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
@@ -855,7 +868,7 @@ usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on sbc-template.pdf (15 pages, 1301254 bytes).
+Output written on sbc-template.pdf (15 pages, 1301048 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
  79 compressed objects within 1 object stream
